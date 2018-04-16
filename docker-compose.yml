@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: excellalabs-web
+    container_name: excellalabs-web
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    environment:
+      - DATABASE_URL=postgres://postgres@db/excellalabs
+    links:
+      - db
+    depends_on:
+      - db
+  db:
+    image: postgres
+    container_name: excellalabs-db
+    environment:
+      - POSTGRES_DB=excellalabs
