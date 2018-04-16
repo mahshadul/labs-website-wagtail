@@ -31,4 +31,4 @@ done
 
 python manage.py migrate 
 
-exec gunicorn excellalabs.wsgi:application --bind 0.0.0.0:8000 --workers 3
+exec gunicorn excellalabs.wsgi:application --reload --bind 0.0.0.0:8000 --workers 3
