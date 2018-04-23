@@ -1,15 +1,24 @@
 #!/bin/bash
 
 function test_postgresql {
-  pg_isready -h "${db_server}" -d "${db}" -U "${db_user}"
+  args=(
+   "-h '${db_server}'"
+   "-d '${db}'"
+   "-U '${db_user}'"
+  )
+  if [ "${db_port}" != "" ]; then
+   args+=("-p '${db_port}'")
+  fi
+  eval "pg_isready ${args[@]}"
 }
 
-regex="^postgres:\/\/([^:]+)(:(.+))?@(.+)\/(.+)$"
+regex="^postgres:\/\/([^:]+)(:(.+))?@([^:]+)(:([0-9]+))?\/(.+)$"
 if [[ $DATABASE_URL =~ $regex ]]
 then
   db_user="${BASH_REMATCH[1]}"
   db_server="${BASH_REMATCH[4]}"
-  db="${BASH_REMATCH[5]}"
+  db_port="${BASH_REMATCH[6]}"
+  db="${BASH_REMATCH[7]}"
 else
   >&2 echo "DATABASE_URL is not valid"
   exit 1
@@ -31,4 +40,8 @@ done
 
 python manage.py migrate 
 
-exec gunicorn excellalabs.wsgi:application --reload --bind 0.0.0.0:8000 --workers 3
+if [ -z "${PORT}" ]; then 
+    PORT=8000
+fi
+
+exec gunicorn excellalabs.wsgi:application --reload --bind 0.0.0.0:${PORT} --workers 3
