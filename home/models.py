@@ -2,11 +2,15 @@ from django.db import models
 
 from wagtail.core.models import Page
 from wagtail.core.blocks import StructBlock, CharBlock
-from wagtail.core.fields import StreamField
-from wagtail.admin.edit_handlers import StreamFieldPanel
+from wagtail.core.fields import StreamField, RichTextField
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 
 class HomePage(Page):
-    pass
+    about_us = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('about_us', classname="full"),
+    ]
 
 class HeroBlock(StructBlock):
     subject = CharBlock()
