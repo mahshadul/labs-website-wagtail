@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% block body_class %}base-page-with-hero{% endblock %}
+
+{% block hero %}
+    {% include_block page.hero with title=page.title %}
+{% endblock %}
