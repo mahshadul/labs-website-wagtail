@@ -13,6 +13,7 @@ django-treebeard==4.3
 djangorestframework==3.8.2
 docutils==0.14
 draftjs-exporter==2.0.0
+feedparser==5.2.1
 html5lib==0.999999999
 idna==2.6
 jmespath==0.9.3

@@ -1,6 +1,7 @@
 from django.db import models
 
 from wagtail.core import blocks
+import feedparser
 
 class HeroBlock(blocks.StructBlock):
     subject = blocks.CharBlock(required=False)
@@ -24,3 +25,18 @@ class DetailBlock(blocks.StructBlock):
     class Meta:
         icon = "user"
         template = "home/blocks/detail.html"
+
+
+class RSSBlock(blocks.StructBlock):
+    feed_url = blocks.URLBlock()
+    number_of_posts = blocks.IntegerBlock()
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context=parent_context)
+        context['posts'] = feedparser.parse(value['feed_url']).entries[:value['number_of_posts']]
+        print(context['posts'])
+        return context
+
+    class Meta:
+        icon = "code"
+        template = "home/blocks/rss_feed.html"   
