@@ -14,9 +14,11 @@ class Event(Page):
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
     ])
+    author = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('date'),
         FieldPanel('location'),
         StreamFieldPanel('body'),
+        FieldPanel('author'),
     ]
