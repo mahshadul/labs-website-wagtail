@@ -7,6 +7,23 @@ body {
   font-family: $muli_regular, sans-serif;
 }
 
+.header {
+  background-color: $indigo-blue;
+  height: 70px;
+}
+
+.github-icon {
+  font-size: 24px;
+}
+
+.navlink {
+  color: $white;
+
+  &:hover {
+    color: $aqua_blue;
+  }
+}
+
 h1, h1 a {
   font-size: 2.5rem;
   margin-bottom: 1em;
