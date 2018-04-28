@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags %}
+{% load static wagtailcore_tags %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% block body_class %}template-event{% endblock %}
+
+{% block hero %}
+    {% include_block page.hero with title=page.title subtitle=subtitle %}
+{% endblock %}
 
 {% block content %}
     <div class="col-sm">
-        <h1 style="margin-top: 10px">{{page.title}}</h1>
         <h3><i>{{page.location}} - {{page.date}}</i></h3>
         <div>
             {{page.body}}
