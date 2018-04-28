@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'home',
     'search',
     'talks',
+    'showcase',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
