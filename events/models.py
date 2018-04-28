@@ -7,8 +7,7 @@ from wagtail.images.blocks import ImageChooserBlock
 
 
 class EventList(Page):
-#    subpage_types = ['events.Event']
-    pass
+    subpage_types = ['events.Event']
 
 class Event(Page):
     date = models.DateField("Event date")
@@ -27,4 +26,4 @@ class Event(Page):
         FieldPanel('author'),
     ]
 
-#    parent_page_types = ['events.EventList']
+    parent_page_types = ['events.EventList']

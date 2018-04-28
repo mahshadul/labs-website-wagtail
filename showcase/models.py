@@ -10,8 +10,7 @@ from home.models import BasePageWithHero
 
 
 class ShowcaseList(Page):
-#    subpage_types = ['showcase.ShowcasePage']
-    pass
+    subpage_types = ['showcase.ShowcasePage']
 
 class ShowcasePage(BasePageWithHero):
 
@@ -24,4 +23,4 @@ class ShowcasePage(BasePageWithHero):
         StreamFieldPanel('body', classname='full')
     ]
 
-#    parent_page_types = ['showcase.ShowcaseList']
+    parent_page_types = ['showcase.ShowcaseList']

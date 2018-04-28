@@ -9,8 +9,7 @@ from home.models import BasePageWithHero
 
 
 class TalkList(Page):
-#    subpage_types = ['talks.Talk']
-    pass
+    subpage_types = ['talks.Talk']
 
 
 class Talk(BasePageWithHero):
@@ -28,4 +27,4 @@ class Talk(BasePageWithHero):
         FieldPanel('body', classname='full')
     ]
 
-#    parent_page_types = ['talks.TalkList']
+    parent_page_types = ['talks.TalkList']
