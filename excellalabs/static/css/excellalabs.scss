@@ -143,3 +143,37 @@ input {
 .emailInput {
   width: 275px;
 }
+
+.small-talk {
+
+  h3 {
+    padding-bottom: 2px;
+    margin-bottom: 0;
+    font-size: 1.4rem;
+  }
+
+  & .featured {
+    color: $indigo-blue;
+  }
+
+  & .talk-title {
+    color: $coral_red;
+  }
+
+  & .talk-author {
+    color: $charcoal_grey;
+    font-style: italic;
+    font-weight: 200;
+  }
+
+  & .talk-description {
+    margin-top: 15px;
+    margin-bottom: 80px;
+  }
+
+  & a {
+    color: $indigo-blue;
+    font-size: 20px;
+  }
+
+}
