@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block body_class %}template-talk{% endblock %}
+{% block hero %}
+    {% include_block page.hero with title=page.title subtitle=page.author %}
+{% endblock %}
+
+{% block content %}
+    {{ page.body|richtext }}
+{% endblock %}
