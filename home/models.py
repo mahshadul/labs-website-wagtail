@@ -7,7 +7,6 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 
 class HeroBlock(StructBlock):
     subject = CharBlock(required=False)
-    byline = CharBlock(required=False)
     class Meta:
         icon = "user"
         template = "home/blocks/hero.html"
