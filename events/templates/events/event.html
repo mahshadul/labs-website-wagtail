@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load wagtailcore_tags %}
+
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
@@ -9,5 +11,6 @@
         <div>
             {{page.body}}
         </div>
+        <div class="card card-block bg-light"> {{page.author|richtext}} </div>
     </div>
 {% endblock %}
