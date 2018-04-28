@@ -9,6 +9,10 @@ from wagtail.core.blocks import RichTextBlock
 from home.models import BasePageWithHero
 
 
+class ShowcaseList(Page):
+#    subpage_types = ['showcase.ShowcasePage']
+    pass
+
 class ShowcasePage(BasePageWithHero):
 
     subtitle = models.CharField(max_length=200, blank=True)
@@ -19,3 +23,5 @@ class ShowcasePage(BasePageWithHero):
         FieldPanel('subtitle'),
         StreamFieldPanel('body', classname='full')
     ]
+
+#    parent_page_types = ['showcase.ShowcaseList']

@@ -8,6 +8,11 @@ from wagtail.core.models import Page
 from home.models import BasePageWithHero
 
 
+class TalkList(Page):
+#    subpage_types = ['talks.Talk']
+    pass
+
+
 class Talk(BasePageWithHero):
 
     # Database fields
@@ -22,3 +27,5 @@ class Talk(BasePageWithHero):
         FieldPanel('video_id', classname='full'),
         FieldPanel('body', classname='full')
     ]
+
+#    parent_page_types = ['talks.TalkList']
