@@ -20,3 +20,7 @@ class Event(Page):
         FieldPanel('location'),
         StreamFieldPanel('body'),
     ]
+
+
+class EventListing(Page):
+        pass
