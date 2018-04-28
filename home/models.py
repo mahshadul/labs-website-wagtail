@@ -1,9 +1,9 @@
 from django.db import models
 
 from wagtail.core.models import Page
-from wagtail.core.blocks import StructBlock, CharBlock
+from wagtail.core.blocks import StructBlock, CharBlock, PageChooserBlock
 from wagtail.core.fields import StreamField, RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, PageChooserPanel
 
 class HeroBlock(StructBlock):
     subject = CharBlock(required=False)
@@ -25,7 +25,25 @@ class BasePageWithHero(Page):
         
 class HomePage(BasePageWithHero):
     about_us = RichTextField(blank=True)
+    talk_page = models.ForeignKey(
+        'talks.Talk',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    event_page = models.ForeignKey(
+        'events.Event',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
 
     content_panels = BasePageWithHero.content_panels + [
         FieldPanel('about_us', classname="full"),
+        PageChooserPanel('talk_page', 'talks.Talk'),
+        PageChooserPanel('event_page', 'events.Event')
     ]
