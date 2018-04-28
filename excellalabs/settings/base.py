@@ -29,10 +29,7 @@ INSTALLED_APPS = [
     'search',
     'talks',
     'showcase',
-<<<<<<< HEAD
-=======
     'events',
->>>>>>> master
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
