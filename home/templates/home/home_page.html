@@ -5,5 +5,9 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-    {{ page.about_us }}
+    {{ page.about_us|richtext }}
+
+    {{ page.talk_page.title }} | {{ page.talk_page.author}}
+    <br />
+    {{ page.event_page.title}} | {{ page.event_page.location }}
 {% endblock %}
