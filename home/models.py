@@ -21,7 +21,10 @@ class BasePageWithHero(Page):
 
         
 class HomePage(BasePageWithHero):
-    about_us = RichTextField(blank=True)
+    about_us = StreamField([
+        ('about_us', DetailBlock())
+    ])
+
     talk_page = models.ForeignKey(
         'talks.Talk',
         null=True,
@@ -40,7 +43,7 @@ class HomePage(BasePageWithHero):
 
 
     content_panels = BasePageWithHero.content_panels + [
-        FieldPanel('about_us', classname="full"),
+        StreamFieldPanel('about_us', classname="full"),
         PageChooserPanel('talk_page', 'talks.Talk'),
         PageChooserPanel('event_page', 'events.Event')
     ]
