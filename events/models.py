@@ -18,7 +18,7 @@ class Event(BasePageWithHero):
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
     ])
-    author = RichTextField(blank=True)
+    keynotes = RichTextField(blank=True)
 
     def get_context(self, request):
         context = super(Event, self).get_context(request)
@@ -29,7 +29,7 @@ class Event(BasePageWithHero):
         FieldPanel('date', classname='full'),
         FieldPanel('location', classname='full'),
         StreamFieldPanel('body'),
-        FieldPanel('author', classname='full'),
+        FieldPanel('keynotes', classname='full'),
     ]
 
     parent_page_types = ['events.EventList']
