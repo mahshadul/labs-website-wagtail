@@ -6,6 +6,10 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 
 
+class EventList(Page):
+#    subpage_types = ['events.Event']
+    pass
+
 class Event(Page):
     date = models.DateField("Event date")
     location = models.CharField(max_length=100)
@@ -22,3 +26,5 @@ class Event(Page):
         StreamFieldPanel('body'),
         FieldPanel('author'),
     ]
+
+#    parent_page_types = ['events.EventList']
