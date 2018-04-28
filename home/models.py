@@ -5,17 +5,8 @@ from wagtail.core.blocks import StructBlock, CharBlock
 from wagtail.core.fields import StreamField, RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 
-class HomePage(Page):
-    about_us = RichTextField(blank=True)
-
-    content_panels = Page.content_panels + [
-        FieldPanel('about_us', classname="full"),
-    ]
-
 class HeroBlock(StructBlock):
-    subject = CharBlock()
-    byline = CharBlock(required=False)
-
+    subject = CharBlock(required=False)
     class Meta:
         icon = "user"
         template = "home/blocks/hero.html"
@@ -31,3 +22,10 @@ class BasePageWithHero(Page):
 
     class Meta:
         abstract = True
+        
+class HomePage(BasePageWithHero):
+    about_us = RichTextField(blank=True)
+
+    content_panels = BasePageWithHero.content_panels + [
+        FieldPanel('about_us', classname="full"),
+    ]
