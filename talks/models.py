@@ -13,8 +13,12 @@ class Talk(BasePageWithHero):
     # Database fields
 
     author = models.CharField(max_length=200)
+    description = models.CharField(max_length=255)
+    video_id = models.CharField(max_length=50)
     body = RichTextField()
     content_panels = BasePageWithHero.content_panels + [
         FieldPanel('author', classname='full'),
+        FieldPanel('description', classname='full'),
+        FieldPanel('video_id', classname='full'),
         FieldPanel('body', classname='full')
     ]
