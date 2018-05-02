@@ -25,25 +25,13 @@ class HomePage(BasePageWithHero):
         ('about_us', DetailBlock())
     ])
 
-    talk_page = models.ForeignKey(
-        'talks.Talk',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-
-    event_page = models.ForeignKey(
-        'events.Event',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-
+    featured = StreamField([
+        ('event', PageChooserBlock(target_model="events.Event")),
+        ('talk', PageChooserBlock(target_model="talks.Talk")),
+        ('showcase', PageChooserBlock(target_model="showcase.ShowcasePage")),
+    ])
 
     content_panels = BasePageWithHero.content_panels + [
         StreamFieldPanel('about_us', classname="full"),
-        PageChooserPanel('talk_page', 'talks.Talk'),
-        PageChooserPanel('event_page', 'events.Event')
+        StreamFieldPanel('featured', classname="full"),
     ]

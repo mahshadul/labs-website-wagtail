@@ -7,21 +7,14 @@
 {% block content %}
     {{ page.about_us }}
 
+    {% for block in page.featured %}
+        {% if block.block_type == 'event' %}
+             {% include "events/blocks/event_mini.html" with event=block.value %}
+        {% elif block.block_type == 'talk' %}
+             {% include "talks/blocks/talk_mini.html" with talk=block.value %}
+        {% elif block.block_type == 'showcase' %}
+             {% include "showcase/blocks/showcase_mini.html" with showcase=block.value %}
+        {% endif %}
+    {% endfor %}
 
-    <div class="row small-talk">
-        <div class="col-6">
-            <h3 class="featured">Featured Talk:</h3>
-            <h3 class="talk-title">{{ page.talk_page.title}}</h3>
-            <h3 class="talk-author">By {{ page.talk_page.author}}</h3>
-            <p class="talk-description">{{page.talk_page.description}}</p>
-            <a href=""><i class="fas fa-film film-icon"></i> Watch all talks here</a>
-        </div>
-        <div class="col-6">
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{page.talk_page.video_id}}"></iframe>
-            </div>
-        </div>
-    </div>
-    <br />
-    {{ page.event_page.title}} | {{ page.event_page.location }}
 {% endblock %}

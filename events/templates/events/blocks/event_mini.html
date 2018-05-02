@@ -1,0 +1,15 @@
+{% load static wagtailcore_tags %}
+
+<div class="row mini event-mini">
+    <div class="col-12">
+        <h2><a href="{{event.url}}">{{event.title}}</a></h2>
+        <h3><i>{{event.location}} - {{event.date}}</i></h3>
+        <div>
+            {{event.body}}
+        </div>
+        {% if event.keynotes %}
+          <h3>Keynotes</h3>
+          <div class="card card-block bg-light"> {{event.keynotes|richtext}} </div>
+        {% endif %}
+    </div>
+</div>
