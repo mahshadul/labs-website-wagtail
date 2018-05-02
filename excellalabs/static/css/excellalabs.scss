@@ -23,6 +23,10 @@ article {
 .header {
   background-color: $indigo-blue;
   height: 70px;
+
+  .container {
+    margin-top: 0;
+  }
 }
 
 .github-icon {
