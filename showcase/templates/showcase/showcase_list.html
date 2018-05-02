@@ -4,8 +4,8 @@
     <div class="col-sm">
         <h1 style="margin-top: 10px">{{page.title}}</h1>
         <div>
-          {% for child in page.get_children %}
-            <a href="{{ child.url }}">{{child.title }}</a>
+          {% for child in page.get_children.specific %}
+            {% include "showcase/blocks/showcase_mini.html" with showcase=child %}
           {% endfor %}
         </div>
     </div>
