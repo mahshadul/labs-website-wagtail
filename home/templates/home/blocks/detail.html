@@ -1,11 +1,9 @@
 {% load wagtailcore_tags %}
-<div class="detail">
+<div class="detail row">
     <div class="col-8">
-        <div class="row justify-content-start">
-            <h3 class="detail-title">{{ value.title }}</h3>
-        </div>
-        <div class="row justify-content-start">
-            <span class="detail-text">{{ value.text|richtext }}</span>
-        </div>
+        <h3 class="detail-title">
+            <span>{{ value.title }}</span>
+        </h3>
+        <span class="detail-text">{{ value.text|richtext }}</span>
     </div>
 </div> 
