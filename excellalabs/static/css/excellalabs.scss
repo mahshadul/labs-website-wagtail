@@ -202,6 +202,63 @@ input {
   }
 }
 
+.event-featured {
+  padding: 40px;
+  background: $indigo_blue;
+  color: $white;
+
+  .col-6 {
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      height: 6px;
+      width: 100%;
+    }
+  }
+
+  .col-6:first-child:before {
+    border-bottom-left-radius: 4px;
+    background: $mid_blue;
+  }
+
+  .col-6:nth-child(2):before {
+    border-bottom-right-radius: 4px;
+    background: $bright_yellow;
+  }
+
+  .title {
+    margin-bottom: 20px;
+    padding-bottom: 4px;
+    border-bottom: $white 1px dashed;
+    font-size: 1.2rem;
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      color: inherit;
+
+      &:before {
+        content: 'Featured Event: ';
+        color: $bright_yellow;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .label {
+    color: $mid_blue;
+  }
+
+  .event-image {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+  }
+}
+
 .footerSubscribe {
     clear: both;
     background-color: #aaa;
