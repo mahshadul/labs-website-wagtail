@@ -8,8 +8,10 @@
     {{ page.about_us }}
 
     {% for block in page.featured %}
-        {% if block.block_type == 'event' %}
+        {% if block.block_type == 'event-featured' %}
              {% include "events/blocks/event_featured.html" with event=block.value %}
+        {% elif block.block_type == 'event' %}
+             {% include "events/blocks/event_mini.html" with event=block.value %}
         {% elif block.block_type == 'talk' %}
              {% include "talks/blocks/talk_mini.html" with talk=block.value %}
         {% elif block.block_type == 'showcase' %}

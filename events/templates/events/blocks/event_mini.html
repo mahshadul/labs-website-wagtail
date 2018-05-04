@@ -1,15 +1,24 @@
 {% load static wagtailcore_tags %}
 
-<div class="row mini event-mini">
-    <div class="col-12">
-        <h2><a href="{{event.url}}">{{event.title}}</a></h2>
-        <h3><i>{{event.location}} - {{event.date}}</i></h3>
-        <div>
+<div class="row {% block extra-classes %}{% endblock %} event mini">
+    <div class="col-6">
+        <div class="title"><a href="{{event.url}}"><span>{{event.title}}</span></a></div>
+        <div class="location"><span class="label">Where: </span>{{event.location}}</div>
+        <div class="date"><span class="label">Date: </span>{{event.date}}</div>
+        {% if event.keynotes %}
+        <br/>
+        <div class="key-notes"><div class="label">Key Notes: </div>
+            {{event.keynotes|richtext}}
+        </div>
+        {% endif %}
+        <br/>
+        <div class="summary"><div class="label">Event Summary: </div>
             {{event.body}}
         </div>
-        {% if event.keynotes %}
-          <h3>Keynotes</h3>
-          <div class="card card-block bg-light"> {{event.keynotes|richtext}} </div>
-        {% endif %}
+    </div>
+    <div class="col-6">
+      <div class="event-image">
+        <img class="event-image" src="{% static 'img/dcfullstack_logo.png' %}" alt="DC Full Stack">
+      </div>
     </div>
 </div>

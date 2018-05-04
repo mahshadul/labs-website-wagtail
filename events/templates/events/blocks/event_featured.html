@@ -1,24 +1,4 @@
+{% extends 'events/blocks/event_mini.html' %}
 {% load static wagtailcore_tags %}
 
-<div class="row mini event-featured">
-    <div class="col-6">
-        <div class="title"><a href="{{event.url}}"><span>{{event.title}}</span></a></div>
-        <div class="location"><span class="label">Where: </span>{{event.location}}</div>
-        <div class="date"><span class="label">Date: </span>{{event.date}}</div>
-        {% if event.keynotes %}
-        <br/>
-        <div class="key-notes"><div class="label">Key Notes: </div>
-            {{event.keynotes|richtext}}
-        </div>
-        {% endif %}
-        <br/>
-        <div class="summary"><div class="label">Event Summary: </div>
-            {{event.body}}
-        </div>
-    </div>
-    <div class="col-6">
-      <div class="event-image">
-        <img class="event-image" src="{% static 'img/dcfullstack_logo.png' %}" alt="DC Full Stack">
-      </div>
-    </div>
-</div>
+{% block extra-classes %}featured{% endblock %}
