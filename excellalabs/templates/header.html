@@ -1,29 +1,21 @@
 {% load static %}
 
-<div class="row header align-items-center">
+<div class="header">
     <div class="container">
-        <div class="row">
-            <div class="col-8">
-                <nav>
-                    <a href="/">
-                        <img src='{% static "img/Excella_labs_red_white.png" %}' class="excella-labs-logo"/>
+        <nav class="navbar navbar-expand-md">
+            <a href="/" class="navbar-brand">
+                <img src='{% static "img/Excella_labs_red_white.png" %}' class="excella-labs-logo"/>
+            </a>
+            <div class="collapse navbar-collapse">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="/events/" >Events</a>
+                    <a class="nav-item nav-link" href="/talks/" >Talks</a>
+                    <a class="nav-item nav-link" href="/showcase/" >Showcase</a>
+                    <a class="nav-item nav-link" href="https://github.com/excellalabs/labs-website-wagtail" target="_blank" rel="noreferrer noopener">
+                        <i class="fab fa-github github-icon"></i>
                     </a>
-                </nav>
+                </div>
             </div>
-            <div class="col-1">
-                <a href="/events/" class="navlink">Events</a>
-            </div>
-            <div class="col-1">
-                <a href="/talks/" class="navlink">Talks</a>
-            </div>
-            <div class="col-1">
-                <a href="/showcase/" class="navlink">Showcase</a>
-            </div>
-            <div class="col-1">
-                <a href="https://github.com/excellalabs/labs-website-wagtail" class="navlink">
-                    <i class="fab fa-github github-icon"></i>
-                </a>
-            </div>
-        </div>
+        </nav>
     </div>
 </div>
