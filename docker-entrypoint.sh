@@ -38,10 +38,17 @@ until ( test_postgresql ) do
 done
 >&2 echo "Postgres ready - continuing"
 
-python manage.py migrate 
+python manage.py migrate
 
-if [ -z "${PORT}" ]; then 
+if [ -z "${PORT}" ]; then
     PORT=8000
 fi
 
-exec gunicorn excellalabs.wsgi:application --reload --bind 0.0.0.0:${PORT} --workers 3
+if [ -z "${DJANGO_SETTINGS_MODULE}" ]; then
+    DJANGO_SETTINGS_MODULE='excellalabs.settings.local'
+fi
+
+exec gunicorn excellalabs.wsgi:application --reload \
+                                           --bind 0.0.0.0:${PORT} \
+                                           --workers 3 \
+                                           --env DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE}

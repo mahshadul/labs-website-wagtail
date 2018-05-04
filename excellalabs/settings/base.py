@@ -13,14 +13,21 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import dj_database_url
+from django.core.exceptions import ImproperlyConfigured
+
+def get_env_variable(var_name, **kwargs):
+    """Get the environment variable or return exception."""
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        if 'default' in kwargs.keys():
+            return kwargs['default']
+        else:
+            error_msg = "Could not find the {} environment variable".format(var_name)
+            raise ImproperlyConfigured(error_msg)
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
-
 
 # Application definition
 
@@ -122,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
@@ -157,5 +164,3 @@ WAGTAIL_SITE_NAME = "excellalabs"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
-
-ALLOWED_HOSTS = ['*']
