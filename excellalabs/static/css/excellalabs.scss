@@ -22,10 +22,10 @@ article {
 
 .header {
   background-color: $indigo-blue;
-  height: 70px;
 
   .container {
-    margin-top: 0;
+    margin: 0 auto;
+    padding: 0;
   }
 }
 
@@ -33,7 +33,7 @@ article {
   font-size: 24px;
 }
 
-.navlink {
+.nav-link {
   color: $white;
 
   &:hover {
@@ -167,7 +167,7 @@ input {
   width: 275px;
 }
 
-.small-talk {
+.talk-mini {
 
   h3 {
     padding-bottom: 2px;
