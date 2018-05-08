@@ -22,7 +22,7 @@ Ensure the `web` container is up and running correctly by visiting `http://local
 
 Add a superuser account
 ```
-docker-compose exec web python manage.py createsuperuser
+docker-compose exec web ./manage.py createsuperuser
 ```
 
 Your site should now be fully functional.  Useful URLs for development are:
