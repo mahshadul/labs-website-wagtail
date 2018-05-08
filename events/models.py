@@ -2,7 +2,8 @@ from django.db import models
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core import blocks
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
 
 from home.models import BasePageWithHero
@@ -18,7 +19,14 @@ class Event(BasePageWithHero):
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
     ])
-    keynotes = RichTextField(blank=True)
+    keynotes = RichTextField(blank=True, null=True)
+    event_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     def get_context(self, request):
         context = super(Event, self).get_context(request)
@@ -30,6 +38,7 @@ class Event(BasePageWithHero):
         FieldPanel('location', classname='full'),
         StreamFieldPanel('body'),
         FieldPanel('keynotes', classname='full'),
+        ImageChooserPanel('event_image'),
     ]
 
     parent_page_types = ['events.EventList']
