@@ -8,9 +8,9 @@
             </a>
             <div class="collapse navbar-collapse">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="/events/" >Events</a>
-                    <a class="nav-item nav-link" href="/talks/" >Talks</a>
-                    <a class="nav-item nav-link" href="/showcase/" >Showcase</a>
+                    {% for nav_page in settings.home.NavLinks.pages %}
+                        <a class="nav-item nav-link" href="{{ nav_page.value.url }}">{{ nav_page.value.title }}</a>
+                    {% endfor %}
                     <a class="nav-item nav-link" href="https://github.com/excellalabs/labs-website-wagtail" target="_blank" rel="noreferrer noopener">
                         <i class="fab fa-github github-icon"></i>
                     </a>

@@ -4,6 +4,9 @@ from wagtail.core.models import Page
 from wagtail.core.blocks import StructBlock, CharBlock, PageChooserBlock
 from wagtail.core.fields import StreamField, RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, PageChooserPanel
+from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.contrib.settings.registry import SettingMenuItem
+from wagtail.core import hooks
 from .blocks import DetailBlock, HeroBlock
 
 
@@ -36,3 +39,20 @@ class HomePage(BasePageWithHero):
         StreamFieldPanel('about_us', classname="full"),
         StreamFieldPanel('featured', classname="full"),
     ]
+
+@register_setting(icon="list-ul")
+class NavLinks(BaseSetting):
+    pages = StreamField([
+        ('pages', PageChooserBlock()),
+    ])
+
+    panels = [
+        StreamFieldPanel('pages')
+    ]
+
+@hooks.register('register_admin_menu_item')
+def register_navlinks_menu_item():
+    '''
+    Generate a second menu button at the root of the Admin sidebar
+    '''
+    return SettingMenuItem(NavLinks, icon="list-ul")
