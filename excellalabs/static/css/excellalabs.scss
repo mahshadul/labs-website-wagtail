@@ -113,7 +113,22 @@ h3, h4 {
   }
 }
 
-.fa-twitter, .fa-facebook, .fa-github, .excellaLink {
+.link-block {
+  text-align: right;
+}
+
+.fa-twitter, .fa-facebook-f, .fa-github {
+  color: $white;
+  margin-left: 1.5em;
+
+  &:hover {
+    color: $aqua_blue;
+  }
+}
+
+.excellaLink {
+  color: $aqua_blue;
+
   &:hover {
     color: $aqua_blue;
   }
@@ -158,9 +173,25 @@ input {
 
 .footer {
   background-color: #353535;
-  padding: 3em 0;
+  padding: 4em 0;
   margin-top: 75px;
   color: #fff;
+
+  & .container {
+    padding-top: 0;
+  }
+
+  & .excella-opportunities a {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+    display: block;
+    color: $aqua_blue;
+
+    &:hover {
+      color: $aqua_blue;
+    }
+  }
 }
 
 .emailInput {
