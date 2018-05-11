@@ -1,9 +1,11 @@
+{% load static wagtailcore_tags %}
+
 <div class="row talk mini">
     <div class="col-6">
         <h3 class="featured">Featured Talk:</h3>
         <h3 class="talk-title"><a href="{{talk.url}}">{{ talk.title }}</a></h3>
         <h3 class="talk-author">By {{ talk.author }}</h3>
-        <p class="talk-description">{{ talk.description }}</p>
+        <p class="talk-exerpt">{{ talk.exerpt|richtext }}</p>
         <a href=""><i class="fas fa-film film-icon"></i> Watch all talks here</a>
     </div>
     <div class="col-6">

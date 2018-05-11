@@ -1,9 +1,11 @@
+{% load static wagtailcore_tags %}
+
 <div class="row mini showcase-mini">
     <div class="col-12">
-        <h2><a href="{{showcase.url}}">{{showcase.title}}</a></h2>
-        <h3><i>{{showcase.subtitle}}</i></h3>
+        <h2><a href="{{ showcase.url }}">{{ showcase.title }}</a></h2>
+        <h3><i>{{ showcase.subtitle }}</i></h3>
         <div>
-            {{showcase.body}}
+            {{ showcase.exerpt|richtext }}
         </div>
     </div>
 </div>

@@ -15,11 +15,10 @@ class Event(BasePageWithHero):
     date = models.DateField("Event date")
     location = models.CharField(max_length=100)
     body = StreamField([
-        ('heading', blocks.CharBlock(classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
     ])
-    keynotes = RichTextField(blank=True, null=True)
+    exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
     event_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -30,15 +29,15 @@ class Event(BasePageWithHero):
 
     def get_context(self, request):
         context = super(Event, self).get_context(request)
-        context['subtitle'] = '{} {}'.format(self.location, self.date.strftime('%b %d, %Y'))
+        context['subtitle'] = '{}, {}'.format(self.location, self.date.strftime('%b %d, %Y'))
         return context
 
     content_panels = BasePageWithHero.content_panels + [
         FieldPanel('date', classname='full'),
         FieldPanel('location', classname='full'),
-        StreamFieldPanel('body'),
-        FieldPanel('keynotes', classname='full'),
+        FieldPanel('exerpt'),
         ImageChooserPanel('event_image'),
+        StreamFieldPanel('body'),
     ]
 
     parent_page_types = ['events.EventList']
