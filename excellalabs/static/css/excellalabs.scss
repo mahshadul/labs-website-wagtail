@@ -115,14 +115,14 @@ h3, h4 {
 
 .link-block {
   text-align: right;
-}
 
-.fa-twitter, .fa-facebook-f, .fa-github {
-  color: $white;
-  margin-left: 1.5em;
+  & .fa-twitter, .fa-facebook-f, .fa-github {
+    color: $white;
+    margin-left: 1.5em;
 
-  &:hover {
-    color: $aqua_blue;
+    &:hover {
+      color: $aqua_blue;
+    }
   }
 }
 
