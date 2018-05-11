@@ -1,17 +1,25 @@
 from django.db import models
 
-from wagtail.core.blocks import StructBlock, CharBlock, RichTextBlock
+from wagtail.core import blocks
 
-class HeroBlock(StructBlock):
-    subject = CharBlock(required=False)
+class HeroBlock(blocks.StructBlock):
+    subject = blocks.CharBlock(required=False)
     class Meta:
-        icon = "user"
+        icon = "placeholder"
         template = "home/blocks/hero.html"
 
 
-class DetailBlock(StructBlock):
-    title = CharBlock(required=False)
-    text = RichTextBlock(blank=True)
+class FAIconLinkBlock(blocks.StructBlock):
+    icon = blocks.CharBlock(help_text="Font Awesome icon name")
+    url = blocks.URLBlock(help_text="URL to link to")
+    class Meta:
+        icon = "link"
+        template = "home/blocks/icon_link.html"
+
+
+class DetailBlock(blocks.StructBlock):
+    title = blocks.CharBlock(required=False)
+    text = blocks.RichTextBlock(blank=True)
 
     class Meta:
         icon = "user"

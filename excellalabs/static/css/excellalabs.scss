@@ -29,15 +29,23 @@ article {
   }
 }
 
-.github-icon {
-  font-size: 24px;
-}
-
 .nav-link {
-  color: $white !important;
+  margin-right: 2em;
 
-  &:hover {
-    color: $aqua_blue;
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  & i.fab {
+    font-size: 24px;
+
+    &:hover {
+      color: #ddd;
+    }
+  }
+
+  & a {
+    color: $white !important;
   }
 }
 

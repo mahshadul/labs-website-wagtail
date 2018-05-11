@@ -11,12 +11,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav ml-auto">
-                    {% for nav_page in settings.home.NavLinks.pages %}
-                        <a class="nav-item nav-link" href="{{ nav_page.value.url }}">{{ nav_page.value.title }}</a>
+                    {% for nav_page in settings.home.NavLinks.links %}
+                        <div class="nav-item nav-link">
+                        {% if nav_page.block_type == 'icons' %}
+                          {{ nav_page }}
+                        {% else %}
+                          <a href="{{ nav_page.value.url }}">{{ nav_page.value.title }}</a>
+                        {% endif %}
+                        </div>
                     {% endfor %}
-                    <a class="nav-item nav-link" href="https://github.com/excellalabs/labs-website-wagtail" target="_blank" rel="noreferrer noopener">
-                        <i class="fab fa-github github-icon"></i>
-                    </a>
                 </div>
             </div>
         </nav>

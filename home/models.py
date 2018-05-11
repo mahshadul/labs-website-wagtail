@@ -7,7 +7,7 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, PageChoose
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.contrib.settings.registry import SettingMenuItem
 from wagtail.core import hooks
-from .blocks import DetailBlock, HeroBlock
+from .blocks import DetailBlock, HeroBlock, FAIconLinkBlock
 
 
 class BasePageWithHero(Page):
@@ -42,12 +42,13 @@ class HomePage(BasePageWithHero):
 
 @register_setting(icon="list-ul")
 class NavLinks(BaseSetting):
-    pages = StreamField([
+    links = StreamField([
         ('pages', PageChooserBlock()),
+        ('icons', FAIconLinkBlock()),
     ])
 
     panels = [
-        StreamFieldPanel('pages')
+        StreamFieldPanel('links')
     ]
 
 @hooks.register('register_admin_menu_item')
