@@ -34,7 +34,7 @@ article {
 }
 
 .nav-link {
-  color: $white;
+  color: $white !important;
 
   &:hover {
     color: $aqua_blue;
