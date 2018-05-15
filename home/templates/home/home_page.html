@@ -10,6 +10,10 @@
     {% for block in page.featured %}
         {% if block.block_type == 'event_featured' %}
              {% include "events/blocks/event_featured.html" with event=block.value %}
+        {% elif block.block_type == 'talk_featured' %}
+             {% include "talks/blocks/talk_featured.html" with talk=block.value %}
+        {% elif block.block_type == 'showcase_featured' %}
+             {% include "showcase/blocks/showcase_featured.html" with showcase=block.value %}
         {% elif block.block_type == 'event' %}
              {% include "events/blocks/event_mini.html" with event=block.value %}
         {% elif block.block_type == 'talk' %}

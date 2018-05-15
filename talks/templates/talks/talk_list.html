@@ -1,12 +1,5 @@
-{% extends "base.html" %}
+{% extends "list_base.html" %}
 
-{% block content %}
-    <div class="col-sm">
-        <h1 style="margin-top: 10px">{{page.title}}</h1>
-        <div>
-          {% for child in page.get_children.specific %}
-            {% include "talks/blocks/talk_mini.html" with talk=child %}
-          {% endfor %}
-        </div>
-    </div>
+{% block list_item %}
+    {% include "talks/blocks/talk_mini.html" with talk=child %}
 {% endblock %}

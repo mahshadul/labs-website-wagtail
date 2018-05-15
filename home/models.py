@@ -30,6 +30,8 @@ class HomePage(BasePageWithHero):
 
     featured = StreamField([
         ('event_featured', PageChooserBlock(target_model="events.Event")),
+        ('talk_featured', PageChooserBlock(target_model="talks.Talk")),
+        ('showcase_featured', PageChooserBlock(target_model="showcase.ShowcasePage")),
         ('event', PageChooserBlock(target_model="events.Event")),
         ('talk', PageChooserBlock(target_model="talks.Talk")),
         ('showcase', PageChooserBlock(target_model="showcase.ShowcasePage")),

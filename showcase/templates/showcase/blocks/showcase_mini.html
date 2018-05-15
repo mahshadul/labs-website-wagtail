@@ -1,11 +1,18 @@
+{% extends 'mini_base.html' %}
 {% load static wagtailcore_tags %}
 
-<div class="row mini showcase-mini">
+{% block object-type %}showcase{% endblock %}
+
+{% block mini-content %}
     <div class="col-12">
-        <h2><a href="{{ showcase.url }}">{{ showcase.title }}</a></h2>
-        <h3><i>{{ showcase.subtitle }}</i></h3>
-        <div>
+        <h4><a class="title" href="{{showcase.url}}">{{ showcase.title }}</a></h4>
+        <h5 class="subtitle"><i>{{ showcase.subtitle }}</i></h5>
+        <div class="exerpt">
             {{ showcase.exerpt|richtext }}
         </div>
     </div>
-</div>
+{% endblock %}
+
+{% block list-link %}
+      <a href="{% slugurl 'showcases' %}"><i class="fas fa-film film-icon"></i> View all showcases here</a>
+{% endblock %}

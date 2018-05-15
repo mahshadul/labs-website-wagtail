@@ -1,8 +1,11 @@
+{% extends 'mini_base.html' %}
 {% load static wagtailcore_tags %}
 
-<div class="row {% block extra-classes %}{% endblock %} event mini">
+{% block object-type %}event{% endblock %}
+
+{% block mini-content %}
     <div class="col-6">
-        <div class="title"><a href="{{event.url}}"><span>{{event.title}}</span></a></div>
+        <h4><a class="title" href="{{event.url}}"><span>{{event.title}}</span></a></h4>
         <div class="location"><span class="label">Where: </span>{{event.location}}</div>
         <div class="date"><span class="label">Date: </span>{{event.date}}</div>
         <div class="summary"><div class="label">Event Summary: </div>
@@ -14,4 +17,8 @@
         <img class="event-image" src="{% static 'img/dcfullstack_logo.png' %}" alt="DC Full Stack">
       </div>
     </div>
-</div>
+{% endblock %}
+
+{% block list-link %}
+      <a href="{% slugurl 'events' %}"><i class="fas fa-film film-icon"></i> View all events here</a>
+{% endblock %}
