@@ -1,5 +1,6 @@
 {% extends 'mini_base.html' %}
 {% load static wagtailcore_tags %}
+{% load wagtailimages_tags %}
 
 {% block object-type %}event{% endblock %}
 
@@ -14,7 +15,7 @@
     </div>
     <div class="col-6">
       <div class="event-image">
-        <img class="event-image" src="{% static 'img/dcfullstack_logo.png' %}" alt="DC Full Stack">
+        {% image event.event_image max-555x400 %}
       </div>
     </div>
 {% endblock %}
