@@ -5,6 +5,7 @@ import feedparser
 
 class HeroBlock(blocks.StructBlock):
     subject = blocks.CharBlock(required=False)
+    alternate_title = blocks.CharBlock(required=False)
     class Meta:
         icon = "placeholder"
         template = "home/blocks/hero.html"
@@ -39,4 +40,4 @@ class RSSBlock(blocks.StructBlock):
 
     class Meta:
         icon = "code"
-        template = "home/blocks/rss_feed.html"   
+        template = "home/blocks/rss_feed.html"

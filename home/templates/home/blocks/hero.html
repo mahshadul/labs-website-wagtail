@@ -4,7 +4,11 @@
             <span class="hero-subject">{{ value.subject }}</span>
         </div>
         <div class="row justify-content-start">
+        {% if value.alternate_title %}
+            <span class="hero-title">{{ value.alternate_title }}</span>
+        {% else %}
             <span class="hero-title">{{ title }}</span>
+        {% endif %}
         </div>
         <div class="row justify-content-start">
             <span class="hero-byline">{{ subtitle }}</span>
