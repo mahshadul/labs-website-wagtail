@@ -6,5 +6,12 @@
 {% endblock %}
 
 {% block content %}
+    {% if page.intro_video %}
+    <div class="row">
+        <div class="col-12 center-block text-center">
+            {{ page.intro_video }}
+        </div>
+    </div>
+    {% endif %}
     {{ page.body }}
 {% endblock %}

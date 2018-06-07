@@ -7,6 +7,7 @@ from wagtail.core.models import Page
 from wagtail.core.blocks import RichTextBlock
 from wagtail.images.blocks import ImageChooserBlock
 
+from core.blocks import IframeBlock
 from home.models import BasePageWithHero
 
 
@@ -17,6 +18,9 @@ class ShowcasePage(BasePageWithHero):
 
     subtitle = models.CharField(max_length=200, blank=True)
     exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
+    intro_video = StreamField([
+        ('iframe', IframeBlock())
+    ], blank=True)
     body = StreamField([
         ('body', RichTextBlock()),
         ('image', ImageChooserBlock()),
@@ -24,6 +28,7 @@ class ShowcasePage(BasePageWithHero):
     content_panels = BasePageWithHero.content_panels + [
         FieldPanel('subtitle'),
         FieldPanel('exerpt'),
+        StreamFieldPanel('intro_video'),
         StreamFieldPanel('body', classname='full')
     ]
 
