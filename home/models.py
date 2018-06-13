@@ -9,20 +9,19 @@ from wagtail.contrib.settings.registry import SettingMenuItem
 from wagtail.core import hooks
 from .blocks import DetailBlock, HeroBlock, FAIconLinkBlock, RSSBlock
 
-# changed StreamField name
+
 class BasePageWithHero(Page):
-    hero = StreamField([
-        ('hero', HeroBlock())
+    banner = StreamField([
+        ('banner', HeroBlock())
     ])
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('hero')
+        StreamFieldPanel('banner')
     ]
 
     class Meta:
         abstract = True
 
-# end of StreamField name change 
 
 class HomePage(BasePageWithHero):
     about_us = StreamField([
