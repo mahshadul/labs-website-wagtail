@@ -215,14 +215,54 @@ input {
 .mini {
   margin: 64px 0;
 
+  h1 {
+    text-transform: none; // Override all caps
+    color: $indigo_blue;
+    font-weight: 800;
+  }
+
+  .mini-header {
+    $fancy_stroke_width: 87px;
+
+    display: flex;
+    align-items: center;
+    right: $fancy_stroke_width; // offset by width of fancy stroke
+
+    &:before {
+      content: '';
+      display: block;
+      position: relative;
+      background: $mid_blue;
+      width: $fancy_stroke_width;
+      height: 17px;
+      border-radius: 10px;
+      right: 27px;
+    }
+  }
+
   .mini-content {
     width: 100%;
     margin: 0;
+    padding: 60px 100px !important;
+
+    .mini-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding: 0.5em 0;
+      background: $mid_blue;
+      border-radius: 8px;
+      color: $white;
+      font-weight: 700;
+      text-decoration: none;
+    }
   }
 
-  &.event .title:before {
-    content: 'Featured Event: ';
-  }
   &.talk .title:before {
     content: 'Featured Talk: ';
   }
@@ -230,9 +270,15 @@ input {
     content: 'Featured Showcase: ';
   }
 
+  .date {
+    color: $mid_blue;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+
   .label {
-    font-weight: 700;
-    color: $indigo_blue;
+    padding-top: 1em;
+    font-weight: 900;
   }
 
   .title {
@@ -254,22 +300,14 @@ input {
 
   &.event .event-image {
     display: flex;
+    // flex-direction: row;
     justify-content: center;
     margin: auto;
     width: 80%;
   }
 
   &.featured {
-    background: $indigo_blue;
-    color: $white;
-
-    // Use vw trickery to make the div full width
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    background: #EEEEEE linear-gradient(30deg, #E2E4E6 0%, #E2E4E6 33%, transparent 33%);
 
     .mini-content {
       padding: 5%;
@@ -286,47 +324,30 @@ input {
       position: absolute;
       top: 0;
       height: 6px;
-      width: 92.5%;
+      // width: 92.5%;
     }
 
     .header-left:before {
-      margin-left: 7.5%;
+      // margin-left: 7.5%;
       border-bottom-left-radius: 4px;
       background: $mid_blue;
     }
 
     .header-right:before {
-      margin-right: 7.5%;
+      // margin-right: 7.5%;
       border-bottom-right-radius: 4px;
       background: $bright_yellow;
     }
 
     .title {
-      border-bottom: $white 1px dashed;
-      color: $white;
-      font-weight: 400;
-
-      &:before {
-        color: $bright_yellow;
-        font-weight: bold;
-        display: inline;
-        cursor: pointer;
-      }
-    }
-
-    .label {
-      color: $mid_blue;
+      color: $indigo-blue;
+      font-weight: 600;
     }
 
     .list-link {
-      height: 60px;
-      background-color: $bright_yellow;
-      margin-left: 50%;
-      vertical-align: middle;
-
       a {
-        line-height: 60px;
-        margin-left: 10px;
+        color: $indigo_blue;
+        font-weight: 900;
       }
     }
 
