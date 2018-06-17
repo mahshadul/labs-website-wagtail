@@ -222,28 +222,34 @@ input {
   }
 
   .mini-header {
-    $fancy_stroke_width: 87px;
+    display: none; // set visible in 'featured' class
 
-    display: flex;
-    align-items: center;
-    right: $fancy_stroke_width; // offset by width of fancy stroke
+    h1 {
+      font-size: 36px;
+      $fancy_stroke_width: 87px;
 
-    &:before {
-      content: '';
-      display: block;
-      position: relative;
-      background: $mid_blue;
-      width: $fancy_stroke_width;
-      height: 17px;
-      border-radius: 10px;
-      right: 27px;
+      display: flex;
+      align-items: center;
+      margin-left: -$fancy_stroke_width;
+      //right: $fancy_stroke_width; // offset by width of fancy stroke
+
+      &:before {
+        content: '';
+        display: block;
+        position: relative;
+        background: $mid_blue;
+        width: $fancy_stroke_width;
+        height: 17px;
+        border-radius: 10px;
+        right: 27px;
+      }
     }
   }
 
   .mini-content {
     width: 100%;
     margin: 0;
-    padding: 60px 100px !important;
+    padding: 60px 90px !important;
 
     .mini-container {
       display: flex;
@@ -273,7 +279,7 @@ input {
   .date {
     color: $mid_blue;
     font-size: 1.2em;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .label {
@@ -293,11 +299,6 @@ input {
     }
   }
 
-  .list-link a {
-    color: $indigo_blue;
-    font-weight: bold;
-  }
-
   &.event .event-image {
     display: flex;
     // flex-direction: row;
@@ -311,6 +312,10 @@ input {
 
     .mini-content {
       padding: 5%;
+    }
+
+    .mini-header {
+      display: block; // override default none (hidden)
     }
 
     .header-left,
@@ -341,13 +346,16 @@ input {
 
     .title {
       color: $indigo-blue;
-      font-weight: 600;
+      font-weight: 400;
     }
 
     .list-link {
+      margin-top: 1em;
+
       a {
         color: $indigo_blue;
-        font-weight: 900;
+        font-weight: bold;
+        text-decoration: underline;
       }
     }
 

@@ -5,12 +5,17 @@
 {% block object-type %}event{% endblock %}
 
 {% block mini-content %}
-    <h1 class="mini-header">Featured Events</h1>
+    <div class="col-12 mini-header">
+      <h1>Featured Events</h1>
+    </div>
     <div class="mini-container">
       <div class="col-6">
         <div class="event-image">
-          {% image event.event_image max-555x400 %}
+          {% image event.event_image fill-435x300 %}
         </div>
+        <h5 class="list-link">
+          <a href="{% slugurl 'events' %}">More events...</a>
+        </h5>
       </div>
       <div class="col-6">
         <h4><a class="title" href="{{event.url}}"><span>{{event.title}}</span></a></h4>
@@ -24,8 +29,4 @@
         <a class="button" href="{{event.url}}"><span>Learn more</span></a>
       </div>
     </div>
-{% endblock %}
-
-{% block list-link %}
-      <a href="{% slugurl 'events' %}">More events...</a>
 {% endblock %}
