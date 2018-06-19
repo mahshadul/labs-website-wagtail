@@ -11,12 +11,12 @@ from .blocks import DetailBlock, HeroBlock, FAIconLinkBlock, RSSBlock
 
 
 class BasePageWithHero(Page):
-    hero = StreamField([
-        ('hero', HeroBlock())
+    banner = StreamField([
+        ('banner', HeroBlock())
     ])
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('hero')
+        StreamFieldPanel('banner')
     ]
 
     class Meta:
