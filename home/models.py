@@ -53,7 +53,7 @@ class BasePageWithRSS(Page):
         context = super().get_context(request)
         if self.feed_url and self.number_of_posts:
             feed = feedparser.parse(self.feed_url)
-            context['posts'] = feed.entries[:self.number_of_posts] if self.number_of_posts < len(feed.entries) else feed.entries
+            context['posts'] = feed.entries if len(feed.entries) <= self.number_of_posts else feed.entries[:self.number_of_posts]
         return context
     
     content_panels = Page.content_panels + [
@@ -75,10 +75,10 @@ class HomePage(BasePageWithHero, BasePageWithRSS):
     featured = StreamField([
         ('event_featured', PageChooserBlock(target_model="events.Event")),
         ('talk_featured', PageChooserBlock(target_model="talks.Talk")),
-        ('showcase_featured', PageChooserBlock(target_model="showcase.ShowcasePage")),
+        ('project_featured', PageChooserBlock(target_model="projects.ProjectPage")),
         ('event', PageChooserBlock(target_model="events.Event")),
         ('talk', PageChooserBlock(target_model="talks.Talk")),
-        ('showcase', PageChooserBlock(target_model="showcase.ShowcasePage")),
+        ('project', PageChooserBlock(target_model="projects.ProjectPage")),
     ])
 
     content_panels = BasePageWithHero.content_panels + BasePageWithRSS.content_panels + [
