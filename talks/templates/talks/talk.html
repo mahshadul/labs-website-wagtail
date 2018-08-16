@@ -1,10 +1,7 @@
-{% extends "base.html" %}
+{% extends 'home/base_page_with_hero.html' %}
 {% load wagtailcore_tags %}
 
 {% block body_class %}template-talk{% endblock %}
-{% block hero %}
-    {% include_block page.hero with title=page.title subtitle=page.author %}
-{% endblock %}
 
 {% block content %}
     <div>
