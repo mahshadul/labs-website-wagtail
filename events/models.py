@@ -6,18 +6,14 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiField
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
 
-from home.models import BasePageWithHero
+from home.models import BasePageWithHero, BasePageWithBody
 
 class EventList(Page):
     subpage_types = ['events.Event']
 
-class Event(BasePageWithHero):
+class Event(BasePageWithHero, BasePageWithBody):
     date = models.DateField("Event date")
     location = models.CharField(max_length=100)
-    body = StreamField([
-        ('paragraph', blocks.RichTextBlock()),
-        ('image', ImageChooserBlock()),
-    ])
     exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
     event_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -37,7 +33,6 @@ class Event(BasePageWithHero):
         FieldPanel('location', classname='full'),
         FieldPanel('exerpt'),
         ImageChooserPanel('event_image'),
-        StreamFieldPanel('body'),
     ]
 
     parent_page_types = ['events.EventList']

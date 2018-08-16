@@ -3,30 +3,74 @@ from django.db import models
 from wagtail.core.models import Page
 from wagtail.core.blocks import CharBlock, PageChooserBlock
 from wagtail.core.fields import StreamField, RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, PageChooserPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, PageChooserPanel, MultiFieldPanel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.contrib.settings.registry import SettingMenuItem
 from wagtail.core import hooks
-from .blocks import DetailBlock, HeroBlock, FAIconLinkBlock, RSSBlock
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.core.blocks import RichTextBlock
+
+from .blocks import DetailBlock, FAIconLinkBlock
+import feedparser
 
 
 class BasePageWithHero(Page):
-    banner = StreamField([
-        ('banner', HeroBlock())
+    subject = models.CharField(blank=True, max_length=250)
+    alternate_title = models.CharField(blank=True, max_length=250)
+
+    content_panels = Page.content_panels + [
+        MultiFieldPanel([
+            FieldPanel('subject'),
+            FieldPanel('alternate_title')
+        ],
+        heading="Hero Banner Content",
+        )
+    ]
+
+    class Meta:
+        abstract = True
+
+class BasePageWithBody(Page):
+
+    body = StreamField([
+        ('paragraph', RichTextBlock()),
+        ('image', ImageChooserBlock()),
     ])
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('banner')
+        StreamFieldPanel('body', classname='full'),
     ]
 
     class Meta:
         abstract = True
 
 
-class HomePage(BasePageWithHero):
-    about_us = StreamField([
-        ('about_us', DetailBlock())
-    ])
+class BasePageWithRSS(Page):
+    feed_url = models.URLField(blank=True)
+    number_of_posts = models.IntegerField(null=True)
+
+    def get_context(self, request):
+        context = super().get_context(request)
+        if self.feed_url and self.number_of_posts:
+            feed = feedparser.parse(self.feed_url)
+            context['posts'] = feed.entries[:self.number_of_posts] if self.number_of_posts < len(feed.entries) else feed.entries
+        return context
+    
+    content_panels = Page.content_panels + [
+        MultiFieldPanel([
+            FieldPanel('feed_url'),
+            FieldPanel('number_of_posts'),
+        ],
+        heading="RSS Feed"),
+    ]
+
+    class Meta:
+        abstract = True
+
+
+class HomePage(BasePageWithHero, BasePageWithRSS):
+    about_us_title = models.CharField(blank=True, max_length=250)
+    about_us_text = RichTextField(blank=True)
 
     featured = StreamField([
         ('event_featured', PageChooserBlock(target_model="events.Event")),
@@ -37,14 +81,13 @@ class HomePage(BasePageWithHero):
         ('showcase', PageChooserBlock(target_model="showcase.ShowcasePage")),
     ])
 
-    rss_feed = StreamField([
-        ('rss_feed', RSSBlock()),
-    ], blank=True)
-
-    content_panels = BasePageWithHero.content_panels + [
-        StreamFieldPanel('about_us', classname="full"),
+    content_panels = BasePageWithHero.content_panels + BasePageWithRSS.content_panels + [
+        MultiFieldPanel([
+            FieldPanel('about_us_title'),
+            FieldPanel('about_us_text')
+        ],
+        heading="About Us"),
         StreamFieldPanel('featured', classname="full"),
-        StreamFieldPanel('rss_feed')
     ]
 
 @register_setting(icon="list-ul")
@@ -64,3 +107,5 @@ def register_navlinks_menu_item():
     Generate a second menu button at the root of the Admin sidebar
     '''
     return SettingMenuItem(NavLinks, icon="list-ul")
+
+    
