@@ -3,6 +3,24 @@
 {% block body_class %}base-page-with-hero{% endblock %}
 
 {% block hero %}
-    {% include_block page.hero with title=page.title %}
+    {% if page.alternate_title or page.subject %}
+        <div class="hero">
+            <div class="col-6 offset-3">
+                <div class="row justify-content-start">
+                    <span class="hero-subject">{{ page.subject }}</span>
+                </div>
+                <div class="row justify-content-start">
+                {% if page.alternate_title %}
+                    <span class="hero-title">{{ page.alternate_title }}</span>
+                {% else %}
+                    <span class="hero-title">{{ page.title }}</span>
+                {% endif %}
+                </div>
+                <div class="row justify-content-start">
+                    <span class="hero-byline">{{ page.subtitle }}</span>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}
 

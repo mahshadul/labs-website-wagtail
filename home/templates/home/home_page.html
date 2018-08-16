@@ -5,7 +5,15 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-    {{ page.about_us }}
+    <div class="detail row">
+        <div class="col-8">
+            <h3 class="detail-title">
+                <span>{{ page.about_us_title }}</span>
+            </h3>
+            <span class="detail-text">{{ page.about_us_text|richtext }}</span>
+        </div>
+    </div> 
+
 
     {% for block in page.featured %}
         {% if block.block_type == 'event_featured' %}
@@ -23,6 +31,6 @@
         {% endif %}
     {% endfor %}
 
-    {{ page.rss_feed }}
+    {% include 'home/modules/rss_feed.html' with posts=posts %}
 
 {% endblock %}
