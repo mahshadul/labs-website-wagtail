@@ -1,13 +1,9 @@
-{% extends "base.html" %}
+{% extends 'home/base_page_with_hero.html' %}
 
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 
 {% block body_class %}template-event{% endblock %}
-
-{% block hero %}
-    {% include_block page.hero with title=page.title subtitle=subtitle %}
-{% endblock %}
 
 {% block content %}
     <div class="col-sm">

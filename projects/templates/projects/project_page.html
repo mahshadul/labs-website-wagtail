@@ -1,12 +1,6 @@
 {% extends 'home/base_page_with_hero.html' %}
 {% load wagtailcore_tags %}
 
-{% block body_class %}template-talk{% endblock %}
-
 {% block content %}
-    <div>
-      Author: {{ page.author }}
-    </div>
-
     {{ page.body }}
 {% endblock %}

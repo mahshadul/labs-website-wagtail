@@ -1,0 +1,5 @@
+{% extends "list_base.html" %}
+
+{% block list_item %}
+    {% include "projects/blocks/project_mini.html" with project=child %}
+{% endblock %}

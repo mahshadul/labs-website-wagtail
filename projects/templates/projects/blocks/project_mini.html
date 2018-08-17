@@ -1,0 +1,18 @@
+{% extends 'mini_base.html' %}
+{% load wagtailcore_tags %}
+
+{% block object-type %}project{% endblock %}
+
+{% block mini-content %}
+    <div class="col-12">
+        <h4><a class="title" href="{{ project.url }}">{{ project.title }}</a></h4>
+        <h5 class="subtitle"><i>{{ project.subtitle }}</i></h5>
+        <div class="exerpt">
+            {{ project.exerpt|richtext }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block list-link %}
+      <a href="{% slugurl 'projects' %}"><i class="fas fa-film film-icon"></i> View all projects here</a>
+{% endblock %}

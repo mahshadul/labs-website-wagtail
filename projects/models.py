@@ -10,10 +10,10 @@ from wagtail.images.blocks import ImageChooserBlock
 from home.models import BasePageWithHero, BasePageWithBody
 
 
-class ShowcaseList(Page):
-    subpage_types = ['showcase.ShowcasePage']
+class ProjectList(Page):
+    subpage_types = ['projects.ProjectPage']
 
-class ShowcasePage(BasePageWithHero, BasePageWithBody):
+class ProjectPage(BasePageWithHero, BasePageWithBody):
 
     subtitle = models.CharField(max_length=200, blank=True)
     exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
@@ -23,4 +23,4 @@ class ShowcasePage(BasePageWithHero, BasePageWithBody):
         FieldPanel('exerpt'),
     ]
 
-    parent_page_types = ['showcase.ShowcaseList']
+    parent_page_types = ['projects.ProjectList']
