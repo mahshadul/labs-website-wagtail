@@ -4,9 +4,13 @@
 {% block body_class %}template-talk{% endblock %}
 
 {% block content %}
-    <div>
+    <h2>
+      {{ page.title }}
+    </h2>
+    <h5>
       Author: {{ page.author }}
-    </div>
-
-    {{ page.body }}
+    </h5>
+    <body>
+      {{ page.exerpt | richtext }}
+    </body>
 {% endblock %}
