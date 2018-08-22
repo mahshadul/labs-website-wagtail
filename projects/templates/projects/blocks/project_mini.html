@@ -11,17 +11,16 @@
         <h1>Showcase:</h1>
         <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
         {% if project.date %}
-            <div class="project-date"><i class="fa fa-calendar" aria-hidden="true">{{ project.date|date:"F d, Y" }}</i></div>
+            <div class="project-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ project.date|date:"F d, Y" }}</div>
         {% endif %}
         <div class="project-body">
             {{ project.exerpt|richtext }}
         </div>
-        <div class="project_button">
-        <a href="{{project.url}}">Register for React Native</a>
-        </div>
+        
+        <a href="{{project.url}}"><div class="project_button">Register for React Native</div></a>
     </div>
-    <div class="col-lg-7 d-none d-md-block project_graphic" >
-        {% image project.graphic fill-778x651 %}
+    <div class="col-lg-7 d-none d-md-block project_graphic">
+        {% image project.graphic fill-778x651 style="border-radius:15px" %}
     </div>
 </div>
 {% endblock %}

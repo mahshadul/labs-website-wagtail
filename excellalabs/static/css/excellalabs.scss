@@ -1,5 +1,7 @@
 @import 'colors';
 @import 'fonts';
+@import 'projects';
+@import 'events';
 
 body {
   margin: 0;
@@ -31,6 +33,7 @@ article {
 
 .homepage_header {
   background-color: #FFFFFF;
+  padding-bottom: 64px;
 }
 
 .homepage_subject {
@@ -256,8 +259,8 @@ input {
   width: 275px;
 }
 
-.mini {
-  margin: 64px 0;
+/*.mini {
+  //margin: 64px 0;
 
   h1 {
     text-transform: none; // Override all caps
@@ -404,7 +407,7 @@ input {
     }
 
   }
-}
+}*/
 
 .list-item .mini {
   .title:before {
@@ -452,7 +455,6 @@ input {
   }
 }
 
-
 .top_padding {
   padding-top:60px;
 }
@@ -466,58 +468,4 @@ input {
 
 .space_below {
   margin-bottom:60px;
-}
-
-.mini_project {
-  font-family: $muli_regular;
-  background-color: $dark_blue;
-  min-height: 722px;
-  color: $white;
-
-  h1 {
-    font-family: $muli_regular;
-    font-size: 48px;
-    color: $white;
-    font-weight: $extra_bold_weight;
-  }
-
-  h2 {
-    font-family: $muli_regular;
-    font-size: 32px;
-    color: $bright_yellow;
-    a {
-      color: $bright_yellow;
-    }
-  }
-
-  .project-date {
-    font-size: 24px;
-  }
-
-  .project-body {
-    margin-top: 30px;
-    font-size: 18px;
-  }
-
-  .project_button {
-    margin-top:60px;
-    max-width: 400px;
-    min-height: 48px;
-    background-color: $mid_blue;
-    font-size: 28px;
-    border-radius: 10px;
-    text-align: center;
-
-    a {
-      color: $white;
-      text-decoration: none;
-      font-weight: $extra_bold_weight;
-    }
-  }
-
-  .project_graphic {
-    padding-top:40px;
-    position:relative;
-    bottom:-40px;
-  }
 }

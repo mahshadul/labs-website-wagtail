@@ -12,7 +12,9 @@ class EventList(Page):
     subpage_types = ['events.Event']
 
 class Event(BasePageWithHero, BasePageWithBody):
-    date = models.DateField("Event date")
+    start_date = models.DateField("Event start date")
+    end_date = models.DateField("Event end date", null=True)
+
     location = models.CharField(max_length=100)
     exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
     event_image = models.ForeignKey(
@@ -29,7 +31,8 @@ class Event(BasePageWithHero, BasePageWithBody):
         return context
 
     content_panels = BasePageWithHero.content_panels + [
-        FieldPanel('date', classname='full'),
+        FieldPanel('start_date', classname='full'),
+        FieldPanel('end_date', classname='full'),
         FieldPanel('location', classname='full'),
         FieldPanel('exerpt'),
         ImageChooserPanel('event_image'),

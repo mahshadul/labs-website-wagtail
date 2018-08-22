@@ -5,28 +5,41 @@
 {% block object-type %}event{% endblock %}
 
 {% block mini-content %}
-    <div class="col-12 mini-header">
-      <h1>Featured Events</h1>
+<div class="row mini_event extra_top_padding">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-11 mini-header">
+        <h1>Featured Events</h1>
+      </div>
     </div>
-    <div class="mini-container">
-      <div class="col-6">
-        <div class="event-image">
-          {% image event.event_image fill-435x300 %}
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-5">
+        <div class="event_graphic">
+          {% image event.event_image fill-540x375 style="border-radius:15px" %}
         </div>
-        <h5 class="list-link">
-          <a href="{% slugurl 'events' %}">More events...</a>
+        <h5 class="more_link" style="padding-top:30px;">
+          <a href="{{ event.get_parent.url }}">More events...</a>
         </h5>
       </div>
-      <div class="col-6">
-        <h4><a class="title" href="{{event.url}}"><span>{{event.title}}</span></a></h4>
-        <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i> {{event.date}}</div>
-        <div class="label">Where: </div>
-        <div class="location">{{event.location}}</div>
-        <div class="label">Event Summary: </div>
-        <div class="summary">
-          {{event.exerpt|richtext}}
+      <div class="col-5 event_body">
+        <h2><a href="{{ event.url }}"><span>{{ event.title }}</span></a></h2>
+        <div class="event_date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ event.start_date|date:"F d"  }}{% if event.end_date %} - {{ event.end_date|date:"F d"  }}{% endif %}</div>
+        <div style="padding-top:30px;">
+          <div class="event_label">Where: </div>
+          <div>{{event.location}}</div>
         </div>
-        <a class="button" href="{{event.url}}"><span>Learn more</span></a>
+        <div style="padding-top:30px;">
+          <div class="event_label">Event Summary: </div>
+          <div>
+            {{event.exerpt|richtext}}
+          </div>
+          <a href="{{ event.url }}"><div class="event_button">Learn more</div></a>
+        </div>
       </div>
+      <div class="col-1"></div>
     </div>
+  </div>
+</div>
 {% endblock %}
