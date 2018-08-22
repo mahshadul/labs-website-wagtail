@@ -29,6 +29,50 @@ article {
   }
 }
 
+.homepage_header {
+  background-color: #FFFFFF;
+}
+
+.homepage_subject {
+  font-family: $muli_regular, $open_sans, sans-serif;
+  color: $mid_blue;
+  font-size: 36px;
+  font-weight: $light_weight;
+}
+
+.homepage_title {
+  font-family: $muli_regular, $open_sans, sans-serif;
+  color: $dark_blue;
+  font-size: 36px;
+  font-weight: $black_weight;
+  margin-bottom: 30px;
+}
+
+.about_us_title {
+  font-size: 32px;
+  color: #35353E;
+  font-family: $muli_regular, $open_sans, sans-serif;
+  font-weight: $extra_bold_weight;
+}
+
+.about_us_copy {
+  font-size: 21px;
+  color: #35353E;
+  font-family: $muli_regular, $open_sans, sans-serif;
+  width: 70%;
+}
+
+
+.yellow_line {
+  background-color: #FAD245;
+  width: 120px;
+  height: 4px;
+  border-radius: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+}
+
 .nav-link {
   margin-right: 2em;
 
@@ -405,5 +449,75 @@ input {
   h3 span {
     padding-bottom: 5px;
     border-bottom: 2px dashed $light_grey;
+  }
+}
+
+
+.top_padding {
+  padding-top:60px;
+}
+.left_padding {
+  padding-left:30px;
+}
+
+.extra_top_padding {
+  padding-top:80px;
+}
+
+.space_below {
+  margin-bottom:60px;
+}
+
+.mini_project {
+  font-family: $muli_regular;
+  background-color: $dark_blue;
+  min-height: 722px;
+  color: $white;
+
+  h1 {
+    font-family: $muli_regular;
+    font-size: 48px;
+    color: $white;
+    font-weight: $extra_bold_weight;
+  }
+
+  h2 {
+    font-family: $muli_regular;
+    font-size: 32px;
+    color: $bright_yellow;
+    a {
+      color: $bright_yellow;
+    }
+  }
+
+  .project-date {
+    font-size: 24px;
+  }
+
+  .project-body {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+
+  .project_button {
+    margin-top:60px;
+    max-width: 400px;
+    min-height: 48px;
+    background-color: $mid_blue;
+    font-size: 28px;
+    border-radius: 10px;
+    text-align: center;
+
+    a {
+      color: $white;
+      text-decoration: none;
+      font-weight: $extra_bold_weight;
+    }
+  }
+
+  .project_graphic {
+    padding-top:40px;
+    position:relative;
+    bottom:-40px;
   }
 }

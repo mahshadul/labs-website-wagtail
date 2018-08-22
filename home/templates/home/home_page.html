@@ -4,30 +4,79 @@
 
 {% block body_class %}template-homepage{% endblock %}
 
-{% block content %}
-    <div class="detail row">
-        <div class="col-8">
-            <h3 class="detail-title">
-                <span>{{ page.about_us_title }}</span>
-            </h3>
-            <span class="detail-text">{{ page.about_us_text|richtext }}</span>
-        </div>
-    </div> 
+{% block hero %}
+    {% if page.alternate_title or page.subject %}
+        <div class="homepage_header container-fluid top_padding" style="margin-right:auto;">
+            {% if page.subject %}
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-11">
+                    <span class="homepage_subject">{{ page.subject }}</span>
+                </div>
+            </div>
+            {% endif %}
+            {% if page.alternate_title %}
+            <div class="row space_below">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-11">
+                    <span class="homepage_title">{{ page.alternate_title }}</span>
+                </div>
+            </div>
+            {% else %}
+            <div class="row space_below">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-11">
+                    <span class="hero-title">{{ page.title }}</span>
+                </div>
+            </div>
+            {% endif %}
+            {% if page.about_us_title %}
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-11">
+                    <span class="about_us_title">{{ page.about_us_title }}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-1">
+                    <span class="yellow_line"></span>
+                </div>
+                <div class="col-sm-10" >
 
+                </div>
+            </div>
+
+            {% endif %}
+            {% if page.about_us_text %}
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-lg-6 col-sm-11" >
+                    <span class="about_us_copy" style="width:60%">{{ page.about_us_text|richtext }}</span>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
 
     {% for block in page.featured %}
         {% if block.block_type == 'event_featured' %}
              {% include "events/blocks/event_featured.html" with event=block.value %}
         {% elif block.block_type == 'talk_featured' %}
              {% include "talks/blocks/talk_featured.html" with talk=block.value %}
-        {% elif block.block_type == 'showcase_featured' %}
-             {% include "showcase/blocks/showcase_featured.html" with showcase=block.value %}
+        {% elif block.block_type == 'project_featured' %}
+             {% include "projects/blocks/project_featured.html" with project=block.value %}
         {% elif block.block_type == 'event' %}
              {% include "events/blocks/event_mini.html" with event=block.value %}
         {% elif block.block_type == 'talk' %}
              {% include "talks/blocks/talk_mini.html" with talk=block.value %}
-        {% elif block.block_type == 'showcase' %}
-             {% include "showcase/blocks/showcase_mini.html" with showcase=block.value %}
+        {% elif block.block_type == 'project' %}
+             {% include "projects/blocks/project_mini.html" with project=block.value %}
         {% endif %}
     {% endfor %}
 

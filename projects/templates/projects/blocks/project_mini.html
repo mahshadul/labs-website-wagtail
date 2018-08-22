@@ -1,16 +1,29 @@
 {% extends 'mini_base.html' %}
 {% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 
 {% block object-type %}project{% endblock %}
 
 {% block mini-content %}
-    <div class="col-12">
-        <h4><a class="title" href="{{ project.url }}">{{ project.title }}</a></h4>
-        <h5 class="subtitle"><i>{{ project.subtitle }}</i></h5>
-        <div class="exerpt">
+<div class="row mini_project extra_top_padding">
+    <div class="col-1"></div>
+    <div class="col-lg-4 col-md-11" style="padding-top:60px;">
+        <h1>Showcase:</h1>
+        <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
+        {% if project.date %}
+            <div class="project-date"><i class="fa fa-calendar" aria-hidden="true">{{ project.date|date:"F d, Y" }}</i></div>
+        {% endif %}
+        <div class="project-body">
             {{ project.exerpt|richtext }}
         </div>
+        <div class="project_button">
+        <a href="{{project.url}}">Register for React Native</a>
+        </div>
     </div>
+    <div class="col-lg-7 d-none d-md-block project_graphic" >
+        {% image project.graphic fill-778x651 %}
+    </div>
+</div>
 {% endblock %}
 
 {% block list-link %}
