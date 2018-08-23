@@ -7,7 +7,7 @@
 {% block mini-content %}
 <div class="row mini_project extra_top_padding">
     <div class="col-1"></div>
-    <div class="col-lg-4 col-md-11" style="padding-top:60px;">
+    <div class="col-lg-4 col-11" style="padding-top:60px;">
         <h1>Showcase:</h1>
         <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
         {% if project.date %}
@@ -19,8 +19,10 @@
         
         <a href="{{project.url}}"><div class="project_button">Register for React Native</div></a>
     </div>
-    <div class="col-lg-7 d-none d-md-block project_graphic">
-        {% image project.graphic fill-778x651 style="border-radius:15px" %}
+    <div class="col-lg-7 d-none d-lg-block graphic_container">
+        <div class="project_graphic">
+            {% image project.graphic fill-778x651 style="border-radius:15px" %}
+        </div>
     </div>
 </div>
 {% endblock %}

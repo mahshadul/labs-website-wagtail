@@ -2,6 +2,7 @@
 @import 'fonts';
 @import 'projects';
 @import 'events';
+@import 'talks';
 
 body {
   margin: 0;
@@ -188,6 +189,7 @@ h3, h4 {
 }
 
 .excellaLink {
+  font-size: 18px;
   color: $aqua_blue;
 
   &:hover {
@@ -237,26 +239,43 @@ input {
   padding: 4em 0;
   margin-top: 75px;
   color: #fff;
+  padding-left: 130px;
+  padding-right: 130px;
 
-  & .container {
+  & .container-fluid {
     padding-top: 0;
   }
 
-  & .excella-opportunities a {
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.2;
-    display: block;
-    color: $aqua_blue;
+  & .excella-opportunities {
+    margin-top: 35px;
+    
+    h6 {
+      margin-bottom: 0px;  
+    }
 
-    &:hover {
+    a {
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.2;
+      display: block;
       color: $aqua_blue;
+
+      &:hover {
+        color: $aqua_blue;
+      }
     }
   }
 }
 
+.emailLabel {
+  font-size: 18px;
+  font-family: $muli_regular;
+}
+
 .emailInput {
-  width: 275px;
+
+  width: 380px;
+  height: 38px;
 }
 
 /*.mini {
@@ -430,7 +449,8 @@ input {
     display: inline-block;
     font-size: 15px;
     font-weight: normal;
-    height: 32px;
+    width: 160px;
+    height: 48px;
     line-height: 32px;
     margin: 0 5px 10px 0;
     padding: 0 22px;

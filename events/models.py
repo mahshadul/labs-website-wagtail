@@ -27,7 +27,7 @@ class Event(BasePageWithHero, BasePageWithBody):
 
     def get_context(self, request):
         context = super(Event, self).get_context(request)
-        context['subtitle'] = '{}, {}'.format(self.location, self.date.strftime('%b %d, %Y'))
+        context['subtitle'] = '{}, {}'.format(self.location, self.start_date.strftime('%b %d, %Y'))
         return context
 
     content_panels = BasePageWithHero.content_panels + [

@@ -14,16 +14,17 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-1"></div>
-      <div class="col-5">
+      <div class="col-1 d-none d-lg-block"></div>
+      <div class="col-lg-5 d-none d-lg-block">
         <div class="event_graphic">
           {% image event.event_image fill-540x375 style="border-radius:15px" %}
         </div>
-        <h5 class="more_link" style="padding-top:30px;">
+        <h5 class="more_link">
           <a href="{{ event.get_parent.url }}">More events...</a>
         </h5>
       </div>
-      <div class="col-5 event_body">
+      <div class="col-1 d-lg-none"></div>
+      <div class="col-lg-5 col-11 event_body">
         <h2><a href="{{ event.url }}"><span>{{ event.title }}</span></a></h2>
         <div class="event_date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ event.start_date|date:"F d"  }}{% if event.end_date %} - {{ event.end_date|date:"F d"  }}{% endif %}</div>
         <div style="padding-top:30px;">

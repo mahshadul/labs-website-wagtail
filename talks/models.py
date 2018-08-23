@@ -12,17 +12,20 @@ class TalkList(Page):
 
 
 class Talk(BasePageWithHero, BasePageWithBody):
-
-    # Database fields
-
+    
     author = models.CharField(max_length=200)
     video_id = models.CharField(max_length=50)
     exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
+    date = models.DateField("Talk date")
+    location = models.CharField(max_length=100)
+
 
     content_panels = BasePageWithHero.content_panels + [
         FieldPanel('author', classname='full'),
         FieldPanel('video_id', classname='full'),
         FieldPanel('exerpt', classname='full'),
+        FieldPanel('date', classname='full'),
+        FieldPanel('location', classname='full'),
     ]
 
     parent_page_types = ['talks.TalkList']

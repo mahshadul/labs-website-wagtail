@@ -1,13 +1,13 @@
-.mini_event {
+.mini_talk {
     font-family: $muli_regular;
-    background-color: $grey;
+    background-color: $white;
     min-height: 680px;
     color: $indigo_blue;
 
     a {
         text-decoration:none;
     }
-
+    
     h1 {
         text-transform: none; // Override all caps
         font-size: 36px;
@@ -25,22 +25,18 @@
         }
     }
 
-    .event_date {
+    .talk_date {
         font-size: 24px;
         color: $mid_blue;
     }
 
-    .more_link {
+    .talk_excerpt {
+        color: $black;
+        font-size: 18px;
         margin-top: 30px;
-        font-size: 28px;
-        font-weight: $extra_bold_weight;
-        text-decoration: underline;
-        a {
-            color: $indigo_blue;
-        }
     }
 
-    .event_button {
+    .talk_button {
         margin-top:60px;
         max-width: 540px;
         min-height: 48px;
@@ -54,15 +50,18 @@
         justify-content: center;
     }
 
-    .event_body {
-        color: $black;
-        font-size: 18px;
-        .event_label {
-            font-weight: $bold_weight;
+    .more_talks_link {
+        margin-top: 30px;
+        font-size: 28px;
+        font-weight: $extra_bold_weight;
+        text-decoration: underline;
+        a {
+            color: $indigo_blue;
         }
     }
 
-    .event_graphic {
-        border-radius: 10px;
+    .talks_video {
+        max-height: 383px;
+        max-width: 680px;
     }
-  }
+}
