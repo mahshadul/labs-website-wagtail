@@ -24,12 +24,11 @@ article {
 }
 
 .header {
-  background-color: $indigo-blue;
-
-  .container {
-    margin: 0 auto;
-    padding: 0;
-  }
+  min-height: 113px;
+  background-color: $charcoal_grey;
+  padding-left: 130px;
+  padding-right: 130px;
+  padding-top: 50px;
 }
 
 .template-homepage {
@@ -91,6 +90,9 @@ article {
 
 .nav-link {
   margin-right: 2em;
+  font-size: 18px;
+  font-family: $muli_regular;
+  font-weight: $extra_bold_weight;
 
   &:last-of-type {
     margin-right: 0;
@@ -213,8 +215,10 @@ input {
   color: $charcoal_grey;
 }
 .excella-labs-logo {
-  height: 50px;
-  width: 300px;
+  height: 27px;
+  width: 218px;
+  position: relative;
+  left: -35px;
 }
 
 .hero {
@@ -289,156 +293,6 @@ input {
   max-width: 380px;
   height: 38px;
 }
-
-/*.mini {
-  //margin: 64px 0;
-
-  h1 {
-    text-transform: none; // Override all caps
-    color: $indigo_blue;
-    font-weight: 800;
-  }
-
-  .mini-header {
-    display: none; // set visible in 'featured' class
-
-    h1 {
-      font-size: 36px;
-      $fancy_stroke_width: 87px;
-
-      display: flex;
-      align-items: center;
-      margin-left: -$fancy_stroke_width;
-      //right: $fancy_stroke_width; // offset by width of fancy stroke
-
-      &:before {
-        content: '';
-        display: block;
-        position: relative;
-        background: $mid_blue;
-        width: $fancy_stroke_width;
-        height: 17px;
-        border-radius: 10px;
-        right: 27px;
-      }
-    }
-  }
-
-  .mini-content {
-    width: 100%;
-    margin: 0;
-    padding: 60px 90px !important;
-
-    .mini-container {
-      display: flex;
-      justify-content: center;
-    }
-
-    .button {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      padding: 0.5em 0;
-      background: $mid_blue;
-      border-radius: 8px;
-      color: $white;
-      font-weight: 700;
-      text-decoration: none;
-    }
-  }
-
-  &.talk .title:before {
-    content: 'Featured Talk: ';
-  }
-  &.showcase .title:before {
-    content: 'Featured Showcase: ';
-  }
-
-  .date {
-    color: $mid_blue;
-    font-size: 1.2em;
-    font-weight: 400;
-  }
-
-  .label {
-    padding-top: 1em;
-    font-weight: 900;
-  }
-
-  .title {
-    color: $coral-red;
-    font-weight: bold;
-
-    &:before {
-      color: $indigo_blue;
-      font-weight: bold;
-      display: block;
-      cursor: default;
-    }
-  }
-
-  &.event .event-image {
-    display: flex;
-    // flex-direction: row;
-    justify-content: center;
-    margin: auto;
-    width: 80%;
-  }
-
-  &.featured {
-    background: #EEEEEE linear-gradient(30deg, #E2E4E6 0%, #E2E4E6 33%, transparent 33%);
-
-    .mini-content {
-      padding: 5%;
-    }
-
-    .mini-header {
-      display: block; // override default none (hidden)
-    }
-
-    .header-left,
-    .header-right {
-      padding-left: 0;
-    }
-
-    .header-left:before,
-    .header-right:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      height: 6px;
-      // width: 92.5%;
-    }
-
-    .header-left:before {
-      // margin-left: 7.5%;
-      border-bottom-left-radius: 4px;
-      background: $mid_blue;
-    }
-
-    .header-right:before {
-      // margin-right: 7.5%;
-      border-bottom-right-radius: 4px;
-      background: $bright_yellow;
-    }
-
-    .title {
-      color: $indigo-blue;
-      font-weight: 400;
-    }
-
-    .list-link {
-      margin-top: 1em;
-
-      a {
-        color: $indigo_blue;
-        font-weight: bold;
-        text-decoration: underline;
-      }
-    }
-
-  }
-}*/
 
 .mini_label {
   font-size: 18px;
