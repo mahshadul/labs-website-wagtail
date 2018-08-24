@@ -17,8 +17,10 @@ class ProjectList(Page):
 class ProjectPage(BasePageWithHero, BasePageWithBody):
 
     subtitle = models.CharField(max_length=200, blank=True)
+    author = models.CharField(max_length=200, blank=True)
     exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
     date = models.DateField()
+
     graphic = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -29,6 +31,7 @@ class ProjectPage(BasePageWithHero, BasePageWithBody):
     
     content_panels = BasePageWithHero.content_panels + [
         FieldPanel('subtitle'),
+        FieldPanel('author'),
         FieldPanel('exerpt'),
         FieldPanel('date'),
         ImageChooserPanel('graphic'),

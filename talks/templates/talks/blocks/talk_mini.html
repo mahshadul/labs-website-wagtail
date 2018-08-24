@@ -4,30 +4,31 @@
 {% block object-type %}talk{% endblock %}
 
 {% block mini-content %}
-    <div class="row mini_talk extra_top_padding">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-1"></div>
-                <div class="col-11">
-                    <h1>Featured Talks</h1>
-                </div>
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12">
+                <h1>Featured Talks</h1>
             </div>
-            <div class="row">
-                <div class="col-1"></div>
-                <div class="col-11 col-lg-5">
-                    <h2><a href="{{talk.url}}">{{ talk.title }}</a></h2>
-                    <div class="talk_date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ talk.date }}</div>
-                    <div class="talk_excerpt">{{ talk.exerpt|richtext }}</div>
-                    <a href="{{ talk.url }}" ><div class="talk_button">This Talk{{ talk.button_text }}</div></a>
-                    <h5 class="more_talks_link">
-                        <a href="{{ talk.get_parent.url }}">More Talks...</a>
-                    </h5>
-                </div>
-                <div class="col-1 d-lg-none"></div>
-                <div class="col-lg-6 col-11">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item talks_video" src="https://www.youtube.com/embed/{{talk.video_id}}"></iframe>
-                    </div>
+        </div>
+        <div class="row body_content">
+            <div class="col-12 col-lg-6">
+                <h2><a href="{{ talk.url }}">{{ talk.title }}</a></h2>
+                <div class="talk_date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ talk.date }}</div>
+                {% if talk.author %}
+                    <div class="mini_label" style="padding-top:30px;">Author: </div>
+                    <div>{{ talk.author }}</div>
+                {% endif %}
+                <div class="mini_label" style="padding-top:30px;">Talk Summary: </div>
+
+                <div class="talk_excerpt">{{ talk.exerpt|richtext }}</div>
+                <a href="{{ talk.url }}" ><div class="talk_button">Learn More</div></a>
+                <h5 class="more_talks_link">
+                    <a href="{{ talk.get_parent.url }}">More Talks...</a>
+                </h5>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item talks_video" src="https://www.youtube.com/embed/{{talk.video_id}}"></iframe>
                 </div>
             </div>
         </div>

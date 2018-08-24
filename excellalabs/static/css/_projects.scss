@@ -3,6 +3,8 @@
     background-color: $dark_blue;
     min-height: 722px;
     color: $white;
+    padding-right: 0px !important;
+
 
     h1 {
       text-transform: none; // Override all caps
@@ -26,7 +28,6 @@
     }
   
     .project-body {
-      margin-top: 30px;
       font-size: 18px;
     }
 
@@ -42,7 +43,7 @@
         max-width: 400px;
         min-height: 48px;
         background-color: $mid_blue;
-        font-size: 28px;
+        font-size: 21px;
         border-radius: 10px;
         display:flex;
         align-items: center;

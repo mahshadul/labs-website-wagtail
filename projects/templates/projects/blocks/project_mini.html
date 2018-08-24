@@ -5,26 +5,31 @@
 {% block object-type %}project{% endblock %}
 
 {% block mini-content %}
-<div class="row mini_project extra_top_padding">
-    <div class="col-1"></div>
-    <div class="col-lg-4 col-11" style="padding-top:60px;">
+    <div class="col-lg-5 col-12" style="padding-top:60px;">
         <h1>Showcase:</h1>
         <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
         {% if project.date %}
             <div class="project-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ project.date|date:"F d, Y" }}</div>
         {% endif %}
+        {% if project.author %}
+        <div style="padding-top:30px;">
+            <div class="mini_label">Author: </div>
+            <div>{{project.author}}</div>
+        </div>
+        {% endif %}
+        <div class="mini_label" style="padding-top:30px;">Project Summary: </div>
+
         <div class="project-body">
             {{ project.exerpt|richtext }}
         </div>
         
-        <a href="{{project.url}}"><div class="project_button">Register for React Native</div></a>
+        <a href="{{project.url}}"><div class="project_button">Learn More</div></a>
     </div>
     <div class="col-lg-7 d-none d-lg-block graphic_container">
         <div class="project_graphic">
             {% image project.graphic fill-778x651 style="border-radius:15px" %}
         </div>
     </div>
-</div>
 {% endblock %}
 
 {% block list-link %}

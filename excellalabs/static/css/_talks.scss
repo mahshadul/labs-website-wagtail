@@ -3,11 +3,16 @@
     background-color: $white;
     min-height: 680px;
     color: $indigo_blue;
+    
 
     a {
         text-decoration:none;
     }
     
+    .body_content {
+        color: $black;
+    }
+
     h1 {
         text-transform: none; // Override all caps
         font-size: 36px;
@@ -33,7 +38,6 @@
     .talk_excerpt {
         color: $black;
         font-size: 18px;
-        margin-top: 30px;
     }
 
     .talk_button {

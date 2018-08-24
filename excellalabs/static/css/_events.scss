@@ -3,6 +3,7 @@
     background-color: $grey;
     min-height: 680px;
     color: $indigo_blue;
+    
 
     a {
         text-decoration:none;
@@ -57,9 +58,6 @@
     .event_body {
         color: $black;
         font-size: 18px;
-        .event_label {
-            font-weight: $bold_weight;
-        }
     }
 
     .event_graphic {

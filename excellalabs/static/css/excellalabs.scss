@@ -32,9 +32,21 @@ article {
   }
 }
 
+.template-homepage {
+  article {
+    .banner {
+      padding-left: 130px;
+      padding-right: 130px;
+      padding-top: 80px;
+    }
+  }
+}
+
 .homepage_header {
   background-color: #FFFFFF;
   padding-bottom: 64px;
+  padding-right: 130px;
+  padding-left: 130px;
 }
 
 .homepage_subject {
@@ -274,7 +286,7 @@ input {
 
 .emailInput {
 
-  width: 380px;
+  max-width: 380px;
   height: 38px;
 }
 
@@ -428,6 +440,11 @@ input {
   }
 }*/
 
+.mini_label {
+  font-size: 18px;
+  font-weight: $bold_weight;
+}
+
 .list-item .mini {
   .title:before {
     content: none;
@@ -473,17 +490,6 @@ input {
     padding-bottom: 5px;
     border-bottom: 2px dashed $light_grey;
   }
-}
-
-.top_padding {
-  padding-top:60px;
-}
-.left_padding {
-  padding-left:30px;
-}
-
-.extra_top_padding {
-  padding-top:80px;
 }
 
 .space_below {
