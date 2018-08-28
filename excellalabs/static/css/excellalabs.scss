@@ -1,8 +1,9 @@
 @import 'colors';
 @import 'fonts';
-@import 'projects';
-@import 'events';
-@import 'talks';
+@import 'minis';
+//@import 'projects';
+//@import 'events';
+//@import 'talks';
 
 body {
   margin: 0;
@@ -28,63 +29,52 @@ article {
   background-color: $charcoal_grey;
   padding-left: 130px;
   padding-right: 130px;
-  padding-top: 50px;
+  padding-top: 80px;
 }
 
-.template-homepage {
-  article {
-    .banner {
-      padding-left: 130px;
-      padding-right: 130px;
-      padding-top: 80px;
-    }
-  }
-}
-
-.homepage_header {
+.homepage_hero {
   background-color: #FFFFFF;
+  color: $black;
+  font-family: $muli_regular;
   padding-bottom: 64px;
   padding-right: 130px;
   padding-left: 130px;
+  padding-top: 120px;
+  background-position: right;
+  background-repeat: no-repeat;
 }
 
 .homepage_subject {
-  font-family: $muli_regular, $open_sans, sans-serif;
-  color: $mid_blue;
-  font-size: 36px;
+  color: $indigo_blue;
+  font-size: 28px;
   font-weight: $light_weight;
 }
 
 .homepage_title {
-  font-family: $muli_regular, $open_sans, sans-serif;
   color: $dark_blue;
-  font-size: 36px;
-  font-weight: $black_weight;
+  font-size: 52px;
   margin-bottom: 30px;
+  color: $mid_blue;
 }
 
 .about_us_title {
-  font-size: 32px;
-  color: #35353E;
-  font-family: $muli_regular, $open_sans, sans-serif;
+  font-size: 21px;
+  color: $charcoal_grey;
   font-weight: $extra_bold_weight;
 }
 
 .about_us_copy {
-  font-size: 21px;
-  color: #35353E;
-  font-family: $muli_regular, $open_sans, sans-serif;
-  width: 70%;
+  font-size: 16px;
+  color: $charcoal_grey;
 }
 
 
-.yellow_line {
-  background-color: #FAD245;
+.red_line {
+  background-color: $coral_red;
   width: 120px;
   height: 4px;
   border-radius: 30px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: block;
 }
 
@@ -109,19 +99,6 @@ article {
   & a {
     color: $white !important;
   }
-}
-
-h1, h1 a {
-  font-size: 2.5rem;
-  margin-bottom: 1em;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-h2, h2 a  {
-  font-size: 2rem;
-  font-weight: bold;
-  color: $mid_blue;
 }
 
 h3, h3 a {
@@ -175,12 +152,6 @@ h5 a:hover, h5 a:focus {
 
 .section-link, .eventMoreLink {
   color: $mid_blue;
-}
-
-h2{
-  a:hover {
-    color: $bright_yellow;
-  }
 }
 
 h3, h4 {
@@ -344,8 +315,4 @@ input {
     padding-bottom: 5px;
     border-bottom: 2px dashed $light_grey;
   }
-}
-
-.space_below {
-  margin-bottom:60px;
 }
