@@ -11,6 +11,7 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core.blocks import RichTextBlock
 
 from .blocks import DetailBlock, FAIconLinkBlock
+from home.blocks import RowBlock
 import feedparser
 
 
@@ -33,9 +34,8 @@ class BasePageWithHero(Page):
 class BasePageWithBody(Page):
 
     body = StreamField([
-        ('paragraph', RichTextBlock()),
-        ('image', ImageChooserBlock()),
-    ])
+        ('row_block', RowBlock(min_num=1, max_num=2)),
+    ], blank=True)
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('body', classname='full'),
@@ -79,7 +79,8 @@ class HomePage(BasePageWithHero, BasePageWithRSS):
         ('event', PageChooserBlock(target_model="events.Event")),
         ('talk', PageChooserBlock(target_model="talks.Talk")),
         ('project', PageChooserBlock(target_model="projects.ProjectPage")),
-    ])
+    ],
+    blank=True)
 
     content_panels = BasePageWithHero.content_panels + BasePageWithRSS.content_panels + [
         MultiFieldPanel([

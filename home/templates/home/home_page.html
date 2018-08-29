@@ -6,51 +6,49 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block hero %}
-    {% if page.alternate_title or page.subject %}
-        <div class="homepage_hero container-fluid" style="background-image: url({% static 'img/lightbulb.png' %})">
-            {% if page.subject %}
-            <div class="row">
-                <div class="col-12">
-                    <div class="homepage_subject">{{ page.subject }}</div>
-                </div>
+    <div class="hero_banner container-fluid" style="background-image: url({% static 'img/lightbulb.png' %})">
+        {% if page.subject %}
+        <div class="row">
+            <div class="col-12">
+                <div class="hero_subject">{{ page.subject }}</div>
             </div>
-            {% endif %}
-            {% if page.alternate_title %}
-            <div class="row">
-                <div class="col-12">
-                    <div class="homepage_title">{{ page.alternate_title }}</div>
-                </div>
-            </div>
-            {% else %}
-            <div class="row">
-                <div class="col-12">
-                    <div class="homepage_title">{{ page.title }}</div>
-                </div>
-            </div>
-            {% endif %}
-            <div class="row">
-                <div class="col-12">
-                    <div class="red_line"></div>
-                </div>
-            </div>
-            {% if page.about_us_title %}
-            <div class="row">
-                <div class="col-12">
-                    <div class="about_us_title">{{ page.about_us_title }}</div>
-                </div>
-            </div>
-
-            {% endif %}
-            {% if page.about_us_text %}
-            <div class="row">
-                <div class="col-lg-9 col-12" >
-                    <div class="about_us_copy">{{ page.about_us_text|richtext }}</div>
-                </div>
-                <div class="col-lg-3 d-none d-lg-block"></div>
-            </div>
-            {% endif %}
         </div>
-    {% endif %}
+        {% endif %}
+        {% if page.alternate_title %}
+        <div class="row">
+            <div class="col-12">
+                <div class="hero_title">{{ page.alternate_title }}</div>
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-12">
+                <div class="hero_title">{{ page.title }}</div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-12">
+                <div class="red_line"></div>
+            </div>
+        </div>
+        {% if page.about_us_title %}
+        <div class="row">
+            <div class="col-12">
+                <div class="hero_copy_header">{{ page.about_us_title }}</div>
+            </div>
+        </div>
+
+        {% endif %}
+        {% if page.about_us_text %}
+        <div class="row">
+            <div class="col-lg-9 col-12" >
+                <div class="hero_copy">{{ page.about_us_text|richtext }}</div>
+            </div>
+            <div class="col-lg-3 d-none d-lg-block"></div>
+        </div>
+        {% endif %}
+    </div>
 {% endblock %}
 
 {% block content %}
@@ -70,7 +68,6 @@
         {% endif %}
     {% endfor %}
 
-    <div class="banner">
-        {% include 'home/modules/rss_feed.html' with posts=posts %}
-    </div>
+    {% include 'home/modules/rss_feed.html' with posts=posts %}
+    
 {% endblock %}

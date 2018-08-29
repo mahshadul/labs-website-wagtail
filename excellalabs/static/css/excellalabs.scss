@@ -1,9 +1,7 @@
 @import 'colors';
 @import 'fonts';
 @import 'minis';
-//@import 'projects';
-//@import 'events';
-//@import 'talks';
+@import 'detail_pages';
 
 body {
   margin: 0;
@@ -32,7 +30,7 @@ article {
   padding-top: 80px;
 }
 
-.homepage_hero {
+.hero_banner {
   background-color: #FFFFFF;
   color: $black;
   font-family: $muli_regular;
@@ -44,30 +42,59 @@ article {
   background-repeat: no-repeat;
 }
 
-.homepage_subject {
+.hero_banner_with_graphic {
+  background-color: #FFFFFF;
+  color: $black;
+  font-family: $muli_regular;
+}
+
+.hero_subject {
   color: $indigo_blue;
   font-size: 28px;
   font-weight: $light_weight;
 }
 
-.homepage_title {
+.hero_title {
   color: $dark_blue;
   font-size: 52px;
   margin-bottom: 30px;
   color: $mid_blue;
 }
 
-.about_us_title {
+.hero_copy_header {
   font-size: 21px;
   color: $charcoal_grey;
   font-weight: $extra_bold_weight;
 }
 
-.about_us_copy {
+.hero_copy {
   font-size: 16px;
   color: $charcoal_grey;
 }
 
+.hero_graphic {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.rss_feed {
+  padding-right: 130px;
+  padding-left: 130px;
+  padding-bottom: 64px;
+}
+
+.graphic_column {
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+}
+
+.column_with_padding {
+  padding-left: 130px !important;
+  padding-bottom: 64px !important;
+  padding-top: 120px !important; 
+  padding-right: 30px !important;
+}
 
 .red_line {
   background-color: $coral_red;
@@ -224,7 +251,6 @@ input {
 .footer {
   background-color: #353535;
   padding: 4em 0;
-  margin-top: 75px;
   color: #fff;
   padding-left: 130px;
   padding-right: 130px;

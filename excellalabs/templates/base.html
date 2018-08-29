@@ -39,7 +39,7 @@
 
             {% block hero %}{% endblock %}
 
-            <div class="container-fluid">
+            <div class="container-fluid {% block content_class %}{% endblock %}">
                 {% block content %}{% endblock %}
             </div> 
 

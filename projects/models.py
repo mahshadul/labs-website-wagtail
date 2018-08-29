@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page
 from wagtail.core.blocks import RichTextBlock
@@ -16,10 +16,17 @@ class ProjectList(Page):
 
 class ProjectPage(BasePageWithHero, BasePageWithBody):
 
-    subtitle = models.CharField(max_length=200, blank=True)
-    author = models.CharField(max_length=200, blank=True)
-    exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
-    date = models.DateField()
+    summary = RichTextField(blank=True)
+
+    excerpt_header = models.CharField(max_length=200, blank=True)
+    excerpt = RichTextField(help_text="Summary for list view, not displayed in detail view", null=True)
+    excerpt_graphic = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
 
     graphic = models.ForeignKey(
         'wagtailimages.Image',
@@ -30,11 +37,17 @@ class ProjectPage(BasePageWithHero, BasePageWithBody):
     )
     
     content_panels = BasePageWithHero.content_panels + [
-        FieldPanel('subtitle'),
-        FieldPanel('author'),
-        FieldPanel('exerpt'),
-        FieldPanel('date'),
+        FieldPanel('summary'),
+        MultiFieldPanel(
+            [
+                FieldPanel('excerpt_header'),
+                FieldPanel('excerpt'),
+                ImageChooserPanel('excerpt_graphic'),
+            ],
+            heading="Excerpt to display at top of page",
+            classname="collapsible",
+        ),
         ImageChooserPanel('graphic'),
-    ]
+    ] + BasePageWithBody.content_panels 
 
     parent_page_types = ['projects.ProjectList']
