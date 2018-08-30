@@ -1,16 +1,31 @@
 {% extends 'home/base_page_with_hero.html' %}
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-talk{% endblock %}
 
 {% block content %}
-    <h2>
-      {{ page.title }}
-    </h2>
-    <h5>
-      Author: {{ page.author }}
-    </h5>
-    <body>
-      {{ page.exerpt | richtext }}
-    </body>
+
+    {% if page.excerpt %}
+    <div class="row detail_page_excerpt">
+        {% if page.excerpt_graphic %}
+        <div class="col-md-6 col-12">
+            {% image page.excerpt_graphic original class="detail_page_graphic" %}
+        </div>
+        {% endif %}
+        <div class="{% if page.excerpt_graphic %}col-md-6{% endif %} col-12">
+            {% if page.excerpt_header %}<h2>{{ page.excerpt_header }}</h2>{% endif %}
+            {{ page.excerpt|richtext }}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if page.body %}
+        <div class="detail_page_content">
+            {% for block in page.body %}
+                {% include_block block %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    
 {% endblock %}
