@@ -28,21 +28,14 @@ class PullQuoteBlock(blocks.BlockQuoteBlock):
     class Meta:
         template='projects/blocks/pull_quote_block.html'
 
-
-class ImageBlock(ImageChooserBlock):
+class GalleryBlock(blocks.ListBlock):
     class Meta:
-        template='projects/blocks/image_block.html'
+        template='projects/blocks/gallery_block.html'
+        icon='image'
 
-class ParagraphBlock(blocks.RichTextBlock):
+class ParagraphBlock(blocks.StructBlock):
+    text= blocks.RichTextBlock()
+    image = ImageChooserBlock(required=False)
     class Meta:
         template='projects/blocks/paragraph_block.html'
-
-class RowBlock(blocks.StreamBlock):
-
-    paragraph_block = ParagraphBlock()
-    image_block = ImageBlock()
-    pull_quote_block = PullQuoteBlock()
-
-    class Meta:
-        template='projects/blocks/row_block.html'
-        icon='list-ul'
+        icon='pilcrow'

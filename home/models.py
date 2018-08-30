@@ -9,9 +9,10 @@ from wagtail.contrib.settings.registry import SettingMenuItem
 from wagtail.core import hooks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core.blocks import RichTextBlock
+from wagtail.core.blocks import ListBlock
 
 from .blocks import DetailBlock, FAIconLinkBlock
-from home.blocks import RowBlock
+from home.blocks import GalleryBlock, ParagraphBlock, PullQuoteBlock
 import feedparser
 
 
@@ -34,7 +35,9 @@ class BasePageWithHero(Page):
 class BasePageWithBody(Page):
 
     body = StreamField([
-        ('row_block', RowBlock(min_num=1, max_num=2)),
+        ('paragraph_block', ParagraphBlock()),
+        ('pull_quote_block', PullQuoteBlock()),
+        ('gallery_block', GalleryBlock(ImageChooserBlock()))
     ], blank=True)
 
     content_panels = Page.content_panels + [

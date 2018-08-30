@@ -16,11 +16,14 @@
         color: $indigo_blue;
         font-weight: $light_weight;
     }
+
+    p {
+        line-height: 1.7em;
+    }
 }
 
-.detail_page_column {
-    padding-top: 15px;
-    padding-bottom: 15px;
+.detail_page_paragraph {
+    padding-right: 45px;
 }
 
 .detail_page_pull_quote {
@@ -44,9 +47,14 @@
     width: auto;
 }
 
+.detail_page_gallery_item {
+    padding-top: 30px;
+    padding-right:30px;
+}
+
 .detail_page_excerpt {
     font-family: $muli_regular;
-    background-color: $light_grey;
+    background-color: $grey;
     padding-left: 130px;
     padding-right: 130px;
     padding-top: 80px;
@@ -62,4 +70,8 @@
     padding-top: 120px;
     padding-right: 130px;
     padding-left: 130px;
+}
+
+.row_space_above {
+    padding-top: 60px;
 }

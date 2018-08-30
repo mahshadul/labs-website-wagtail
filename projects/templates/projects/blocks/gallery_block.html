@@ -1,0 +1,24 @@
+{% load wagtailimages_tags %}
+
+{% for img in value %}
+    {% if forloop.counter0|divisibleby:2 %}
+    <div class="row{% if forloop.first %} row_space_above{% endif %}">
+        {% if forloop.last %}
+        <div class="col-12 d-flex justify-content-center">
+        {% else %}
+        <div class="col-6">
+        {% endif %}
+            {% image img original class="detail_page_graphic detail_page_gallery_item" %}
+        </div>
+
+        {% if forloop.last %}
+    </div>
+        {% endif %}
+
+    {% else %}
+        <div class="col-6">
+        {% image img original class="detail_page_graphic detail_page_gallery_item" %}
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
