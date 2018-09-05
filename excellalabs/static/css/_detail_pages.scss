@@ -82,6 +82,15 @@
     padding-left: 130px;
 }
 
+.gallery_item {
+    background-size: cover;
+    background-position: center;
+    height: 267px;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+}
+
 .row_space_below {
     padding-bottom: 180px;
 }
