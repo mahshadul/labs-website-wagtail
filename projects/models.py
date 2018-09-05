@@ -8,19 +8,18 @@ from wagtail.core.blocks import RichTextBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.images.edit_handlers import ImageChooserPanel
 
-from home.models import BasePageWithHero, BasePageWithBody
+from home.models import BasePageWithHero
+from home.blocks import ParagraphBlock, PullQuoteBlock, GalleryBlock, ContentHighlightBlock
 
 
 class ProjectList(Page):
     subpage_types = ['projects.ProjectPage']
 
-class ProjectPage(BasePageWithHero, BasePageWithBody):
+class ProjectPage(BasePageWithHero):
 
     summary = RichTextField(blank=True)
 
-    excerpt_header = models.CharField(max_length=200, blank=True)
-    excerpt = RichTextField(help_text="Summary for list view, not displayed in detail view", null=True)
-    excerpt_graphic = models.ForeignKey(
+    featured_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
@@ -28,26 +27,17 @@ class ProjectPage(BasePageWithHero, BasePageWithBody):
         related_name='+',
     )
 
-    graphic = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
-    )
-    
+    body = StreamField([
+        ('paragraph_block', ParagraphBlock()),
+        ('pull_quote_block', PullQuoteBlock()),
+        ('gallery_block', GalleryBlock(ImageChooserBlock())),
+        ('content_highlight_block', ContentHighlightBlock()),
+    ], blank=True)
+
     content_panels = BasePageWithHero.content_panels + [
         FieldPanel('summary'),
-        MultiFieldPanel(
-            [
-                FieldPanel('excerpt_header'),
-                FieldPanel('excerpt'),
-                ImageChooserPanel('excerpt_graphic'),
-            ],
-            heading="Excerpt to display at top of page",
-            classname="collapsible",
-        ),
-        ImageChooserPanel('graphic'),
-    ] + BasePageWithBody.content_panels 
+        ImageChooserPanel('featured_image'),
+        StreamFieldPanel('body', classname='full'),
+    ]
 
     parent_page_types = ['projects.ProjectList']

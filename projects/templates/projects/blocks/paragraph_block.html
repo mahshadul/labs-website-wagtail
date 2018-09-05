@@ -1,13 +1,13 @@
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 
-<div class="row row_space_above">
+<div class="row row_space_above detail_page_row{% if last %} row_space_below{% endif %}">
     <div class="detail_page_paragraph col-12 {% if value.image %}col-md-8{% endif %}">
         {{ value.text|richtext }}
     </div>
     {% if value.image %}
     <div class="col-12 col-md-4">
-        {% image value.image original class="detail_page_graphic" %}
+        {% image value.image original class="detail_page_highlight_graphic" %}
     </div>
     {% endif %}
 </div>

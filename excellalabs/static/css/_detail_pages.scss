@@ -42,6 +42,13 @@
 
 .detail_page_graphic {
     max-width: 100%;
+    max-height: 267px;
+    height: auto;
+    width: auto;
+}
+
+.detail_page_highlight_graphic {
+    max-width: 100%;
     max-height: 100%;
     height: auto;
     width: auto;
@@ -52,12 +59,10 @@
     margin-right:30px;
 }
 
-.detail_page_excerpt {
+.detail_page_highlight {
     font-family: $muli_regular;
     background-color: $grey;
-    padding-left: 130px;
-    padding-right: 130px;
-    padding-top: 80px;
+    padding-top: 80px !important;
     padding-bottom: 50px;
 
     h2 {
@@ -65,13 +70,18 @@
     }
 }
 
-.detail_page_content {
-    padding-bottom: 180px;
-    padding-top: 120px;
+.detail_page_row {
+    padding-top: 30px;
+    padding-bottom: 30px;
     padding-right: 130px;
     padding-left: 130px;
 }
 
-.row_space_above {
-    padding-top: 60px;
+.gallery_row {
+    padding-right: 130px;
+    padding-left: 130px;
+}
+
+.row_space_below {
+    padding-bottom: 180px;
 }

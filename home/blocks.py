@@ -39,3 +39,10 @@ class ParagraphBlock(blocks.StructBlock):
     class Meta:
         template='projects/blocks/paragraph_block.html'
         icon='pilcrow'
+
+class ContentHighlightBlock(blocks.StructBlock):
+    text= blocks.RichTextBlock()
+    image = ImageChooserBlock(required=False)
+    class Meta:
+        template='projects/blocks/content_highlight_block.html'
+        icon='tag'

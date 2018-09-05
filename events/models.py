@@ -6,12 +6,12 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiField
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
 
-from home.models import BasePageWithHero, BasePageWithBody
+from home.models import BasePageWithHero
 
 class EventList(Page):
     subpage_types = ['events.Event']
 
-class Event(BasePageWithHero, BasePageWithBody):
+class Event(BasePageWithHero):
     start_date = models.DateField("Event start date")
     end_date = models.DateField("Event end date", null=True)
 

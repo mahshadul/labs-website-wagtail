@@ -6,7 +6,7 @@
 {% block body_class %}base-page-with-hero{% endblock %}
 
 {% block hero %}
-        {% if page.graphic %}
+        {% if page.featured_image %}
 
             <div class="hero_banner_with_graphic container-fluid">
                 <div class="row">
@@ -36,17 +36,17 @@
                                 <div class="red_line"></div>
                             </div>
                         </div>
-                        {% if page.summary %}
+                        {% if page.description %}
                         <div class="row">
                             <div class="col-12" >
-                                <div class="hero_copy">{{ page.summary|richtext }}</div>
+                                <div class="hero_copy">{{ page.description|richtext }}</div>
                             </div>
                         </div>
                         {% endif %}
 
                     </div>
-                    <div class="col-lg-6 col-12 graphic_column">
-                        {% image page.graphic original class="hero_graphic" %}
+                    <div class="col-lg-6 col-12 hero_banner_graphic">
+                        {% image page.featured_image original class="hero_graphic" %}
                     </div>
                 </div>
             </div>

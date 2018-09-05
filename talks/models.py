@@ -5,13 +5,13 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page
 
-from home.models import BasePageWithHero, BasePageWithBody
+from home.models import BasePageWithHero
 
 class TalkList(Page):
     subpage_types = ['talks.Talk']
 
 
-class Talk(BasePageWithHero, BasePageWithBody):
+class Talk(BasePageWithHero):
     
     author = models.CharField(max_length=200)
     video_id = models.CharField(max_length=50)

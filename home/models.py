@@ -19,29 +19,16 @@ import feedparser
 class BasePageWithHero(Page):
     subject = models.CharField(blank=True, max_length=250)
     alternate_title = models.CharField(blank=True, max_length=250)
+    description = models.CharField(blank=True, max_length=500)
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
             FieldPanel('subject'),
-            FieldPanel('alternate_title')
+            FieldPanel('alternate_title'),
+            FieldPanel('description'),
         ],
         heading="Hero Banner Content",
         )
-    ]
-
-    class Meta:
-        abstract = True
-
-class BasePageWithBody(Page):
-
-    body = StreamField([
-        ('paragraph_block', ParagraphBlock()),
-        ('pull_quote_block', PullQuoteBlock()),
-        ('gallery_block', GalleryBlock(ImageChooserBlock()))
-    ], blank=True)
-
-    content_panels = Page.content_panels + [
-        StreamFieldPanel('body', classname='full'),
     ]
 
     class Meta:
@@ -71,7 +58,7 @@ class BasePageWithRSS(Page):
         abstract = True
 
 
-class HomePage(BasePageWithHero, BasePageWithRSS):
+class HomePage(BasePageWithHero):
     about_us_title = models.CharField(blank=True, max_length=250)
     about_us_text = RichTextField(blank=True)
 
@@ -85,7 +72,7 @@ class HomePage(BasePageWithHero, BasePageWithRSS):
     ],
     blank=True)
 
-    content_panels = BasePageWithHero.content_panels + BasePageWithRSS.content_panels + [
+    content_panels = BasePageWithHero.content_panels + [
         MultiFieldPanel([
             FieldPanel('about_us_title'),
             FieldPanel('about_us_text')

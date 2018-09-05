@@ -2,7 +2,7 @@
 
 {% for img in value %}
     {% if forloop.counter0|divisibleby:2 %}
-    <div class="row{% if forloop.first %} row_space_above{% endif %}">
+    <div class="row gallery_row{% if forloop.first %} row_space_above{% endif %}">
         {% if forloop.last %}
         <div class="col-12 d-flex justify-content-center">
         {% else %}
@@ -22,3 +22,7 @@
         </div>
     {% endif %}
 {% endfor %}
+
+{% if last %}
+    <div class="row row_space_below"></div>
+{% endif %}
