@@ -1,0 +1,134 @@
+@import 'colors';
+@import 'fonts';
+
+.banner {
+    font-family: $muli_regular;
+    padding-left: 130px;
+    padding-right: 130px;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    min-height: 680px;
+
+    h1 {
+        text-transform: none; // Override all caps
+        font-size: 36px;
+        font-weight: $light_weight;
+        color: $indigo_blue;
+    }
+
+    h2 {
+        font-size: 48px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+    }
+    
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .line {
+        width: 100%;
+        background-color: $grey;
+        display: block;
+    }
+
+
+    .mini_button {
+        text-decoration: none;
+        font-size: 14px;
+        border-radius: 5px;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: $extra_bold_weight;
+
+    }
+
+    .more_button {
+        @extend .mini_button;
+        color: $dark_blue;
+        background-color: $white;
+        border: 2px solid black;
+        width: 160px;
+        min-height: 42px;
+        font-size: 14px;
+    }
+
+    .learn_more_button {
+        @extend .mini_button;
+        color: $white;
+        margin-top: 30px;
+        max-width: 360px;
+        min-height: 48px;
+        background-color: $mid_blue;
+
+    }
+
+    .mini_graphic {
+        padding-top: 15px;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+
+    .mini_summary {
+        padding-top: 30px;
+        font-size: 16px;
+    }
+
+    .mini_author {
+        color: $charcoal_grey;
+        font-style: italic;
+    }
+
+    .mini_icon {
+        color: $indigo_blue;
+    }
+}
+
+.mini_project {
+    background-color: $dark_blue;
+    min-height: 722px !important;
+    color: $white;
+
+    h1 { 
+        color: $white !important;
+    }
+
+    h2 {
+        a {
+            color: $bright_yellow;
+        }
+    }
+}
+
+
+.mini_talk {
+    background-color: $white;
+    color: $charcoal_grey;
+
+    h2 {
+        a {
+            color: $mid_blue;
+        }
+
+        margin-bottom: 60px !important;
+    }
+}
+
+.mini_event {
+    background-color: $grey;
+    color: $charcoal_grey;
+
+    h2 {
+        a {
+            color: $mid_blue;
+        }
+    }
+
+    .space {
+        padding-right: 20px;
+    }
+}

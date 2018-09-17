@@ -1,36 +1,73 @@
 {% extends "home/base_page_with_hero.html" %}
 
 {% load wagtailcore_tags %}
+{% load static %}
 
 {% block body_class %}template-homepage{% endblock %}
 
-{% block content %}
-    <div class="detail row">
-        <div class="col-8">
-            <h3 class="detail-title">
-                <span>{{ page.about_us_title }}</span>
-            </h3>
-            <span class="detail-text">{{ page.about_us_text|richtext }}</span>
+{% block hero %}
+    <div class="hero_banner container-fluid" style="background-image: url({% static 'img/lightbulb.png' %})">
+        {% if page.subject %}
+        <div class="row">
+            <div class="col-12">
+                <div class="hero_subject">{{ page.subject }}</div>
+            </div>
         </div>
-    </div> 
+        {% endif %}
+        {% if page.alternate_title %}
+        <div class="row">
+            <div class="col-12">
+                <div class="hero_title">{{ page.alternate_title }}</div>
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-12">
+                <div class="hero_title">{{ page.title }}</div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-12">
+                <div class="red_line"></div>
+            </div>
+        </div>
+        {% if page.about_us_title %}
+        <div class="row">
+            <div class="col-12">
+                <div class="hero_copy_header">{{ page.about_us_title }}</div>
+            </div>
+        </div>
 
+        {% endif %}
+        {% if page.about_us_text %}
+        <div class="row">
+            <div class="col-lg-9 col-12" >
+                <div class="hero_copy">{{ page.about_us_text|richtext }}</div>
+            </div>
+            <div class="col-lg-3 d-none d-lg-block"></div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
 
+{% block content %}
     {% for block in page.featured %}
         {% if block.block_type == 'event_featured' %}
              {% include "events/blocks/event_featured.html" with event=block.value %}
         {% elif block.block_type == 'talk_featured' %}
              {% include "talks/blocks/talk_featured.html" with talk=block.value %}
-        {% elif block.block_type == 'showcase_featured' %}
-             {% include "showcase/blocks/showcase_featured.html" with showcase=block.value %}
+        {% elif block.block_type == 'project_featured' %}
+             {% include "projects/blocks/project_featured.html" with project=block.value %}
         {% elif block.block_type == 'event' %}
              {% include "events/blocks/event_mini.html" with event=block.value %}
         {% elif block.block_type == 'talk' %}
              {% include "talks/blocks/talk_mini.html" with talk=block.value %}
-        {% elif block.block_type == 'showcase' %}
-             {% include "showcase/blocks/showcase_mini.html" with showcase=block.value %}
+        {% elif block.block_type == 'project' %}
+             {% include "projects/blocks/project_mini.html" with project=block.value %}
         {% endif %}
     {% endfor %}
 
     {% include 'home/modules/rss_feed.html' with posts=posts %}
-
+    
 {% endblock %}

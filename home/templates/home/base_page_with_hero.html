@@ -1,26 +1,94 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
 {% block body_class %}base-page-with-hero{% endblock %}
 
 {% block hero %}
-    {% if page.alternate_title or page.subject %}
-        <div class="hero">
-            <div class="col-6 offset-3">
-                <div class="row justify-content-start">
-                    <span class="hero-subject">{{ page.subject }}</span>
-                </div>
-                <div class="row justify-content-start">
-                {% if page.alternate_title %}
-                    <span class="hero-title">{{ page.alternate_title }}</span>
-                {% else %}
-                    <span class="hero-title">{{ page.title }}</span>
-                {% endif %}
-                </div>
-                <div class="row justify-content-start">
-                    <span class="hero-byline">{{ page.subtitle }}</span>
+        {% if page.featured_image %}
+
+            <div class="hero_banner_with_graphic container-fluid">
+                <div class="row">
+                    <div class="col-12 col-lg-6 column_with_padding">
+                        {% if page.subject %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="hero_subject">{{ page.subject }}</div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if page.alternate_title %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="hero_title">{{ page.alternate_title }}</div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="hero_title">{{ page.title }}</div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="red_line"></div>
+                            </div>
+                        </div>
+                        {% if page.description %}
+                        <div class="row">
+                            <div class="col-12" >
+                                <div class="hero_copy">{{ page.description|richtext }}</div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                    <div class="col-lg-6 col-12 hero_banner_graphic">
+                        {% image page.featured_image original class="hero_graphic" %}
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endif %}
+
+        {% else %}
+
+            <div class="hero_banner container-fluid">
+                {% if page.subject %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="hero_subject">{{ page.subject }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if page.alternate_title %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="hero_title">{{ page.alternate_title }}</div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="hero_title">{{ page.title }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="red_line"></div>
+                    </div>
+                </div>
+                {% if page.summary %}
+                <div class="row">
+                    <div class="col-lg-9 col-12" >
+                        <div class="hero_copy">{{ page.summary|richtext }}</div>
+                    </div>
+                    <div class="col-lg-3 d-none d-lg-block"></div>
+                </div>
+                {% endif %}
+            </div>
+
+        {% endif %}
 {% endblock %}
 

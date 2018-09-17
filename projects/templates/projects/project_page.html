@@ -1,6 +1,15 @@
 {% extends 'home/base_page_with_hero.html' %}
 {% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block content_class %}detail_page_body{% endblock %}
 
 {% block content %}
-    {{ page.body }}
+
+    {% if page.body %}
+        {% for block in page.body %}
+            {% include_block block with last=forloop.last %}
+        {% endfor %}
+    {% endif %}
+    
 {% endblock %}

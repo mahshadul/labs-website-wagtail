@@ -5,28 +5,37 @@
 {% block object-type %}event{% endblock %}
 
 {% block mini-content %}
-    <div class="col-12 mini-header">
-      <h1>Featured Events</h1>
+<div class="col-12">
+  <div class="row">
+    <div class="col-md-6 col-12">
+      <h1>Featured Event:</h1>
     </div>
-    <div class="mini-container">
-      <div class="col-6">
-        <div class="event-image">
-          {% image event.event_image fill-435x300 %}
+    <div class="col-md-6 col-12">
+        <a class="float-md-right" href="{{ event.get_parent.url }}"><div class="more_button">More Events</div></a>
+    </div>
+    <div class="col-12">
+        <hr class="line">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+        <h2><a href="{{ event.url }}">{{ event.title }}</a></h2>
+        <div>
+          <i class="fa fa-calendar mini_icon" aria-hidden="true"></i><span class="space"></span>
+          {{ event.start_date|date:"F d"  }}{% if event.end_date %} - {{ event.end_date|date:"F d"  }}{% endif %}<span class="space"></span>|<span class="space"></span>{{ event.location }}
         </div>
-        <h5 class="list-link">
-          <a href="{% slugurl 'events' %}">More events...</a>
-        </h5>
-      </div>
-      <div class="col-6">
-        <h4><a class="title" href="{{event.url}}"><span>{{event.title}}</span></a></h4>
-        <div class="date"><i class="fa fa-calendar" aria-hidden="true"></i> {{event.date}}</div>
-        <div class="label">Where: </div>
-        <div class="location">{{event.location}}</div>
-        <div class="label">Event Summary: </div>
-        <div class="summary">
+    </div>
+    <div class="col-lg-5 col-12 event_body">
+      <div>
+        <div class="mini_summary">
           {{event.exerpt|richtext}}
         </div>
-        <a class="button" href="{{event.url}}"><span>Learn more</span></a>
+        <a href="{{ event.url }}"><div class="learn_more_button">Learn more</div></a>
       </div>
     </div>
+    <div class="col-lg-7 col-12">
+          {% image event.event_image original class="mini_graphic" %}
+      </div>
+  </div>
+</div>
 {% endblock %}

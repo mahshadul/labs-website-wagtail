@@ -1,27 +1,25 @@
 {% load static %}
 
-<div class="header">
-    <div class="container">
-        <nav class="navbar navbar-expand-md navbar-dark">
-            <a href="/" class="navbar-brand">
-                <img src='{% static "img/Excella_labs_red_white.png" %}' class="excella-labs-logo"/>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-nav ml-auto">
-                    {% for nav_page in settings.home.NavLinks.links %}
-                        <div class="nav-item nav-link">
-                        {% if nav_page.block_type == 'icons' %}
-                          {{ nav_page }}
-                        {% else %}
-                          <a href="{{ nav_page.value.url }}">{{ nav_page.value.title }}</a>
-                        {% endif %}
-                        </div>
-                    {% endfor %}
-                </div>
+<div class="header container-fluid">
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <a href="/" class="navbar-brand">
+            <img src='{% static "img/excella_labs_logo_white.png" %}' class="excella-labs-logo"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav ml-auto">
+                {% for nav_page in settings.home.NavLinks.links %}
+                    <div class="nav-item nav-link">
+                    {% if nav_page.block_type == 'icons' %}
+                        {{ nav_page }}
+                    {% else %}
+                        <a href="{{ nav_page.value.url }}">{{ nav_page.value.title }}</a>
+                    {% endif %}
+                    </div>
+                {% endfor %}
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 </div>

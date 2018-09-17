@@ -1,18 +1,35 @@
 {% extends 'mini_base.html' %}
 {% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 
 {% block object-type %}project{% endblock %}
 
 {% block mini-content %}
     <div class="col-12">
-        <h4><a class="title" href="{{ project.url }}">{{ project.title }}</a></h4>
-        <h5 class="subtitle"><i>{{ project.subtitle }}</i></h5>
-        <div class="exerpt">
-            {{ project.exerpt|richtext }}
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <h1>Showcase:</h1>
+            </div>
+            <div class="col-md-6 col-12">
+                <a class="float-md-right" href="{{ project.get_parent.url }}"><div class="more_button">More Projects</div></a>
+            </div>
+            <div class="col-12">
+                <hr class="line">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 col-12">
+                <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
+
+                <div class="project-body">
+                    {{ project.summary|richtext }}
+                </div>
+                
+                <a href="{{project.url}}"><div class="learn_more_button">Learn More</div></a>
+            </div>
+            <div class="col-lg-7 col-12">
+                    {% image project.featured_image original class="mini_graphic" %}
+            </div>
         </div>
     </div>
-{% endblock %}
-
-{% block list-link %}
-      <a href="{% slugurl 'projects' %}"><i class="fas fa-film film-icon"></i> View all projects here</a>
 {% endblock %}

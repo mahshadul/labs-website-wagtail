@@ -6,13 +6,15 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiField
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
 
-from home.models import BasePageWithHero, BasePageWithBody
+from home.models import BasePageWithHero
 
 class EventList(Page):
     subpage_types = ['events.Event']
 
-class Event(BasePageWithHero, BasePageWithBody):
-    date = models.DateField("Event date")
+class Event(BasePageWithHero):
+    start_date = models.DateField("Event start date")
+    end_date = models.DateField("Event end date", null=True)
+
     location = models.CharField(max_length=100)
     exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
     event_image = models.ForeignKey(
@@ -25,11 +27,12 @@ class Event(BasePageWithHero, BasePageWithBody):
 
     def get_context(self, request):
         context = super(Event, self).get_context(request)
-        context['subtitle'] = '{}, {}'.format(self.location, self.date.strftime('%b %d, %Y'))
+        context['subtitle'] = '{}, {}'.format(self.location, self.start_date.strftime('%b %d, %Y'))
         return context
 
     content_panels = BasePageWithHero.content_panels + [
-        FieldPanel('date', classname='full'),
+        FieldPanel('start_date', classname='full'),
+        FieldPanel('end_date', classname='full'),
         FieldPanel('location', classname='full'),
         FieldPanel('exerpt'),
         ImageChooserPanel('event_image'),

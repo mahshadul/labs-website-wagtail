@@ -9,36 +9,26 @@ from wagtail.contrib.settings.registry import SettingMenuItem
 from wagtail.core import hooks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core.blocks import RichTextBlock
+from wagtail.core.blocks import ListBlock
 
 from .blocks import DetailBlock, FAIconLinkBlock
+from home.blocks import GalleryBlock, ParagraphBlock, PullQuoteBlock
 import feedparser
 
 
 class BasePageWithHero(Page):
     subject = models.CharField(blank=True, max_length=250)
     alternate_title = models.CharField(blank=True, max_length=250)
+    description = models.CharField(blank=True, max_length=500)
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
             FieldPanel('subject'),
-            FieldPanel('alternate_title')
+            FieldPanel('alternate_title'),
+            FieldPanel('description'),
         ],
         heading="Hero Banner Content",
         )
-    ]
-
-    class Meta:
-        abstract = True
-
-class BasePageWithBody(Page):
-
-    body = StreamField([
-        ('paragraph', RichTextBlock()),
-        ('image', ImageChooserBlock()),
-    ])
-
-    content_panels = Page.content_panels + [
-        StreamFieldPanel('body', classname='full'),
     ]
 
     class Meta:
@@ -68,7 +58,7 @@ class BasePageWithRSS(Page):
         abstract = True
 
 
-class HomePage(BasePageWithHero, BasePageWithRSS):
+class HomePage(BasePageWithHero):
     about_us_title = models.CharField(blank=True, max_length=250)
     about_us_text = RichTextField(blank=True)
 
@@ -79,9 +69,10 @@ class HomePage(BasePageWithHero, BasePageWithRSS):
         ('event', PageChooserBlock(target_model="events.Event")),
         ('talk', PageChooserBlock(target_model="talks.Talk")),
         ('project', PageChooserBlock(target_model="projects.ProjectPage")),
-    ])
+    ],
+    blank=True)
 
-    content_panels = BasePageWithHero.content_panels + BasePageWithRSS.content_panels + [
+    content_panels = BasePageWithHero.content_panels + [
         MultiFieldPanel([
             FieldPanel('about_us_title'),
             FieldPanel('about_us_text')

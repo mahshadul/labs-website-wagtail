@@ -1,0 +1,27 @@
+{% load wagtailimages_tags %}
+
+{% for img in value %}
+    {% image img original as background %}
+    {% if forloop.counter0|divisibleby:2 %}
+    <div class="row gallery_row{% if forloop.first %} row_space_above{% endif %}">
+        {% if forloop.last %}
+        <div class="col-12 d-flex justify-content-center gallery_item" style="background-image:url({{ background.url }})">
+        {% else %}
+        <div class="col-12 col-lg-6 gallery_item" style="background-image:url({{ background.url }})">
+        {% endif %}
+        </div>
+
+        {% if forloop.last %}
+    </div>
+        {% endif %}
+
+    {% else %}
+        <div class="col-12 col-lg-6 gallery_item" style="background-image:url({{ background.url }})">
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+{% if last %}
+    <div class="row row_space_below"></div>
+{% endif %}

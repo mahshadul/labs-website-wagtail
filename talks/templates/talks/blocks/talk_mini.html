@@ -4,18 +4,37 @@
 {% block object-type %}talk{% endblock %}
 
 {% block mini-content %}
-    <div class="col-6">
-        <h4><a class="title" href="{{talk.url}}">{{ talk.title }}</a></h4>
-        <h5 class="author"><i>By {{ talk.author }}</i></h5>
-        <p class="exerpt">{{ talk.exerpt|richtext }}</p>
-    </div>
-    <div class="col-6">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{talk.video_id}}"></iframe>
+    <div class="col-12">
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <h1>Featured Talk:</h1>
+            </div>
+            <div class="col-md-6 col-12">
+                    <a class="float-md-right" href="{{ project.get_parent.url }}"><div class="more_button">More Talks</div></a>
+                </div>
+            <div class="col-12">
+                <hr class="line">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h2>
+                    <a href="{{ talk.url }}">{{ talk.title }}
+                    {% if talk.author %}<span class="mini_author"> by {{ talk.author }}</span>{% endif %}
+                    </a>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-7 col-12">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item mini_talks_video" src="https://www.youtube.com/embed/{{talk.video_id}}"></iframe>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5">
+                <div>{{ talk.exerpt|richtext }}</div>
+                <a href="{{ talk.url }}" ><div class="learn_more_button">Learn More</div></a>
+            </div>
         </div>
     </div>
-{% endblock %}
-
-{% block list-link %}
-      <a href="{% slugurl 'talks' %}"><i class="fas fa-film film-icon"></i> Watch all talks here</a>
 {% endblock %}
