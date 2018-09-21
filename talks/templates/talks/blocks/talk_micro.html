@@ -1,0 +1,16 @@
+{% load wagtailcore_tags %}
+
+
+<div class="row micro_banner">
+    <div class="col-12 col-lg-6">
+        <h2>
+            <a href="{{ talk.url }}">{{ talk.title }}
+            {% if talk.author %}<span class="mini_author"> by {{ talk.author }}</span>{% endif %}
+            </a>
+        </h2>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div>{{ talk.exerpt|richtext }}</div>
+        <a href="{{ talk.url }}" ><div class="learn_more_button">Learn More</div></a>
+    </div>
+</div>

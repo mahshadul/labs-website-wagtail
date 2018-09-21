@@ -1,24 +1,22 @@
 {% extends 'home/base_page_with_hero.html' %}
-
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 
-{% block body_class %}template-event{% endblock %}
+{% block content_class %}detail_page_body{% endblock %}
 
 {% block content %}
-    <div class="col-sm">
-        <h3><i>{{page.location}} - {{page.start_date}}</i></h3>
-        {% if page.event_image %}
-        <div>
-          {% image page.event_image max-1000x300 %}
-        </div>
-		{% endif %}
-        <div>
-            {{page.body}}
-        </div>
-		{% if page.keynotes %}
-		  <h3>Keynotes</h3>
-          <div class="card card-block bg-light"> {{page.keynotes|richtext}} </div>
-		{% endif %}
-    </div>
+
+    {% if page.body %}
+        {% for block in page.body %}
+            {% include_block block with last=forloop.last %}
+        {% endfor %}
+    {% endif %}
+
+    {% if page.event_talks %}
+        {% for related_talk in page.event_talks.all %}
+            {% include "talks/blocks/talk_micro.html" with talk=related_talk.talk %}
+        {% endfor %}
+    {% endif %}
+    
 {% endblock %}
+

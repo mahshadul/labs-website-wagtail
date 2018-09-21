@@ -1,10 +1,12 @@
 from django.db import models
-from wagtail.core.models import Page
+from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core import blocks
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.core import blocks
+from modelcluster.fields import ParentalKey
 
 from home.models import BasePageWithHero
 
@@ -25,6 +27,7 @@ class Event(BasePageWithHero):
         related_name='+'
     )
 
+
     def get_context(self, request):
         context = super(Event, self).get_context(request)
         context['subtitle'] = '{}, {}'.format(self.location, self.start_date.strftime('%b %d, %Y'))
@@ -36,6 +39,15 @@ class Event(BasePageWithHero):
         FieldPanel('location', classname='full'),
         FieldPanel('exerpt'),
         ImageChooserPanel('event_image'),
+        InlinePanel('event_talks', label="Event Featured Talks"),
     ]
 
     parent_page_types = ['events.EventList']
+
+class EventFeaturedTalk(Orderable, models.Model):
+    talk = models.ForeignKey('talks.Talk', related_name='+', on_delete=models.CASCADE)
+    event = ParentalKey('events.Event', related_name='event_talks')
+
+    panels = [
+        FieldPanel('talk')
+    ]
