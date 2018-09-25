@@ -117,10 +117,15 @@
 }
 
 .micro_banner {
-    padding-left: 130px;
-    padding-right: 130px;
-    padding-top: 80px;
-    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    min-height: 80px;
+
+    h2 {
+        margin-bottom: 20px;
+    }
 }
 
 //xs and up
@@ -185,6 +190,17 @@
             font-size: 48px;
             margin-top: 30px;
             margin-bottom: 30px;
+        }
+    }
+    
+    .micro_banner {
+        padding-left: 130px;
+        padding-right: 130px;
+        padding-top: 80px;
+        padding-bottom: 50px;
+        
+        h2 { 
+            margin-bottom: 0px;
         }
     }
 
