@@ -11,7 +11,18 @@
             {% include_block block with last=forloop.last %}
         {% endfor %}
     {% endif %}
-
+    <div class="banner">
+        <div class="row">
+            <div class="col-12">
+                {{ page.start_date|date:"F d"  }}{% if page.end_date %} - {{ page.end_date|date:"F d"  }}{% endif %}<span class="space"></span>|<span class="space"></span>{{ page.location }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{ page.exerpt|richtext }}
+            </div>
+        </div>
+    </div>
     {% if page.event_talks %}
         {% for related_talk in page.event_talks.all %}
             {% include "talks/blocks/talk_micro.html" with talk=related_talk.talk %}

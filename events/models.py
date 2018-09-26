@@ -19,7 +19,7 @@ class Event(BasePageWithHero):
 
     location = models.CharField(max_length=100)
     exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
-    event_image = models.ForeignKey(
+    featured_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
@@ -38,7 +38,7 @@ class Event(BasePageWithHero):
         FieldPanel('end_date', classname='full'),
         FieldPanel('location', classname='full'),
         FieldPanel('exerpt'),
-        ImageChooserPanel('event_image'),
+        ImageChooserPanel('featured_image'),
         InlinePanel('event_talks', label="Event Featured Talks"),
     ]
 
