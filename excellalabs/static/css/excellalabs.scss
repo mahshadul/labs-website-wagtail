@@ -101,12 +101,26 @@ article {
   padding-left: 30px !important;
 }
 
+.column_with_right_padding {
+  padding-bottom: 36px !important;
+  padding-right: 30px !important;
+  padding-top: 50px !important;
+  padding-left: 30px !important;
+}
+
 @media (min-width: 768px) {
   .column_with_padding {
     padding-left: 130px !important;
     padding-bottom: 64px !important;
     padding-top: 120px !important; 
     padding-right: 30px !important;
+  }
+
+  .column_with_right_padding {
+    padding-bottom: 64px !important;
+    padding-right: 130px !important;
+    padding-top: 120px !important;
+    padding-left: 30px !important;
   }
 
   .hero_copy {

@@ -7,6 +7,7 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core import blocks
 from modelcluster.fields import ParentalKey
+from home.blocks import ParagraphBlock, PullQuoteBlock, GalleryBlock, ContentHighlightBlock
 
 from home.models import BasePageWithHero
 
@@ -27,6 +28,13 @@ class Event(BasePageWithHero):
         related_name='+'
     )
 
+    body = StreamField([
+        ('paragraph_block', ParagraphBlock()),
+        ('pull_quote_block', PullQuoteBlock()),
+        ('gallery_block', GalleryBlock(ImageChooserBlock())),
+        ('content_highlight_block', ContentHighlightBlock()),
+    ], blank=True)
+
 
     def get_context(self, request):
         context = super(Event, self).get_context(request)
@@ -39,6 +47,7 @@ class Event(BasePageWithHero):
         FieldPanel('location', classname='full'),
         FieldPanel('exerpt'),
         ImageChooserPanel('featured_image'),
+        StreamFieldPanel('body', classname='full'),
         InlinePanel('event_talks', label="Event Featured Talks"),
     ]
 
