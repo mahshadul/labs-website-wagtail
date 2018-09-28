@@ -1,0 +1,14 @@
+{% load wagtailcore_tags %}
+
+
+<div class="row micro_banner">
+    <div class="col-12 col-lg-6">
+        <h2>
+            <a href="{{ project.url }}">{{ project.title }}
+            </a>
+        </h2>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div>{{ project.summary|richtext }}</div>
+    </div>
+</div>

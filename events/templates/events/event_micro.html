@@ -1,0 +1,18 @@
+{% load wagtailcore_tags %}
+
+
+<div class="row micro_banner">
+    <div class="col-12 col-lg-6">
+        <h2>
+            <a href="{{ event.url }}">{{ event.title }}
+            </a>
+        </h2>
+        <div>
+            <i class="fa fa-calendar mini_icon" aria-hidden="true"></i><span class="space"></span>
+            {{ event.start_date|date:"F d"  }}{% if event.end_date %} - {{ event.end_date|date:"F d"  }}{% endif %}<span class="space"></span>|<span class="space"></span>{{ event.location }}
+        </div>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div>{{ event.exerpt|richtext }}</div>
+    </div>
+</div>
