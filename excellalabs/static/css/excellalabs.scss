@@ -28,6 +28,20 @@ article {
   padding-left: 130px;
   padding-right: 130px;
   padding-top: 80px;
+  padding-bottom: 15px;
+
+  .navbar-brand {
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 50px;
+    min-height: 80px;
+  }
 }
 
 .hero_banner {
@@ -38,14 +52,15 @@ article {
   padding-right: 130px;
   padding-left: 130px;
   padding-top: 120px;
-  background-position: right;
+  background-position: right top;
   background-repeat: no-repeat;
 }
+
 
 .hero_banner_with_graphic {
   background-color: #FFFFFF;
   color: $black;
-  font-family: $muli_regular;
+  font-family: $muli_regular; 
 }
 
 .hero_subject {
@@ -70,12 +85,65 @@ article {
 .hero_copy {
   font-size: 16px;
   color: $charcoal_grey;
+  margin-bottom: 20px;
 }
 
 .hero_graphic {
   max-width: 100%;
   width: 100%;
   height: 100%;
+}
+
+.column_with_padding {
+  padding-bottom: 36px !important;
+  padding-right: 30px !important;
+  padding-top: 50px !important;
+  padding-left: 30px !important;
+}
+
+.column_with_right_padding {
+  padding-bottom: 36px !important;
+  padding-right: 30px !important;
+  padding-top: 50px !important;
+  padding-left: 30px !important;
+}
+
+@media (min-width: 768px) {
+  .column_with_padding {
+    padding-left: 130px !important;
+    padding-bottom: 64px !important;
+    padding-top: 120px !important; 
+    padding-right: 30px !important;
+  }
+
+  .column_with_right_padding {
+    padding-bottom: 64px !important;
+    padding-right: 130px !important;
+    padding-top: 120px !important;
+    padding-left: 30px !important;
+  }
+
+  .hero_copy {
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero_banner {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    min-height: 80px;
+  }
+
+  .hero_title {
+    font-size: 32px;
+  }
+
+  .hero_subject {
+    font-size: 20px;
+  }
 }
 
 .rss_feed {
@@ -88,13 +156,6 @@ article {
   max-height: 590px;
   padding-left: 0% !important;
   padding-right: 0% !important;
-}
-
-.column_with_padding {
-  padding-left: 130px !important;
-  padding-bottom: 64px !important;
-  padding-top: 120px !important; 
-  padding-right: 30px !important;
 }
 
 .red_line {
@@ -253,8 +314,8 @@ input {
   background-color: #353535;
   padding: 4em 0;
   color: #fff;
-  padding-left: 130px;
-  padding-right: 130px;
+  padding-left: 30px;
+  padding-right: 30px;
 
   & .container-fluid {
     padding-top: 0;
@@ -280,6 +341,12 @@ input {
     }
   }
 }
+@media (min-width: 768px) {
+  .footer {
+    padding-left: 130px;
+    padding-right: 130px;
+  }
+}
 
 .emailLabel {
   font-size: 18px;
@@ -290,6 +357,7 @@ input {
 
   max-width: 380px;
   height: 38px;
+  margin-right: 0%;
 }
 
 .mini_label {

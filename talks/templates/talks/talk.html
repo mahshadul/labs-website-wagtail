@@ -1,16 +1,24 @@
 {% extends 'home/base_page_with_hero.html' %}
 {% load wagtailcore_tags %}
 
-{% block body_class %}template-talk{% endblock %}
+{% block content_class %}detail_page_body{% endblock %}
 
 {% block content %}
-    <h2>
-      {{ page.title }}
-    </h2>
-    <h5>
-      Author: {{ page.author }}
-    </h5>
-    <body>
-      {{ page.exerpt | richtext }}
-    </body>
+
+  {% if page.video_id %}
+  <div class="row detail_page_highlight detail_page_row{% if last %} row_space_below{% endif %}">
+    <div class="col-12">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item mini_talks_video" src="https://www.youtube.com/embed/{{page.video_id}}"></iframe>
+        </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if page.body %}
+    {% for block in page.body %}
+        {% include_block block with last=forloop.last %}
+    {% endfor %}
+  {% endif %}
+
 {% endblock %}

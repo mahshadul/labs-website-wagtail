@@ -1,10 +1,13 @@
 from django.db import models
-from wagtail.core.models import Page
+from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core import blocks
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.core import blocks
+from modelcluster.fields import ParentalKey
+from home.blocks import ParagraphBlock, PullQuoteBlock, GalleryBlock, ContentHighlightBlock
 
 from home.models import BasePageWithHero
 
@@ -17,13 +20,21 @@ class Event(BasePageWithHero):
 
     location = models.CharField(max_length=100)
     exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
-    event_image = models.ForeignKey(
+    featured_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+'
     )
+
+    body = StreamField([
+        ('paragraph_block', ParagraphBlock()),
+        ('pull_quote_block', PullQuoteBlock()),
+        ('gallery_block', GalleryBlock(ImageChooserBlock())),
+        ('content_highlight_block', ContentHighlightBlock()),
+    ], blank=True)
+
 
     def get_context(self, request):
         context = super(Event, self).get_context(request)
@@ -35,7 +46,17 @@ class Event(BasePageWithHero):
         FieldPanel('end_date', classname='full'),
         FieldPanel('location', classname='full'),
         FieldPanel('exerpt'),
-        ImageChooserPanel('event_image'),
+        ImageChooserPanel('featured_image'),
+        StreamFieldPanel('body', classname='full'),
+        InlinePanel('event_talks', label="Event Featured Talks"),
     ]
 
     parent_page_types = ['events.EventList']
+
+class EventFeaturedTalk(Orderable, models.Model):
+    talk = models.ForeignKey('talks.Talk', related_name='+', on_delete=models.CASCADE)
+    event = ParentalKey('events.Event', related_name='event_talks')
+
+    panels = [
+        FieldPanel('talk')
+    ]
