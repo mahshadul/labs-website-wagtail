@@ -16,7 +16,7 @@ class EventList(Page):
 
 class Event(BasePageWithHero):
     start_date = models.DateField("Event start date")
-    end_date = models.DateField("Event end date", null=True)
+    end_date = models.DateField("Event end date", null=True, blank=True)
 
     location = models.CharField(max_length=100)
     exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
