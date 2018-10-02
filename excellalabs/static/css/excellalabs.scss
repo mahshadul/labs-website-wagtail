@@ -72,8 +72,9 @@ article {
 .hero_title {
   color: $dark_blue;
   font-size: 52px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: $mid_blue;
+  line-height: 1.2;
 }
 
 .hero_copy_header {
@@ -113,7 +114,7 @@ article {
     padding-left: 130px !important;
     padding-bottom: 64px !important;
     padding-top: 120px !important; 
-    padding-right: 30px !important;
+    padding-right: 130px !important;
   }
 
   .column_with_right_padding {
