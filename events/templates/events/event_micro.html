@@ -2,7 +2,7 @@
 
 
 <div class="row micro_banner">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-5">
         <h2>
             <a href="{{ event.url }}">{{ event.title }}
             </a>
@@ -12,7 +12,7 @@
             {{ event.start_date|date:"F d"  }}{% if event.end_date %} - {{ event.end_date|date:"F d"  }}{% endif %}<span class="space"></span>|<span class="space"></span>{{ event.location }}
         </div>
     </div>
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-7">
         <div>{{ event.exerpt|richtext }}</div>
     </div>
 </div>

@@ -2,14 +2,14 @@
 
 
 <div class="row micro_banner">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-5">
         <h2>
             <a href="{{ talk.url }}">{{ talk.title }}
             {% if talk.author %}<div class="mini_author"> by {{ talk.author }}</div>{% endif %}
             </a>
         </h2>
     </div>
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-7">
         <div>{{ talk.exerpt|richtext }}</div>
     </div>
 </div>
