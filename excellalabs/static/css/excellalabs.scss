@@ -2,6 +2,7 @@
 @import 'fonts';
 @import 'minis';
 @import 'detail_pages';
+@import 'list_pages';
 
 body {
   margin: 0;
@@ -15,6 +16,7 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
 article {
     min-height: 100%;
     display: grid;
@@ -42,6 +44,11 @@ article {
     padding-top: 50px;
     min-height: 80px;
   }
+}
+
+.list {
+  background-color: $grey;
+  padding-bottom: 136px;
 }
 
 .hero_banner {
@@ -76,6 +83,13 @@ article {
   color: $mid_blue;
 }
 
+
+.list_hero_title {
+  color: $dark_blue;
+  font-size: 72px;
+  color: $mid_blue;
+}
+
 .hero_copy_header {
   font-size: 21px;
   color: $charcoal_grey;
@@ -86,6 +100,12 @@ article {
   font-size: 16px;
   color: $charcoal_grey;
   margin-bottom: 20px;
+}
+
+.list_hero_copy {
+  font-size: 20px;
+  color: $charcoal_grey;
+  line-height: 1.7em;
 }
 
 .hero_graphic {
@@ -126,6 +146,10 @@ article {
   .hero_copy {
     margin-bottom: 0px;
   }
+
+  .list_hero_copy {
+    margin-bottom: 0px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -138,6 +162,10 @@ article {
   }
 
   .hero_title {
+    font-size: 32px;
+  }
+
+  .list_hero_title {
     font-size: 32px;
   }
 
@@ -165,6 +193,15 @@ article {
   border-radius: 30px;
   margin-bottom: 30px;
   display: block;
+}
+
+.vertical_red_line {
+  border-left: 4px solid $coral_red;
+  height: 118px;
+  display: inline-block;
+  margin-right: 60px;
+  margin-left: 60px;
+  margin-top: 10px;
 }
 
 .nav-link {
@@ -274,11 +311,10 @@ h3, h4 {
 input {
   color: $charcoal_grey;
 }
+
 .excella-labs-logo {
   height: 27px;
   width: 218px;
-  //position: relative;
-  //left: -35px;
 }
 
 .hero {

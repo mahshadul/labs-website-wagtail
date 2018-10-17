@@ -1,14 +1,26 @@
-{% extends "base.html" %}
+{% extends "home/base_page_with_hero.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block hero %}
+  <div class="hero_banner container-fluid">
+    <div class="row">
+      <div class="list_hero_title col-12 col-lg-5">
+        <span class="float-lg-right">{{ page.title }}</span>
+      </div>
+      <div class="d-none d-md-block vertical_red_line"></div>
+      <div class="list_hero_copy col-12 col-lg-6">
+        {{ page.copy|richtext }}
+      </div>
+    </div>
+  </div>
+{% endblock %}
 
 {% block content %}
-    <div class="col-sm">
-        <h1 style="margin-top: 10px">{{page.title}}</h1>
-        <div class="list">
-          {% for child in page.get_children.specific %}
-            <div class="list-item">
-              {% block list_item %}{{ child }}{% endblock %}
-            </div>
-          {% endfor %}
-        </div>
+    <div class="row banner list">
+      <div class="col-12">
+        {% block list %}
+        {% endblock %}
+      </div>
     </div>
 {% endblock %}

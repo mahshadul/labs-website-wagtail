@@ -1,0 +1,76 @@
+@import 'colors';
+@import 'fonts';
+
+.event_list_item {
+    background-color: $white;
+    height: 750px;
+    margin-right: 36px;
+    margin-left: 36px;
+    font-family: $muli_regular;
+
+    a:hover {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.event_list_item_graphic {
+    background-size: cover;
+    background-position: center;
+    height: 330px;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+}
+
+.calendar_date {
+    color: $indigo_blue;
+    text-align: center;    
+    .month {
+        font-size: 28px;
+    }
+    .day {
+        font-size: 36px;
+    }
+}
+
+.event_list_item_header {
+    padding-left: 36px;
+    margin-bottom: 15px;
+}
+
+.event_list_item_title {
+    font-size: 32px;
+    color: $mid_blue;
+}
+
+.event_list_item_location {
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.event_list_item_content {
+    padding-left: 82px;
+    padding-right: 82px;
+}
+
+.event_list_item_body {
+    padding-top: 24px;
+    font-size: 20px;
+    height: 150px;
+}
+
+.event_list_item_button {
+    text-decoration: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: $extra_bold_weight;
+    color: $white;
+    background-color: $mid_blue;
+    min-height: 42px;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 15px;
+}

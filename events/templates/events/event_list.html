@@ -1,5 +1,19 @@
 {% extends "list_base.html" %}
 
-{% block list_item %}
-    {% include "events/blocks/event_mini.html" with event=child %}
+{% block list %}
+    {% for child in page.get_children.specific %}
+        {% if forloop.counter0|divisibleby:2 %}
+        <div class="row">
+        {% endif %}
+        <div class="col-12 col-md-6">
+            {% include 'events/event_list_item.html' with event=child %}
+        </div>
+        {% if forloop.counter|divisibleby:2 %}
+        </div>
+        {% else %}
+        {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endif %}
+    {% endfor %}
 {% endblock %}

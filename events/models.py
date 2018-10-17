@@ -13,6 +13,11 @@ from home.models import BasePageWithHero
 
 class EventList(Page):
     subpage_types = ['events.Event']
+    copy = RichTextField(null=True, blank=True, help_text="Summary to display at top of list page")
+
+    content_panels = Page.content_panels + [
+        FieldPanel('copy')
+    ]
 
 class Event(BasePageWithHero):
     start_date = models.DateField("Event start date")
