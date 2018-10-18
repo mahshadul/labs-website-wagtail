@@ -46,11 +46,6 @@ article {
   }
 }
 
-.list {
-  background-color: $grey;
-  padding-bottom: 136px;
-}
-
 .hero_banner {
   background-color: #FFFFFF;
   color: $black;
@@ -193,15 +188,6 @@ article {
   border-radius: 30px;
   margin-bottom: 30px;
   display: block;
-}
-
-.vertical_red_line {
-  border-left: 4px solid $coral_red;
-  height: 118px;
-  display: inline-block;
-  margin-right: 60px;
-  margin-left: 60px;
-  margin-top: 10px;
 }
 
 .nav-link {

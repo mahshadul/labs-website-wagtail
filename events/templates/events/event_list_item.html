@@ -17,7 +17,7 @@
         </div>
         <hr style="background-color:black">
         <div class="event_list_item_body">
-            {{ event.exerpt|truncatechars:220|richtext }}
+            {{ event.summary|truncatechars:215|richtext }}
         </div>
         <a class="event_list_item_button" href="{{ event.url }}"><div>Learn More</div></a>
     </div>
