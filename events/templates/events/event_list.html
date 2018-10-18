@@ -1,7 +1,7 @@
 {% extends "list_base.html" %}
 
 {% block list %}
-    {% for child in page.get_children.specific %}
+    {% for child in ordered_children.specific %}
         {% if forloop.counter0|divisibleby:2 %}
         <div class="row">
         {% endif %}

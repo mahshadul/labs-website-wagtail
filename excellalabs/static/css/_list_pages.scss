@@ -3,10 +3,9 @@
 
 .event_list_item {
     background-color: $white;
-    height: 750px;
-    margin-right: 36px;
-    margin-left: 36px;
+    margin-bottom: 30px;
     font-family: $muli_regular;
+    height: fit-content;
 
     a:hover {
         color: white;
@@ -17,7 +16,7 @@
 .event_list_item_graphic {
     background-size: cover;
     background-position: center;
-    height: 330px;
+    height: 0px;
     background-origin: content-box;
     background-repeat: no-repeat;
     margin-bottom: 30px;
@@ -27,10 +26,10 @@
     color: $indigo_blue;
     text-align: center;    
     .month {
-        font-size: 28px;
+        font-size: 20px;
     }
     .day {
-        font-size: 36px;
+        font-size: 24px;
     }
 }
 
@@ -40,24 +39,25 @@
 }
 
 .event_list_item_title {
-    font-size: 32px;
+    font-size: 24px;
     color: $mid_blue;
 }
 
 .event_list_item_location {
-    font-size: 20px;
+    font-size: 16px;
     padding-top: 10px;
 }
 
 .event_list_item_content {
-    padding-left: 82px;
-    padding-right: 82px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 60px;
 }
 
 .event_list_item_body {
     padding-top: 24px;
     font-size: 20px;
-    height: 150px;
+    height: 300px;
 }
 
 .event_list_item_button {
@@ -73,4 +73,52 @@
     font-size: 20px;
     width: 100%;
     margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+//sm and up
+@media (min-width: 576px) {
+    .event_list_item_body {
+        height: 150px;
+    }
+
+}
+
+//md and up
+@media (min-width: 768px) {
+    .event_list_item {
+        height: 750px;
+        margin-right: 36px;
+        margin-left: 36px;
+        margin-bottom: 72px;
+    }
+
+    .event_list_item_graphic {
+        height: 330px;
+    }
+
+    .event_list_item_content {
+        padding-left: 82px;
+        padding-right: 82px;
+        padding-top: 0px;
+    }
+
+    .calendar_date {
+        color: $indigo_blue;
+        text-align: center;    
+        .month {
+            font-size: 28px;
+        }
+        .day {
+            font-size: 36px;
+        }
+    }
+
+    .event_list_item_title {
+        font-size: 32px;
+    }
+
+    .event_list_item_location {
+        font-size: 20px;
+    }
 }

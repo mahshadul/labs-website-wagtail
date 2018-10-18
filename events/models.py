@@ -19,6 +19,11 @@ class EventList(Page):
         FieldPanel('copy')
     ]
 
+    def get_context(self, request):
+        context = super(EventList, self).get_context(request)
+        context['ordered_children'] = self.get_children().specific().order_by('event__start_date')
+        return context
+
 class Event(BasePageWithHero):
     start_date = models.DateField("Event start date")
     end_date = models.DateField("Event end date", null=True, blank=True)
