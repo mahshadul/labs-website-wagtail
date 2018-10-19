@@ -6,11 +6,11 @@
     <div class="event_list_item_graphic" style="background-image:url({{ background.url }})"></div>
     <div class="event_list_item_content">
         <div class="row">
-            <div class="calendar_date col-2">
+            <div class="calendar_date col-sm-2 col-12">
                 <div class="month">{{ event.start_date|date:"b"|upper }}</div>
                 <div class="day">{{ event.start_date|date:"d" }}</div>
             </div>
-            <div class="col-10 event_list_item_header">
+            <div class="col-12 col-sm-10 event_list_item_header">
                 <div class="event_list_item_title">{{ event.title }}</div>
                 <div class="event_list_item_location">{{event.location}}</div>
             </div>
@@ -19,6 +19,6 @@
         <div class="event_list_item_body">
             {{ event.summary|truncatechars:215|richtext }}
         </div>
-        <a class="event_list_item_button" href="{{ event.url }}"><div>Learn More</div></a>
+        <a class="align-self-end event_list_item_button" href="{{ event.url }}"><div>Learn More</div></a>
     </div>
 </div>
