@@ -32,7 +32,7 @@
     background-color: $white;
     margin-bottom: 30px;
     font-family: $muli_regular;
-    height: fit-content;
+    height: auto;
 
     a:hover {
         color: white;
@@ -80,7 +80,7 @@
 }
 
 .list_item_title {
-    font-size: 48px;
+    font-size: 32px;
     color: $mid_blue;
 }
 
@@ -109,8 +109,7 @@
 
 .list_item_body {
     font-size: 16px;
-    height: 350px;
-    overflow: auto;
+    height: fit-content;
     padding-bottom: 0px;         
 }
 
@@ -145,11 +144,6 @@
     .event_list_item_body {
         height: 150px;
     }
-
-    .list_item_body {
-        height: 250px;
-    }
-
 }
 
 @media (min-width: 768px) {
@@ -176,7 +170,7 @@
    
     .event_list_item {
         margin-bottom: 72px;
-        height: 550px;
+        //height: 550px;
     }
 
     .event_list_item_body {
@@ -185,7 +179,7 @@
     }
 
     .list_item {
-        height: 600px;
+        //height: 600px;
         margin-bottom: 96px;
     }
 
@@ -194,7 +188,7 @@
     }
 
     .list_item_body {
-        height: 300px;
+        //height: 300px;
     }
 
     .event_list_item_content {
@@ -223,8 +217,9 @@
     }
 
     .list_item_content {
-        padding-right: 60px;
-        padding-left: 60px;
+        padding-top: 30px;
+        padding-right: 30px;
+        padding-left: 0px;
     }
 
     .list_item_button {
@@ -232,7 +227,7 @@
     }
 
     .list_item_graphic {
-        height: 600px;
+        height: 100%;
     }
 }
 
@@ -278,4 +273,24 @@
         height: 150px;
     }
 
+    .list_item_title {
+        font-size: 48px;
+    }
+
+    .list_item_content {
+        padding-right: 60px;
+        padding-left: 30px;
+    }
+
+}
+
+
+@media (min-width: 1500px){
+    .list_item {
+        height: 600px;
+    }
+
+    .list_item_graphic {
+        height: 600px;
+    }
 }
