@@ -169,6 +169,17 @@ article {
   }
 }
 
+@media (min-width: 992px) {
+  .list_hero_title {
+    padding-right: 90px;
+  }
+
+  .list_hero_copy {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+}
+
 .rss_feed {
   padding-right: 130px;
   padding-left: 130px;

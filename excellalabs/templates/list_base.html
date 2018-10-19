@@ -5,12 +5,15 @@
 {% block hero %}
   <div class="hero_banner container-fluid">
     <div class="row">
-      <div class="list_hero_title col-12 col-lg-5">
-        <span class="float-lg-right">{{ page.title }}</span>
+      <div class="list_hero_title col-12 col-lg-4 justify-content-lg-center d-flex">
+        {{ page.title }}
       </div>
       {% if page.copy.8 %}
-        <div class="d-none d-lg-block vertical_red_line"></div>
-        <div class="list_hero_copy col-12 col-lg-6">
+        <div style="width: 0px">
+          <div class="vertical_red_line"></div>
+        </div>
+
+        <div class="list_hero_copy d-flex justify-content--center col-12 col-lg-8">
           {{ page.copy|richtext }}
         </div>
       {% endif %}
