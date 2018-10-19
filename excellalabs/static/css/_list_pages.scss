@@ -20,7 +20,7 @@
     background-color: $white;
     margin-bottom: 30px;
     font-family: $muli_regular;
-    height: fit-content;
+    height: auto;
 
     a:hover {
         color: white;
@@ -59,12 +59,14 @@
 }
 
 .calendar_date {
+    padding-left: 36px;
     color: $indigo_blue;
-    text-align: center;    
     .month {
-        font-size: 20px;
+        display: inline;
+        font-size: 24px;
     }
     .day {
+        display: inline;
         font-size: 24px;
     }
 }
@@ -85,20 +87,24 @@
 }
 
 .event_list_item_location {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 16px;
     padding-top: 10px;
 }
 
 .event_list_item_content {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 60px;
+    padding-top: 45px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: fit-content;
 }
 
 .event_list_item_body {
-    padding-top: 24px;
+    padding-top: 15px;
     font-size: 16px;
-    height: 300px;
+    height: auto;;
 }
 
 .list_item_content {
@@ -141,23 +147,21 @@
 
 //sm and up
 @media (min-width: 576px) {
-    .event_list_item_body {
-        height: 150px;
-    }
+    
 }
 
 @media (min-width: 768px) {
-    .event_list_item {
-        height: 450px;
-    }
-
-    .event_list_item_body {
-        padding-top: 0px;
-        height: 140px;
-    }
 
     .list_item_body {
         font-size: 20px;
+    }
+
+    .event_list_item_body {
+        height: 180px;
+    }
+
+    .event_list_item {
+        height: 450px;
     }
 }
 
@@ -170,12 +174,10 @@
    
     .event_list_item {
         margin-bottom: 72px;
-        //height: 550px;
     }
 
-    .event_list_item_body {
-        padding-top: 30px;
-        height: 220px;
+    .event_list_item_button {
+        bottom: 72px;
     }
 
     .list_item {
@@ -197,15 +199,13 @@
         color: $indigo_blue;
         text-align: center;    
         .month {
+            display: default;
             font-size: 28px;
         }
         .day {
+            display: default;
             font-size: 36px;
         }
-    }
-
-    .event_list_item_title {
-        font-size: 32px;
     }
 
     .event_list_item_location {
@@ -225,40 +225,22 @@
     .list_item_graphic {
         height: 100%;
     }
+
+    .event_list_item_body {
+        font-size: 20px;
+    }
 }
 
 //larger than lg
 @media (min-width: 1200px) {
 
     .list {
-        padding-left: 130px !important;
-        padding-right: 130px !important;
-    }
-
-    .event_list_item {
-        margin-right: 36px;
-        margin-left: 36px;
-        margin-bottom: 72px;
-        height: 750px;
-    }
-
-    .event_list_item_content {
-        padding-left: 82px;
-        padding-right: 82px;
-        padding-top: 0px;
-    }
-
-    .event_list_item_graphic {
-        height: 330px;
+        padding-left: 60px !important;
+        padding-right: 60px !important;
     }
 
     .list_item_body {
         font-size: 20px;
-    }
-
-    .event_list_item_body {
-        font-size: 20px;
-        height: 150px;
     }
 
     .list_item_title {
@@ -270,6 +252,10 @@
         padding-left: 30px;
     }
 
+    .event_list_item_title {
+        font-size: 32px;
+    }
+
     .vertical_red_line {
         border-left: 4px solid $coral_red;
         height: 118px;
@@ -277,10 +263,19 @@
         margin-top: 10px;
     }
 
+    .event_list_item_button {
+        margin-bottom: 30px;
+    }
+
 }
 
 
 @media (min-width: 1500px){
+    .list {
+        padding-left: 130px !important;
+        padding-right: 130px !important;
+    }
+
     .list_item {
         height: 600px;
     }
@@ -289,10 +284,45 @@
         height: 600px;
     }
 
+    .event_list_item {
+        margin-right: 36px;
+        margin-left: 36px;
+        margin-bottom: 72px;
+    }
+
     .vertical_red_line {
         border-left: 4px solid $coral_red;
         height: 118px;
         display: inline-block;
         margin-top: 10px;
+    }
+
+    .event_list_item {
+        height: 800px;
+    }
+
+    .event_list_item_body {
+        height: 200px;
+    }
+
+    .event_list_item_graphic {
+        height: 330px;
+    }
+}
+
+
+@media (min-width: 1800px){
+
+    .event_list_item_content {
+        padding-left: 82px;
+        padding-right: 82px;
+    }
+
+    .event_list_item {
+        height: 750px;
+    }
+
+    .event_list_item_body {
+        height: 150px;
     }
 }
