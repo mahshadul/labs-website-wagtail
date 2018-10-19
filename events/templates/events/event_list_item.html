@@ -3,7 +3,7 @@
 
 <div class="event_list_item">
     {% image event.featured_image original as background %}
-    <div class="event_list_item_graphic" style="background-image:url({{ background.url }})"></div>
+    <a href="{{ item.url }}"><div class="event_list_item_graphic" style="background-image:url({{ background.url }})"></div></a>
     <div class="event_list_item_content">
         <div class="row">
             <div class="calendar_date col-sm-2 col-12">
@@ -11,7 +11,9 @@
                 <div class="day">{{ event.start_date|date:"d" }}</div>
             </div>
             <div class="col-12 col-sm-10 event_list_item_header">
-                <div class="event_list_item_title">{{ event.title }}</div>
+                <a href="{{ event.url }}">
+                    <div class="event_list_item_title">{{ event.title }}</div>
+                </a>
                 <div class="event_list_item_location">{{event.location}}</div>
             </div>
         </div>
