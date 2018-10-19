@@ -25,24 +25,31 @@ article {
 }
 
 .header {
-  min-height: 113px;
   background-color: $charcoal_grey;
-  padding-left: 130px;
-  padding-right: 130px;
-  padding-top: 80px;
-  padding-bottom: 15px;
+  padding-left: 110px;
+  padding-right: 110px;
+  padding-top: 25px;
 
   .navbar-brand {
-    padding-bottom: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+
+  .excella-labs-logo {
+    max-width: 218px;
+    padding-top: 0px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .header {
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 50px;
-    min-height: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0; 
+
+    .excella-labs-logo {
+      max-width: 175px;
+    }
   }
 }
 
@@ -307,11 +314,6 @@ h3, h4 {
 
 input {
   color: $charcoal_grey;
-}
-
-.excella-labs-logo {
-  height: 27px;
-  width: 218px;
 }
 
 .hero {
