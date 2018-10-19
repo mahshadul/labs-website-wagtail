@@ -14,6 +14,11 @@ from home.blocks import ParagraphBlock, PullQuoteBlock, GalleryBlock, ContentHig
 
 class ProjectList(Page):
     subpage_types = ['projects.ProjectPage']
+    copy = RichTextField(null=True, blank=True, help_text="Summary to display at top of list page")
+
+    content_panels = Page.content_panels + [
+        FieldPanel('copy')
+    ]
 
 class ProjectPage(BasePageWithHero):
 

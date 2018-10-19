@@ -1,5 +1,9 @@
-{% extends "list_base.html" %}
+{% extends 'list_base.html' %}
 
-{% block list_item %}
-    {% include "projects/blocks/project_mini.html" with project=child %}
+{% block list %}
+    {% for child in page.get_children.specific %}
+        {% block list_item %}
+            {% include 'projects/project_list_item.html' with item=child %}
+        {% endblock %}
+    {% endfor %}
 {% endblock %}

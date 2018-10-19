@@ -1,5 +1,5 @@
-{% extends "list_base.html" %}
+{% extends 'projects/project_list.html' %}
 
 {% block list_item %}
-    {% include "talks/blocks/talk_micro.html" with talk=child %}
+    {% include 'talks/talk_list_item.html' with item=child %}
 {% endblock %}

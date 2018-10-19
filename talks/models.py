@@ -11,15 +11,20 @@ from home.models import BasePageWithHero
 
 class TalkList(Page):
     subpage_types = ['talks.Talk']
+    copy = RichTextField(null=True, blank=True, help_text="Summary to display at top of list page")
+
+    content_panels = Page.content_panels + [
+        FieldPanel('copy')
+    ]
 
 
 class Talk(BasePageWithHero):
     
     author = models.CharField(max_length=200)
     video_id = models.CharField(max_length=50)
-    exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
-    date = models.DateField("Talk date")
-    location = models.CharField(max_length=100)
+    summary = RichTextField(help_text="Summary for list view, not displayed in detail view")
+    date = models.DateField(null=True, blank=True)
+    location = models.CharField(null=True, blank=True, max_length=100)
     body = StreamField([
         ('paragraph_block', ParagraphBlock()),
         ('pull_quote_block', PullQuoteBlock()),
@@ -30,7 +35,7 @@ class Talk(BasePageWithHero):
     content_panels = BasePageWithHero.content_panels + [
         FieldPanel('author', classname='full'),
         FieldPanel('video_id', classname='full'),
-        FieldPanel('exerpt', classname='full'),
+        FieldPanel('summary', classname='full'),
         FieldPanel('date', classname='full'),
         FieldPanel('location', classname='full'),
         StreamFieldPanel('body', classname='full'),

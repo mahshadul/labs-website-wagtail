@@ -1,0 +1,25 @@
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+<div class="list_item">
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            {% block graphic %}
+            {% image item.featured_image original as background %}
+            <div class="list_item_graphic" style="background-image:url({{ background.url }})"></div>
+            {% endblock %}
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="list_item_content">
+                <div class="list_item_title">
+                    {{ item.title }}
+                </div>
+                <hr style="background-color:black">
+                <div class="list_item_body">
+                    {{ item.summary|truncatechars:580|richtext }}
+                </div>
+                <a class="list_item_button" href="{{ item.url }}"><div>Learn More</div></a>
+            </div>
+        </div>
+    </div>
+</div>

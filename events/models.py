@@ -13,13 +13,23 @@ from home.models import BasePageWithHero
 
 class EventList(Page):
     subpage_types = ['events.Event']
+    copy = RichTextField(null=True, blank=True, help_text="Summary to display at top of list page")
+
+    content_panels = Page.content_panels + [
+        FieldPanel('copy')
+    ]
+
+    def get_context(self, request):
+        context = super(EventList, self).get_context(request)
+        context['ordered_children'] = self.get_children().specific().order_by('event__start_date')
+        return context
 
 class Event(BasePageWithHero):
     start_date = models.DateField("Event start date")
     end_date = models.DateField("Event end date", null=True, blank=True)
 
     location = models.CharField(max_length=100)
-    exerpt = RichTextField(help_text="Summary for list view, not displayed in detail view")
+    summary = RichTextField(help_text="Summary for list view, not displayed in detail view")
     featured_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -45,7 +55,7 @@ class Event(BasePageWithHero):
         FieldPanel('start_date', classname='full'),
         FieldPanel('end_date', classname='full'),
         FieldPanel('location', classname='full'),
-        FieldPanel('exerpt'),
+        FieldPanel('summary'),
         ImageChooserPanel('featured_image'),
         StreamFieldPanel('body', classname='full'),
         InlinePanel('event_talks', label="Event Featured Talks"),
