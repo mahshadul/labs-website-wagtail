@@ -14,7 +14,17 @@
 
     {% if page.event_talks %}
         {% for related_talk in page.event_talks.all %}
+            {% if forloop.counter0|divisibleby:3 %}
+                <div class="row talk_micro_banner">
+            {% endif %}
             {% include "talks/blocks/talk_micro.html" with talk=related_talk.talk %}
+            {% if forloop.counter0|add:1|divisibleby:3 %}
+                </div>
+            {% else %}
+                    {% if forloop.last %}
+                </div>
+                    {% endif %}
+            {% endif %}
         {% endfor %}
     {% endif %}
 
