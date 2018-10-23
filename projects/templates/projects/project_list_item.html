@@ -1,19 +1,24 @@
 {% load wagtailimages_tags %}
 {% load wagtailcore_tags %}
+{% load static %}
 
 <div class="list_item">
     <div class="row">
         <div class="col-12 col-lg-6">
             {% block graphic %}
-            {% image item.featured_image original as background %}
-            <a href="{{ item.url }}"><div class="list_item_graphic" style="background-image:url({{ background.url }})"></div></a>
+            {% if item.featured_image %}
+                {% image item.featured_image original as background %}
+                <a href="{{ item.url }}"><div class="list_item_graphic" style="background-image:url({{ background.url }})"></div></a>
+            {% else %}
+                <a href="{{ item.url }}"><div class="list_item_graphic" style="background-image:url({% static 'img/projects.jpg' %})"></div></a>
+            {% endif %}
             {% endblock %}
         </div>
         <div class="col-12 col-lg-6">
             <div class="list_item_content">
                 <a href="{{ item.url }}">
                     <div class="list_item_title">
-                        {{ item.title }}
+                        {{ item.title|truncatechars:"75" }}
                     </div>
                 </a>
                 <hr style="background-color:black">

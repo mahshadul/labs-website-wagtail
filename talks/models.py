@@ -21,7 +21,7 @@ class TalkList(Page):
 class Talk(BasePageWithHero):
     
     author = models.CharField(max_length=200)
-    video_id = models.CharField(max_length=50)
+    video_id = models.CharField(max_length=50, null=True, blank=True)
     summary = RichTextField(help_text="Summary for list view, not displayed in detail view")
     date = models.DateField(null=True, blank=True)
     location = models.CharField(null=True, blank=True, max_length=100)

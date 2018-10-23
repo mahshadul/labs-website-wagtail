@@ -1,6 +1,7 @@
 {% extends 'mini_base.html' %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load static %}
 
 {% block object-type %}event{% endblock %}
 
@@ -34,8 +35,12 @@
       </div>
     </div>
     <div class="col-lg-7 col-12">
-          {% image event.featured_image original class="mini_graphic" %}
-      </div>
+      {% if event.featured_image %}
+        {% image event.featured_image original class="mini_graphic" %}
+      {% else %}
+        <img src="{% static 'img/events.jpg' %}" class="mini_graphic"/>
+      {% endif %}
+    </div>
   </div>
 </div>
 {% endblock %}

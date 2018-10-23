@@ -1,7 +1,14 @@
 {% extends 'home/base_page_with_hero.html' %}
 {% load wagtailcore_tags %}
+{% load static %}
 
 {% block content_class %}detail_page_body{% endblock %}
+
+{% block hero_image_alternate %}
+  {% if not page.video_id %}
+    <img src="{% static 'img/talks.jpg' %}" class="hero_graphic"/>
+  {% endif %}
+{% endblock %}
 
 {% block content %}
 

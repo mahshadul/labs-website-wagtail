@@ -1,11 +1,12 @@
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load static %}
 
 <div class="col-12 col-md-6 col-xl-4">
     <div class="row talk_micro">
         <div class="col-4 micro_graphic_container">
             <a href="{{ talk.url }}">
-                <div class="micro_graphic" style="background-image: url(https://img.youtube.com/vi/{{ talk.video_id }}/0.jpg)">
+                <div class="micro_graphic" style="background-image: url({% if talk.video_id %}https://img.youtube.com/vi/{{ talk.video_id }}/0.jpg{% else %}{% static '/img/talks.jpg' %}{% endif %})">
                 </div>
             </a>
         </div>

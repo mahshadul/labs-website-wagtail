@@ -1,6 +1,7 @@
 {% extends 'mini_base.html' %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load static %}
 
 {% block object-type %}project{% endblock %}
 
@@ -28,7 +29,11 @@
                 <a href="{{project.url}}"><div class="learn_more_button">Learn More</div></a>
             </div>
             <div class="col-lg-7 col-12">
-                    {% image project.featured_image original class="mini_graphic" %}
+                {% if project.featured_image %}
+                {% image project.featured_image original class="mini_graphic" %}
+                {% else %}
+                <img src="{% static 'img/projects.jpg' %}" class="mini_graphic"/>
+                {% endif %}
             </div>
         </div>
     </div>
