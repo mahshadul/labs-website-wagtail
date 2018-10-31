@@ -6,57 +6,32 @@
 {% block body_class %}base-page-with-hero{% endblock %}
 
 {% block hero %}
-    <div class="hero_banner_with_graphic container-fluid">
-        <div class="row">
-            <div class="col-12 col-lg-6 column_with_padding">
-                {% if page.subject %}
-                <div class="row">
-                    <div class="col-12">
-                        <div class="hero_subject">{{ page.subject }}</div>
-                    </div>
-                </div>
-                {% endif %}
-                {% if page.alternate_title %}
-                <div class="row">
-                    <div class="col-12">
-                        <div class="hero_title">{{ page.alternate_title }}</div>
-                    </div>
-                </div>
-                {% else %}
-                <div class="row">
-                    <div class="col-12">
-                        <div class="hero_title">{{ page.title }}</div>
-                    </div>
-                </div>
-                {% endif %}
-                <div class="row">
-                    <div class="col-12">
-                        <div class="red_line"></div>
-                    </div>
-                </div>
+    <div class="hero_banner hero_container">
+        <div class="hero_title hero_title_flex" {% if not page.description %}style="align-items: flex-start !important"{% endif %}>
+            <div>
+                {% if page.alternate_title %}{{ page.alternate_title }}{% else %}{{ page.title }}{% endif %}
                 {% if page.start_date %}
-                <div class="hero_copy">
-                    <i class="fa fa-calendar mini_icon" aria-hidden="true"></i><span class="space"></span>
-                    {{ page.start_date|date:"F d"  }}{% if page.end_date %} - {{ page.end_date|date:"F d"  }}{% endif %}<span class="space"></span>|<span class="space"></span>{{ page.location }}
-                </div>
-                {% endif %}
-                {% if page.description %}
-                <div class="row">
-                    <div class="col-12" >
-                        <div class="hero_copy">{{ page.description|richtext }}</div>
+                    <div class="hero_date">
+                        <div><i class="fa fa-calendar mini_icon" aria-hidden="true"></i><span class="space"></span>
+                            {{ page.start_date|date:"F d"  }}{% if page.end_date %} - {{ page.end_date|date:"F d"  }}{% endif %}
+                        </div>
+                        <span>
+                            <div class="spacer">
+                                <span class="space"></span>|<span class="space"></span>
+                            </div>
+                            {{ page.location }}
+                        </span>
                     </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="hero_description_flex">
+            {% if page.description or page.copy.8 %}
+                <div class="vertical_red_line"></div>
+                <div class="hero_copy">
+                    {% if page.description %}{{ page.description }}{% else %}{{ page.copy|safe }}{% endif %}
                 </div>
-                {% endif %}
-
-            </div>
-            <div class="col-lg-6 col-12 hero_banner_graphic">
-                {% if page.featured_image %}
-                    {% image page.featured_image original class="hero_graphic" %}
-                {% else %}
-                    {% block hero_image_alternate %}
-                    {% endblock %}
-                {% endif %}
-            </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

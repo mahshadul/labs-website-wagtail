@@ -8,14 +8,6 @@
     padding-bottom: 136px;
 }
 
-
-.vertical_red_line {
-    width: 0px;
-    height: 0px;
-    border-radius: 0px;
-    margin-bottom: 0px;
-}
-
 .event_list_item {
     background-color: $white;
     margin-bottom: 30px;
@@ -256,13 +248,6 @@
         font-size: 32px;
     }
 
-    .vertical_red_line {
-        border-left: 4px solid $coral_red;
-        height: 118px;
-        display: inline-block;
-        margin-top: 10px;
-    }
-
     .event_list_item_button {
         margin-bottom: 30px;
     }
@@ -288,13 +273,6 @@
         margin-right: 36px;
         margin-left: 36px;
         margin-bottom: 72px;
-    }
-
-    .vertical_red_line {
-        border-left: 4px solid $coral_red;
-        height: 118px;
-        display: inline-block;
-        margin-top: 10px;
     }
 
     .event_list_item {

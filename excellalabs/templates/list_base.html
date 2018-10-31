@@ -2,25 +2,6 @@
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 
-{% block hero %}
-  <div class="hero_banner container-fluid">
-    <div class="row">
-      <div class="list_hero_title col-12 col-lg-4 justify-content-lg-center d-flex">
-        {{ page.title }}
-      </div>
-      {% if page.copy.8 %}
-        <div style="width: 0px">
-          <div class="vertical_red_line"></div>
-        </div>
-
-        <div class="list_hero_copy d-flex justify-content--center col-12 col-lg-8">
-          {{ page.copy|richtext }}
-        </div>
-      {% endif %}
-    </div>
-  </div>
-{% endblock %}
-
 {% block content %}
     <div class="row banner list">
       <div class="col-12">
