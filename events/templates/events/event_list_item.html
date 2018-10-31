@@ -1,9 +1,14 @@
 {% load wagtailimages_tags %}
 {% load wagtailcore_tags %}
+{% load static %}
 
 <div class="event_list_item">
+    {% if event.featured_image %}
     {% image event.featured_image original as background %}
-    <a href="{{ item.url }}"><div class="event_list_item_graphic" style="background-image:url({{ background.url }})"></div></a>
+    <a href="{{ event.url }}"><div class="event_list_item_graphic" style="background-image:url({{ background.url }})"></div></a>
+    {% else %}
+    <a href="{{ event.url }}"><div class="event_list_item_graphic" style="background-image:url({% static 'img/events.jpg' %})"></div></a>
+    {% endif %}
     <div class="event_list_item_content">
         <div class="row">
             <div class="calendar_date col-sm-2 col-12">

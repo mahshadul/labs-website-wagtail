@@ -1,5 +1,10 @@
 {% extends 'projects/project_list_item.html' %}
+{% load static %}
 
 {% block graphic %}
-<div class="list_item_graphic" style="background-image:url(https://img.youtube.com/vi/{{ item.video_id }}/0.jpg)"></div>
+{% if item.video_id %}
+    <div class="list_item_graphic" style="background-image:url(https://img.youtube.com/vi/{{ item.video_id }}/0.jpg)"></div>
+{% else %}
+    <div class="list_item_graphic" style="background-image:url({% static 'img/talks.jpg' %})"></div>
+{% endif %}
 {% endblock %}

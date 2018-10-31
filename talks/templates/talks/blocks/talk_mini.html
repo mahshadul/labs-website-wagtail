@@ -1,5 +1,6 @@
 {% extends 'mini_base.html' %}
 {% load wagtailcore_tags %}
+{% load static %}
 
 {% block object-type %}talk{% endblock %}
 
@@ -26,12 +27,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-7 col-12 talk_video">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item mini_talks_video" src="https://www.youtube.com/embed/{{talk.video_id}}"></iframe>
+            {% if talk.video_id %}
+                <div class="col-lg-7 col-12 talk_video">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item mini_talks_video" src="https://www.youtube.com/embed/{{talk.video_id}}"></iframe>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-5">
+                <div class="col-12 col-lg-5">
+            {% else %}
+                <div class="col-lg-6 col-12 talk_video">
+                    <img src="{% static 'img/talks.jpg' %}" style="max-width: 100%; max-height: 100%"/>
+                </div>
+                <div class="col-12 col-lg-6">
+            {% endif %}
                 <div>{{ talk.summary|richtext }}</div>
                 <a href="{{ talk.url }}" ><div class="learn_more_button">Learn More</div></a>
             </div>

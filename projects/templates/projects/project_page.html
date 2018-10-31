@@ -1,15 +1,18 @@
 {% extends 'home/base_page_with_hero.html' %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load static %}
 
 {% block content_class %}detail_page_body{% endblock %}
 
-{% block content %}
+{% block hero_image_alternate %}
+    <img src="{% static 'img/projects.jpg' %}" class="hero_graphic"/>
+{% endblock %}
 
+{% block content %}
     {% if page.body %}
         {% for block in page.body %}
             {% include_block block with last=forloop.last %}
         {% endfor %}
-    {% endif %}
-    
+    {% endif %}    
 {% endblock %}

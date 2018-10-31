@@ -6,94 +6,58 @@
 {% block body_class %}base-page-with-hero{% endblock %}
 
 {% block hero %}
-    {% if page.featured_image %}
-        <div class="hero_banner_with_graphic container-fluid">
-            <div class="row">
-                <div class="col-12 col-lg-6 column_with_padding">
-                    {% if page.subject %}
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="hero_subject">{{ page.subject }}</div>
-                        </div>
+    <div class="hero_banner_with_graphic container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-6 column_with_padding">
+                {% if page.subject %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="hero_subject">{{ page.subject }}</div>
                     </div>
-                    {% endif %}
-                    {% if page.alternate_title %}
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="hero_title">{{ page.alternate_title }}</div>
-                        </div>
-                    </div>
-                    {% else %}
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="hero_title">{{ page.title }}</div>
-                        </div>
-                    </div>
-                    {% endif %}
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="red_line"></div>
-                        </div>
-                    </div>
-                    {% if page.start_date %}
-                    <div class="hero_copy">
-                        <i class="fa fa-calendar mini_icon" aria-hidden="true"></i><span class="space"></span>
-                        {{ page.start_date|date:"F d"  }}{% if page.end_date %} - {{ page.end_date|date:"F d"  }}{% endif %}<span class="space"></span>|<span class="space"></span>{{ page.location }}
-                    </div>
-                    {% endif %}
-                    {% if page.description %}
-                    <div class="row">
-                        <div class="col-12" >
-                            <div class="hero_copy">{{ page.description|richtext }}</div>
-                        </div>
-                    </div>
-                    {% endif %}
-
                 </div>
-                <div class="col-lg-6 col-12 hero_banner_graphic">
+                {% endif %}
+                {% if page.alternate_title %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="hero_title">{{ page.alternate_title }}</div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="hero_title">{{ page.title }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="red_line"></div>
+                    </div>
+                </div>
+                {% if page.start_date %}
+                <div class="hero_copy">
+                    <i class="fa fa-calendar mini_icon" aria-hidden="true"></i><span class="space"></span>
+                    {{ page.start_date|date:"F d"  }}{% if page.end_date %} - {{ page.end_date|date:"F d"  }}{% endif %}<span class="space"></span>|<span class="space"></span>{{ page.location }}
+                </div>
+                {% endif %}
+                {% if page.description %}
+                <div class="row">
+                    <div class="col-12" >
+                        <div class="hero_copy">{{ page.description|richtext }}</div>
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+            <div class="col-lg-6 col-12 hero_banner_graphic">
+                {% if page.featured_image %}
                     {% image page.featured_image original class="hero_graphic" %}
-                </div>
+                {% else %}
+                    {% block hero_image_alternate %}
+                    {% endblock %}
+                {% endif %}
             </div>
         </div>
-
-    {% else %}
-
-        <div class="hero_banner container-fluid">
-            {% if page.subject %}
-            <div class="row">
-                <div class="col-12">
-                    <div class="hero_subject">{{ page.subject }}</div>
-                </div>
-            </div>
-            {% endif %}
-            {% if page.alternate_title %}
-            <div class="row">
-                <div class="col-12">
-                    <div class="hero_title">{{ page.alternate_title }}</div>
-                </div>
-            </div>
-            {% else %}
-            <div class="row">
-                <div class="col-12">
-                    <div class="hero_title">{{ page.title }}{% if page.author %}<span class="mini_author"> by {{ page.author }}</span>{% endif %}</div>
-                </div>
-            </div>
-            {% endif %}
-            <div class="row">
-                <div class="col-12">
-                    <div class="red_line"></div>
-                </div>
-            </div>
-            {% if page.description %}
-            <div class="row">
-                <div class="col-lg-9 col-12" >
-                    <div class="hero_copy">{{ page.description|richtext }}</div>
-                </div>
-                <div class="col-lg-3 d-none d-lg-block"></div>
-            </div>
-            {% endif %}
-        </div>
-
-    {% endif %}
+    </div>
 {% endblock %}
 

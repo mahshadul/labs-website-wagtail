@@ -1,0 +1,135 @@
+@import 'colors';
+@import 'fonts';
+
+.talk_micro_banner {
+    background-color: $grey;
+    padding-top: 36px;
+}
+
+.talk_micro {
+    font-family: $muli_regular;
+    min-height: 170px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: $white;
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .talk_micro_author {
+        margin-top: 10px;
+        font-size: 16px;
+        color: $mid_blue;
+    }
+
+    .talk_micro_title {
+        font-size: 18px;
+        color: $indigo_blue;
+        font-weight: $extra_bold_weight;
+    }
+
+    .micro_graphic {
+        background-size: cover;
+        background-position: center;
+        background-origin: content-box;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+    }
+
+    .micro_graphic_container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+
+@media (min-width: 300px) and (max-width: 567px) { 
+    .talk_micro {
+
+        .micro_graphic_container {
+            display: none;
+        }
+
+        .container {
+            max-width: 100% !important;
+            flex-basis: 100% !important;
+            padding-left: 30px;
+        }
+    }
+}
+
+@media(min-width: 600px) {
+    .talk_micro {
+        .talk_micro_title {
+            font-size: 20px;
+        }
+
+        .talk_micro_author {
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 985px) { 
+    .talk_micro {
+        .micro_graphic_container {
+            display: none;
+        }
+
+        .container {
+            max-width: 100% !important;
+            flex-basis: 100% !important;
+            padding-left: 30px;
+        }
+    }
+}
+
+@media (min-width: 985px) {
+    .talk_micro_banner {
+        padding-top: 60px;
+    }
+
+    .talk_micro {
+
+        .container {
+            padding-top: 36px;
+            padding-bottom: 36px;
+            padding-left: 36px;
+            padding-right: 36px;
+        }
+
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1700px) { 
+    .talk_micro {
+        .micro_graphic_container {
+            display: none;
+        }
+
+        .container {
+            max-width: 100% !important;
+            flex-basis: 100% !important;
+        }
+
+    }
+}
+
+@media (min-width: 1200px) {
+    .talk_micro {
+        height: 199px;
+    }
+}
