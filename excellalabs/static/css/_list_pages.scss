@@ -6,8 +6,14 @@
     padding-right: 0px !important;
     background-color: $grey;
     padding-bottom: 136px;
+    overflow: hidden;
 
     .event_list_item_container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .list_container {
         padding-left: 0px;
         padding-right: 0px;
     }
