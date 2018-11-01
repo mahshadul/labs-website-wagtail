@@ -6,42 +6,44 @@
 
 {% block mini-content %}
     <div class="col-12">
-        <div class="row">
-            <div class="col-6">
-                <h1>Featured Talk:</h1>
-            </div>
-            <div class="col-6">
-                    <a class="float-right" href="{{ talk.get_parent.url }}"><div class="more_button">More Talks</div></a>
+        <div class="content_container">
+            <div class="row">
+                <div class="col-6">
+                    <h1>Featured Talk:</h1>
                 </div>
-            <div class="col-12">
-                <hr class="line">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 talks_title">
-                <h2>
-                    <a href="{{ talk.url }}">{{ talk.title }}
-                    {% if talk.author %}<span class="mini_author"> by {{ talk.author }}</span>{% endif %}
-                    </a>
-                </h2>
-            </div>
-        </div>
-        <div class="row">
-            {% if talk.video_id %}
-                <div class="col-lg-7 col-12 talk_video">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item mini_talks_video" src="https://www.youtube.com/embed/{{talk.video_id}}"></iframe>
+                <div class="col-6">
+                        <a class="float-right" href="{{ talk.get_parent.url }}"><div class="more_button">More Talks</div></a>
                     </div>
+                <div class="col-12">
+                    <hr class="line">
                 </div>
-                <div class="col-12 col-lg-5">
-            {% else %}
-                <div class="col-lg-6 col-12 talk_video">
-                    <img src="{% static 'img/talks.jpg' %}" style="max-width: 100%; max-height: 100%"/>
+            </div>
+            <div class="row">
+                <div class="col-12 talks_title">
+                    <h2>
+                        <a href="{{ talk.url }}">{{ talk.title }}
+                        {% if talk.author %}<span class="mini_author"> by {{ talk.author }}</span>{% endif %}
+                        </a>
+                    </h2>
                 </div>
-                <div class="col-12 col-lg-6">
-            {% endif %}
-                <div>{{ talk.summary|richtext }}</div>
-                <a href="{{ talk.url }}" ><div class="learn_more_button">Learn More</div></a>
+            </div>
+            <div class="row">
+                {% if talk.video_id %}
+                    <div class="col-lg-7 col-12 talk_video">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item mini_talks_video" src="https://www.youtube.com/embed/{{talk.video_id}}"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5">
+                {% else %}
+                    <div class="col-lg-6 col-12 talk_video">
+                        <img src="{% static 'img/talks.jpg' %}" style="max-width: 100%; max-height: 100%"/>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                {% endif %}
+                    <div>{{ talk.summary|richtext }}</div>
+                    <a href="{{ talk.url }}" ><div class="learn_more_button">Learn More</div></a>
+                </div>
             </div>
         </div>
     </div>
