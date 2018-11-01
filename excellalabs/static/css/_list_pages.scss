@@ -8,11 +8,6 @@
     padding-bottom: 136px;
     overflow: hidden;
 
-    .event_list_item_container {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
     .list_container {
         padding-left: 0px;
         padding-right: 0px;
@@ -118,7 +113,6 @@
     padding-top: 30px;
     height: fit-content;
     position: relative;
-    //overflow: hidden;
 }
 
 .list_item_body {
@@ -179,7 +173,6 @@
 }
 
 @media (min-width: 768px) {
-
     .list_item_body {
         font-size: 20px;
     }
@@ -191,10 +184,13 @@
     .event_list_item {
         height: 450px;
     }
-    
-    .event_list_item {
-        margin-right: 18px;
-        margin-left: 18px;
+
+    .list {
+
+        .list_container {
+            padding-left: 48px;
+            padding-right: 48px;
+        }
     }
 }
 
@@ -327,7 +323,7 @@
     .event_list_item {
         margin-right: 48px;
         margin-left: 48px;
-        height: 750px;
+        height: 780px;
     }
 
     .event_list_item_body {
