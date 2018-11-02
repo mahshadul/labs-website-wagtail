@@ -28,8 +28,6 @@ article {
 
 .header {
   background-color: $charcoal_grey;
-  padding-left: 110px;
-  padding-right: 110px;
   padding-top: 25px;
 
   .navbar-brand {
@@ -37,10 +35,20 @@ article {
     padding-top: 15px;
   }
 
+  .navbar {
+    width: 100%;
+  }
+
   .excella-labs-logo {
     max-width: 218px;
     padding-top: 0px;
   }
+}
+
+.content_container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
 }
 
 @media screen and (max-width: 768px) {

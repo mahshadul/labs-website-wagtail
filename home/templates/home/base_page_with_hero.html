@@ -6,6 +6,7 @@
 {% block body_class %}base-page-with-hero{% endblock %}
 
 {% block hero %}
+<div class="content_container">
     <div class="hero_banner hero_container">
         <div class="hero_title hero_title_flex" {% if not page.description %}style="align-items: flex-start !important"{% endif %}>
             <div>
@@ -34,5 +35,6 @@
             {% endif %}
         </div>
     </div>
+</div>
 {% endblock %}
 

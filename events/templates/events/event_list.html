@@ -6,7 +6,11 @@
         <div class="row">
         {% endif %}
         <div class="col-12 col-lg-6">
-            {% include 'events/event_list_item.html' with event=child %}
+            {% if forloop.counter0|divisibleby:2 %}
+                {% include 'events/event_list_item.html' with event=child first='true' %}
+            {% else %}
+                {% include 'events/event_list_item.html' with event=child %}
+            {% endif %}
         </div>
         {% if forloop.counter|divisibleby:2 %}
         </div>
