@@ -1,15 +1,28 @@
 @import 'colors';
 @import 'fonts';
 
+//xs and up
 .banner {
-    font-family: $muli_regular;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    min-height: 80px;
 
     h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
         text-transform: none; // Override all caps
         font-weight: $light_weight;
         color: $indigo_blue;
     }
-    
+
+    h2 {
+        font-size: 28px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+        
     a {
         text-decoration: none;
         cursor: pointer;
@@ -21,21 +34,27 @@
         display: block;
     }
 
+    .more_button {
+        width: 160px;
+    }
+
+    .talk_video {
+        margin-bottom: 20px;
+    }
+
     .mini_graphic {
-        padding-top: 15px;
         max-width: 100%;
         width: 100%;
         height: auto;
     }
 
-    .mini_summary {
-        padding-top: 30px;
-        font-size: 16px;
-    }
-
     .mini_icon {
         color: $indigo_blue;
     }
+}
+
+.mini_summary {
+    font-size: 16px;
 }
 
 .mini_author {
@@ -45,7 +64,7 @@
 
 .mini_button {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -59,13 +78,14 @@
     background-color: $white;
     border: 2px solid black;
     min-height: 42px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .learn_more_button {
     @extend .mini_button;
     color: $white;
     margin-top: 30px;
+    margin-bottom: 30px;
     max-width: 360px;
     min-height: 48px;
     background-color: $mid_blue;
@@ -110,34 +130,10 @@
             color: $mid_blue;
         }
     }
-}
 
-//xs and up
-.banner {
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 50px;
-    padding-bottom: 30px;
-    min-height: 80px;
-
-    h1 {
+    .event_mini_date {
         font-size: 20px;
-        margin-bottom: 0%;
-    }
-
-    h2 {
-        font-size: 28px;
-        margin-top: 0;
-        margin-bottom: 20px;
-    }
-
-    .more_button {
-        width: 100px;
-    }
-
-
-    .talk_video {
-        margin-bottom: 20px;
+        margin-bottom: 36px;
     }
 }
 
@@ -160,11 +156,11 @@
 //md and up
 @media (min-width: 768px) {
     .banner {
-        padding-left: 130px;
-        padding-right: 130px;
         padding-top: 80px;
         padding-bottom: 50px;
         min-height: 680px;
+        padding-right: 60px;
+        padding-left: 60px;
 
         h1 {
             font-size: 36px;
@@ -175,6 +171,10 @@
             margin-top: 30px;
             margin-bottom: 30px;
         }
+
+        .project_mini_graphic {
+            margin-top: 30px;
+        }
     }
 
     .talk_video {
@@ -183,6 +183,48 @@
 
     .talks_title {
         max-width: 85%;
+    }
+}
+
+@media (min-width: 992px) {
+    .learn_more_button {
+        margin-bottom: 0px;
+    }
+
+    .mini_graphic {
+        padding-left: 60px;
+    }
+
+    .talk_video {
+        padding-right: 60px;
+    }
+
+    .mini_summary {
+        font-size: 18px;
+        line-height: 1.5em;
+    }
+
+    .more_button {
+        font-size: 18px;
+    }
+
+    .mini_button {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .mini_summary {
+        font-size: 20px;
+        line-height: 1.7em;
+    }
+
+    .more_button {
+        font-size: 20px;
+    }
+
+    .mini_button {
+        font-size: 20px;
     }
 }
 

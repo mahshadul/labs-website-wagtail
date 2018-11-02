@@ -6,7 +6,7 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block hero %}
-    <div class="header_background" style="background-image: url({% static 'img/lightbulb.png' %})">
+    <div class="header_background">
         <div class="content_container">
             <div class="hero_banner container-fluid" >
                 {% if page.subject %}
@@ -44,10 +44,10 @@
                 {% endif %}
                 {% if page.about_us_text %}
                 <div class="row">
-                    <div class="col-lg-9 col-12" >
+                    <div class="col-md-9 col-12" >
                         <div class="hero_copy">{{ page.about_us_text|richtext }}</div>
                     </div>
-                    <div class="col-lg-3 d-none d-lg-block"></div>
+                    <div class="col-md-3 d-none d-md-block"></div>
                 </div>
                 {% endif %}
             </div>

@@ -58,7 +58,6 @@
 }
 
 .calendar_date {
-    padding-left: 36px;
     color: $indigo_blue;
     .month {
         display: inline;
@@ -71,7 +70,6 @@
 }
 
 .event_list_item_header {
-    padding-left: 36px;
     margin-bottom: 15px;
 }
 
@@ -150,7 +148,7 @@
     color: $white;
     background-color: $mid_blue;
     font-size: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .event_list_item_button {
@@ -169,7 +167,13 @@
 
 //sm and up
 @media (min-width: 576px) {
-    
+    .calendar_date {
+        padding-left: 36px;
+    }
+
+    .event_list_item_header {
+        padding-left: 36px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -182,7 +186,7 @@
     }
 
     .event_list_item {
-        height: 450px;
+        height: 400px;
     }
 
     .list {
@@ -196,6 +200,10 @@
 
 //lg and up
 @media (min-width: 992px) {
+
+    .event_list_item {
+        height: 600px;
+    }
     
     .list {
         padding-bottom: 136px;
@@ -273,17 +281,13 @@
     }
 
     .event_list_item_button {
-        margin-bottom: 30px;
+        margin-bottom: 60px;
     }
 
 }
 
 
 @media (min-width: 1500px){
-    .list {
-        padding-left: 130px !important;
-        padding-right: 130px !important;
-    }
 
     .list_item {
         height: 600px;
@@ -294,8 +298,6 @@
     }
 
     .event_list_item {
-        margin-right: 36px;
-        margin-left: 36px;
         margin-bottom: 72px;
     }
 
@@ -310,6 +312,14 @@
     .event_list_item_graphic {
         height: 330px;
     }
+
+    .event_list_item_first {
+        margin-right: 36px;
+    }
+
+    .event_list_item_second {
+        margin-left: 36px;
+    }
 }
 
 
@@ -320,8 +330,11 @@
         padding-right: 82px;
     }
 
-    .event_list_item {
+    .event_list_item_first {
         margin-right: 48px;
+    }
+
+    .event_list_item_second {
         margin-left: 48px;
     }
 
