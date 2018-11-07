@@ -59,6 +59,7 @@
 
 .calendar_date {
     color: $indigo_blue;
+
     .month {
         display: inline;
         font-size: 24px;
@@ -102,7 +103,7 @@
     padding-top: 15px;
     font-size: 16px;
     height: auto;
-    margin-bottom: 87px;
+    margin-bottom: 120px;
 }
 
 .list_item_content {
@@ -117,7 +118,7 @@
     font-size: 16px;
     height: fit-content;
     padding-bottom: 0px;
-    margin-bottom: 70px;         
+    margin-bottom: 90px;         
 }
 
 .event_button_container {
@@ -148,7 +149,7 @@
     color: $white;
     background-color: $mid_blue;
     font-size: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 42px;
 }
 
 .event_list_item_button {
@@ -162,13 +163,19 @@
 .list_item_button {
     @extend .button;
     border-radius: 8px;
-    min-height: 55px;
+    margin-top: 15px;
+    min-height: 42px;
 }
+
+
 
 //sm and up
 @media (min-width: 576px) {
     .calendar_date {
         padding-left: 36px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .event_list_item_header {
@@ -177,17 +184,6 @@
 }
 
 @media (min-width: 768px) {
-    .list_item_body {
-        font-size: 20px;
-    }
-
-    .event_list_item_body {
-        height: 180px;
-    }
-
-    .event_list_item {
-        height: 400px;
-    }
 
     .list {
 
@@ -195,30 +191,36 @@
             padding-left: 48px;
             padding-right: 48px;
         }
+
+    }
+
+    .event_list_item {
+        height: 340px;
+    }
+
+    .event_list_item_body {
+        margin-bottom: 87px;
     }
 }
 
 //lg and up
 @media (min-width: 992px) {
 
-    .event_list_item {
-        height: 600px;
+    .list_item {
+        height: 440px;
     }
-    
+
     .list {
         padding-bottom: 136px;
     }
    
     .event_list_item {
-        margin-bottom: 72px;
+        height: 380px;
+        margin-bottom: 118px;
     }
 
     .list_item {
-        margin-bottom: 96px;
-    }
-
-    .event_list_item_content {
-        padding-top: 30px;
+        margin-bottom: 118px;
     }
 
     .calendar_date {
@@ -226,49 +228,68 @@
         text-align: center;    
         .month {
             display: default;
-            font-size: 28px;
+            font-size: 24px;
         }
         .day {
             display: default;
-            font-size: 36px;
+            font-size: 28px;
         }
     }
 
     .event_list_item_location {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .list_item_content {
-        padding-top: 30px;
+        padding-top: 42px;
     }
-
-    .list_item_button {
-        width: 70%;
-    }
-
+    
     .list_item_graphic {
-        height: 100%;
+        height: 440px;
     }
 
     .event_list_item_body {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
-//larger than lg
 @media (min-width: 1200px) {
+    .list {
+
+        .list_container {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+    }
+
+    .list_item_body {
+        font-size: 18px;
+    }
+
+    .list_item_graphic {
+        height: 440px;
+    }
+        
+    .event_list_item {
+        height: 580px;
+    }
+
+    .event_list_item_graphic {
+        height: 220px;
+    }
+
+    .event_list_item_content {
+        padding-top: 0px;
+    }
 
     .list {
         padding-left: 60px !important;
         padding-right: 60px !important;
     }
 
-    .list_item_body {
-        font-size: 20px;
-    }
-
     .list_item_title {
-        font-size: 48px;
+        font-size: 32px;
     }
 
     .list_item_content {
@@ -277,73 +298,37 @@
     }
 
     .event_list_item_title {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     .event_list_item_button {
-        margin-bottom: 60px;
+        margin-bottom: 30px;
     }
+
+}
+
+@media (min-width: 1360px){
 
 }
 
 
 @media (min-width: 1500px){
 
-    .list_item {
-        height: 600px;
-    }
-
-    .list_item_graphic {
-        height: 600px;
-    }
-
-    .event_list_item {
-        margin-bottom: 72px;
-    }
-
-    .event_list_item {
-        height: 800px;
-    }
-
-    .event_list_item_body {
-        height: 200px;
-    }
-
-    .event_list_item_graphic {
-        height: 330px;
-    }
-
     .event_list_item_first {
-        margin-right: 36px;
+        margin-right: 24px;
     }
 
     .event_list_item_second {
-        margin-left: 36px;
+        margin-left: 24px;
     }
-}
-
-
-@media (min-width: 1800px){
 
     .event_list_item_content {
-        padding-left: 82px;
-        padding-right: 82px;
-    }
-
-    .event_list_item_first {
-        margin-right: 48px;
-    }
-
-    .event_list_item_second {
-        margin-left: 48px;
-    }
-
-    .event_list_item_body {
-        height: 150px;
+        padding-left: 64px;
+        padding-right: 64px;
     }
 
     .event_list_item_button {
-        margin-left: 82px;
-        margin-right: 82px;
+        margin-left: 64px;
+        margin-right: 64px;
     }
 }

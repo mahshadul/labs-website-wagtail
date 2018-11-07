@@ -1,6 +1,9 @@
 {% extends "list_base.html" %}
 
 {% block list %}
+    <div class="row">
+        <div class="col-12 list_container">
+            <div class="content_container">
     {% for child in ordered_children.specific %}
         {% if forloop.counter0|divisibleby:2 %}
         <div class="row">
@@ -20,4 +23,7 @@
         {% endif %}
         {% endif %}
     {% endfor %}
+</div>
+</div>
+    </div>
 {% endblock %}
