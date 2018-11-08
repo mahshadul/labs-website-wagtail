@@ -8,7 +8,7 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.core import blocks
 from modelcluster.fields import ParentalKey
 from home.blocks import ParagraphBlock, PullQuoteBlock, GalleryBlock, ContentHighlightBlock
-
+from django import forms
 from home.models import BasePageWithHero
 
 class EventList(Page):
@@ -29,7 +29,7 @@ class Event(BasePageWithHero):
     end_date = models.DateField("Event end date", null=True, blank=True)
 
     location = models.CharField(max_length=100)
-    summary = RichTextField(help_text="Summary for list view, not displayed in detail view")
+    summary = models.CharField(max_length=600, help_text="Summary for list view, not displayed in detail view")
     featured_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -55,7 +55,7 @@ class Event(BasePageWithHero):
         FieldPanel('start_date', classname='full'),
         FieldPanel('end_date', classname='full'),
         FieldPanel('location', classname='full'),
-        FieldPanel('summary'),
+        FieldPanel('summary', widget=forms.Textarea),
         ImageChooserPanel('featured_image'),
         StreamFieldPanel('body', classname='full'),
         InlinePanel('event_talks', label="Event Featured Talks"),

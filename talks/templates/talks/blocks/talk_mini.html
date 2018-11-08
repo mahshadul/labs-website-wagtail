@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
             {% endif %}
-                <div>{{ talk.summary|richtext }}</div>
+                <div>{{ talk.summary|truncatechars:600 }}</div>
                 <a href="{{ talk.url }}" ><div class="learn_more_button">Learn More</div></a>
             </div>
         </div>

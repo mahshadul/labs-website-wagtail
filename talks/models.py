@@ -6,7 +6,7 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page
 from home.blocks import ParagraphBlock, PullQuoteBlock, GalleryBlock, ContentHighlightBlock
 from wagtail.images.blocks import ImageChooserBlock
-
+from django import forms
 from home.models import BasePageWithHero
 
 class TalkList(Page):
@@ -22,7 +22,7 @@ class Talk(BasePageWithHero):
     
     author = models.CharField(max_length=200)
     video_id = models.CharField(max_length=50, null=True, blank=True)
-    summary = RichTextField(help_text="Summary for list view, not displayed in detail view")
+    summary = models.CharField(max_length=600, help_text="Summary for list view, not displayed in detail view")
     date = models.DateField(null=True, blank=True)
     location = models.CharField(null=True, blank=True, max_length=100)
     body = StreamField([
@@ -35,7 +35,7 @@ class Talk(BasePageWithHero):
     content_panels = BasePageWithHero.content_panels + [
         FieldPanel('author', classname='full'),
         FieldPanel('video_id', classname='full'),
-        FieldPanel('summary', classname='full'),
+        FieldPanel('summary', classname='full', widget=forms.Textarea),
         FieldPanel('date', classname='full'),
         FieldPanel('location', classname='full'),
         StreamFieldPanel('body', classname='full'),

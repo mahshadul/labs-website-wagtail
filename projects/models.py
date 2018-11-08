@@ -8,6 +8,8 @@ from wagtail.core.blocks import RichTextBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.images.edit_handlers import ImageChooserPanel
 
+from django import forms
+
 from home.models import BasePageWithHero
 from home.blocks import ParagraphBlock, PullQuoteBlock, GalleryBlock, ContentHighlightBlock
 
@@ -22,7 +24,7 @@ class ProjectList(Page):
 
 class ProjectPage(BasePageWithHero):
 
-    summary = RichTextField(blank=True)
+    summary = models.CharField(max_length=600)
 
     featured_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -40,7 +42,7 @@ class ProjectPage(BasePageWithHero):
     ], blank=True)
 
     content_panels = BasePageWithHero.content_panels + [
-        FieldPanel('summary'),
+        FieldPanel('summary', widget=forms.Textarea),
         ImageChooserPanel('featured_image'),
         StreamFieldPanel('body', classname='full'),
     ]

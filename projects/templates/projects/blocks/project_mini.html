@@ -23,7 +23,7 @@
                 <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
 
                 <div class="project-body">
-                    {{ project.summary|richtext }}
+                    {{ project.summary|truncatechars:600 }}
                 </div>
                 
                 <a href="{{project.url}}"><div class="learn_more_button">Learn More</div></a>
