@@ -3,10 +3,12 @@
 {% load wagtailimages_tags %}
 
 {% block content %}
-    <div class="row banner list">
+  <div class="row banner list">
       <div class="col-12 list_container">
-        {% block list %}
-        {% endblock %}
+          <div class="content_container">
+          {% block list %}
+          {% endblock %}
       </div>
     </div>
+  </div>
 {% endblock %}

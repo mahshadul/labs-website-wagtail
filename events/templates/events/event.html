@@ -18,20 +18,20 @@
         <div class="row_space_below"></div>
     {% endif %}
 
-    {% if page.event_talks %}
-        {% for related_talk in page.event_talks.all %}
-            {% if forloop.counter0|divisibleby:3 %}
-                <div class="row talk_micro_banner">
-            {% endif %}
-            {% include "talks/blocks/talk_micro.html" with talk=related_talk.talk %}
-            {% if forloop.counter0|add:1|divisibleby:3 %}
+    {% if page.event_presentations.all|length > 1 %}
+        <div class="row presentation_banner">
+            <div class="col-12">
+                <div class="content_container">
+                    <div class="row">
+                        {% for presentation in page.event_presentations.all %}
+                            {% include "events/blocks/presentation.html" with presentation=presentation %}
+                        {% endfor %}
+                    </div>
                 </div>
-            {% else %}
-                    {% if forloop.last %}
-                </div>
-                    {% endif %}
-            {% endif %}
-        {% endfor %}
+                <div class="row_space_below"></div>
+                <div class="row_space_below"></div>
+            </div>
+        </div>
     {% endif %}
 
 {% endblock %}

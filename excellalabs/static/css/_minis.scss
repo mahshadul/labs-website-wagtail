@@ -42,10 +42,16 @@
         margin-bottom: 20px;
     }
 
+    .mini_graphic_container {
+        display: flex;
+        align-items: center;
+    }
+
     .mini_graphic {
-        max-width: 100%;
         width: 100%;
+        max-height: 540px;
         height: auto;
+        object-fit: cover;
     }
 
     .mini_icon {
@@ -129,6 +135,8 @@
         a {
             color: $mid_blue;
         }
+
+        margin-bottom: 12px !important;
     }
 
     .event_mini_date {
@@ -156,8 +164,8 @@
 //md and up
 @media (min-width: 768px) {
     .banner {
-        padding-top: 80px;
-        padding-bottom: 50px;
+        padding-top: 118px;
+        padding-bottom: 118px;
         min-height: 680px;
         padding-right: 60px;
         padding-left: 60px;

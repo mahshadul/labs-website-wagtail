@@ -58,15 +58,13 @@ class Event(BasePageWithHero):
         FieldPanel('summary'),
         ImageChooserPanel('featured_image'),
         StreamFieldPanel('body', classname='full'),
-        InlinePanel('event_talks', label="Event Featured Talks"),
+        InlinePanel('event_presentations', label="Event Presentations"),
     ]
 
     parent_page_types = ['events.EventList']
 
-class EventFeaturedTalk(Orderable, models.Model):
-    talk = models.ForeignKey('talks.Talk', related_name='+', on_delete=models.CASCADE)
-    event = ParentalKey('events.Event', related_name='event_talks')
-
-    panels = [
-        FieldPanel('talk')
-    ]
+class Presentations(Orderable):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=200)
+    summary = RichTextField(blank=True, null=True)
+    event = ParentalKey('events.Event', related_name='event_presentations')

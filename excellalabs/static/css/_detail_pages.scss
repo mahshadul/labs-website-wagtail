@@ -155,6 +155,12 @@
     }
 }
 
+.detail_page_image_container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
 @media (min-width: 992px){
 
     .detail_page_body {
