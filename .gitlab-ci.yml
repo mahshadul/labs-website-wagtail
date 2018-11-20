@@ -14,7 +14,7 @@ stages:
 
 before_script:
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
-  
+
 build:
   stage: build
   script:
@@ -25,9 +25,11 @@ build:
 test:
   stage: test
   script:
+    - docker pull registry.gitlab.com/excellalabs/labs-website-wagtail
     - docker exec registry.gitlab.com/excellalabs/labs-website-wagtail python manage.py test
 
 deploy:
   stage: deploy
   script:
+    - docker push registry.gitlab.com/excellalabs/labs-website-wagtail
     - echo "deploy stage"
