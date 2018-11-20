@@ -2,3 +2,8 @@ stages:
   - build
   - test
   - deploy
+
+build_docker:
+  stage: build
+  script:
+    - docker build .
