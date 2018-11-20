@@ -18,16 +18,16 @@ before_script:
 build:
   stage: build
   script:
-    - docker build -t registry.gitlab.com/excellalabs/labs-website-wagtail .
+    - docker build -t registry.gitlab.com/excellalabs/labs-website-wagtail:latest .
     - docker login registry.gitlab.com
-    - docker push registry.gitlab.com/excellalabs/labs-website-wagtail
+    - docker push registry.gitlab.com/excellalabs/labs-website-wagtail:latest
 
 test:
   stage: test
   script:
-    - docker pull registry.gitlab.com/excellalabs/labs-website-wagtail
+    - docker pull registry.gitlab.com/excellalabs/labs-website-wagtail:latest
     - docker images
-    - docker exec registry.gitlab.com/excellalabs/labs-website-wagtail:latest python manage.py test
+    - docker run registry.gitlab.com/excellalabs/labs-website-wagtail:latest python manage.py test
 
 deploy:
   stage: deploy
