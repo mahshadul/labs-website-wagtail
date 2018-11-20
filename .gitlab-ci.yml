@@ -3,9 +3,17 @@ stages:
   - test
   - deploy
 
-test:
+build:
   script:
     - apt-get update -qy
-    - apt-get install -y python3-dev python3-pip
-    - pip3 install -r requirements.txt
-    - python3 manage.py test
+    - apt-get install -y docker
+    - docker build -t registry.gitlab.com/excellalabs/labs-website-wagtail .
+
+test:
+  script:
+    - docker exec registry.gitlab.com/excellalabs/labs-website-wagtail python manage.py test
+
+deploy:
+  script:
+    - docker login registry.gitlab.com
+    - docker push registry.gitlab.com/excellalabs/labs-website-wagtail
