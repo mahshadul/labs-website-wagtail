@@ -4,16 +4,19 @@ stages:
   - deploy
 
 build:
+  stage: build
   script:
     - apt-get update -qy
     - apt-get install -y docker
     - docker build -t registry.gitlab.com/excellalabs/labs-website-wagtail .
 
 test:
+  stage: test
   script:
     - docker exec registry.gitlab.com/excellalabs/labs-website-wagtail python manage.py test
 
 deploy:
+  stage: deploy
   script:
     - docker login registry.gitlab.com
     - docker push registry.gitlab.com/excellalabs/labs-website-wagtail
