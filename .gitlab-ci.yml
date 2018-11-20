@@ -26,7 +26,8 @@ test:
   stage: test
   script:
     - docker pull registry.gitlab.com/excellalabs/labs-website-wagtail
-    - docker exec registry.gitlab.com/excellalabs/labs-website-wagtail python manage.py test
+    - docker images
+    - docker exec registry.gitlab.com/excellalabs/labs-website-wagtail:latest python manage.py test
 
 deploy:
   stage: deploy
