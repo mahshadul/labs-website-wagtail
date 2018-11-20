@@ -7,7 +7,6 @@ build:
   stage: build
   script:
     - apt-get update -qy
-    - apt-get install -y docker-ce
     - docker build -t registry.gitlab.com/excellalabs/labs-website-wagtail .
 
 test:
