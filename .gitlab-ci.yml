@@ -15,7 +15,6 @@ services:
 build:
   stage: build
   script:
-    - apt-get update -qy
     - docker build -t registry.gitlab.com/excellalabs/labs-website-wagtail .
 
 test:
